@@ -1,0 +1,12 @@
+# Site settings
+title: MLR Press
+email: 
+description: > # this means to ignore newlines until "baseurl:"
+  Machine Learning Research Press
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+twitter_username: 
+github_username:  mlresearch
+
+# Build settings
+markdown: kramdown
