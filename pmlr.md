@@ -40,7 +40,7 @@ For frequently asked questions on preparing proceedings please see the
 News
 ----
 {% for volume in site.data.proceedings %}
-{% !if volume.date.empty %}
+{% if !volume.date.empty %}
 -   As of {{ volume.date }} [Volume {{ volume.number }}]({{ volume.repo }}) **{{ volume.title }}** is available
 {% endif %}
 {% endfor %}
