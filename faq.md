@@ -4,7 +4,7 @@ title: PMLR FAQ
 tagline: Frequently asked questions for PMLR
 ---
 
-The PMLR are very much a community
+PMLR is very much a community
 effort. Thanks are particularly due to [Isabelle
 Guyon](http://www.clopinet.com/isabelle) for working closely with us in
 preparing early volumes, [Nicola
