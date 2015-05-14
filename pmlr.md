@@ -39,14 +39,14 @@ For frequently asked questions on preparing proceedings please see the
 
 News
 ----
-{% for volume in data.proceedings %}
+{% for volume in site.data.proceedings %}
 -   As of {{ volume.date }} [Volume {{ volume.number }}]({{ volume.repo }}) **{{ volume.name }}** is available
 {% endfor %}
 
 Scheduled Volumes
 -----------------
 
-{% for volume in data.proceedings %}
+{% for volume in site.data.proceedings %}
 -   Volume {{ volume.number }} assigned to **{{ volume.name }}** 
 {% endfor %}
 
