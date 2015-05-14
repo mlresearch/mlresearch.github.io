@@ -5,46 +5,10 @@ tagline: Specification of how to provide the proceedings
 ---
 
 
-\
- [![](/jmlr.jpg)](http://www.jmlr.org)
-
-\
-\
-
-[Home Page](http://www.jmlr.org/)
-
-[Papers](/papers)
-
-[Submissions](/author-info.html)
-
-[News](/news.html)
-
-[Editorial Board](/editorial-board.html)
-
-[Announcements](/announcements.html)
-
-[Proceedings](/proceedings)
-
-[Open Source Software](/mloss)
-
-[Search](/search-jmlr.html)
-
-[Statistics](/stats.html)
-
-[Login](/manudb)
-
-\
-\
-
-[![RSS Feed](/RSS.gif)](/jmlr.xml)
-
-JMLR W&CP Proceedings Specification
-===================================
-
 *Version 1.0 – May 22nd, 2013*
 
-To publish a proceedings with JMLR W&CP, the organisers will need to
-provide the JMLR W&CP Production Editor (Mark Reid) with:
+To publish a proceedings with PMLR, the organisers will need to
+provide the PMLR Production Editor (Mark Reid) with:
 
 1.  A BibTeX file (described below) with the details of each paper in
     the proceedings.
@@ -79,7 +43,7 @@ There are two types of entry that must appear in the BibTeX file:
     -   `year` : the year of the conference (e.g., 2013)
     -   `editor`: the editors’ names (in “Lastname, Firstnames” format,
         separated by “and”)
-    -   `volume`: the JMLR W&CP number assigned to your conference
+    -   `volume`: the PMLR number assigned to your conference
     -   Other fields may be present in the `@Proceedings` entry but
         these will be ignored at present.
 -   There **must** be at one `@InProceedings` entry for each paper. Each
@@ -171,11 +135,4 @@ The contents of the BibTeX file `ice13.bib` is:
     For larger conferences, we recommend sharing a Dropbox directory or
     otherwise putting the files up on a server we can have access
     to.[↩](#fnref1)
-
-This document last modified Thursday, 02-Apr-2015 03:57:53 EDT
-
-  ------------------------------------------------------------------------------------------ --------------------------------------------------------------------
-  *[webmaster![](/images/atr.gif)jmlr.org](javascript:GoAddress('webmaster','jmlr.org');)*   Copyright © [JMLR](http://www.jmlr.org) 2000. All rights reserved.
-  ------------------------------------------------------------------------------------------ --------------------------------------------------------------------
-
 
