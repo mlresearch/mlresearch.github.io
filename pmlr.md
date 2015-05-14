@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Proceedings of Machine Learning Research
+title: PMLR
 tagline: 
 ---
 
