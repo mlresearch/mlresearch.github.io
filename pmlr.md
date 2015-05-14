@@ -1,52 +1,17 @@
 ---
 layout: page
-title: Machine Learning Research
+title: Proceedings of Machine Learning Research
 tagline: 
 ---
-
-
-\
- [![](/jmlr.jpg)](http://www.jmlr.org)
-
-\
-\
-
-[Home Page](http://www.jmlr.org/)
-
-[Papers](/papers)
-
-[Submissions](/author-info.html)
-
-[News](/news.html)
-
-[Editorial Board](/editorial-board.html)
-
-[Announcements](/announcements.html)
-
-[Proceedings](/proceedings)
-
-[Open Source Software](/mloss)
-
-[Search](/search-jmlr.html)
-
-[Login](/manudb)
-
-\
-\
-
-[![RSS Feed](/RSS.gif)](/jmlr.xml)
-
-JMLR: Workshop and Conference Proceedings
-=========================================
 
 ISSN: 1938-7228
 ---------------
 
-The JMLR: Workshop and Conference Proceedings series is a new series
+The Proceedings of Machine Learning Research is a series
 aimed specifically at publishing work presented at workshops and
 conferences. Each volume is separately titled and associated with a
 particular workshop or conference and will be pulished online on the
-JMLR web site. Authors will retain copyright and individual volume
+PMLR web site. Authors will retain copyright and individual volume
 editors are free to make additional hardcopy publishing arrangements
 (see for example the [Challenges in Machine
 Learning](http://www.mtome.com/Publications/CiML/ciml.html) series which
@@ -171,11 +136,3 @@ Scheduled Volumes
 -   Volume 43 to be announced
 
 * * * * *
-
-This document last modified Thursday, 02-Apr-2015 03:57:53 EDT
-
-  ------------------------------------------------------------------------------------------ --------------------------------------------------------------------
-  *[webmaster![](/images/atr.gif)jmlr.org](javascript:GoAddress('webmaster','jmlr.org');)*   Copyright © [JMLR](http://www.jmlr.org) 2000. All rights reserved.
-  ------------------------------------------------------------------------------------------ --------------------------------------------------------------------
-
-
