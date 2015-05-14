@@ -2,9 +2,9 @@
 title: mlr.press
 email: 
 description: > # this means to ignore newlines until "baseurl:"
-  Machine Learning Research Press
+mlr.press is the new home for the proceedings of machine learning reserach (pmlr)
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://mlr.press" # the base hostname & protocol for your site
 twitter_username: 
 github_username:  mlresearch
 
