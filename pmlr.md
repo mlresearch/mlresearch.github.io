@@ -40,14 +40,18 @@ For frequently asked questions on preparing proceedings please see the
 News
 ----
 {% for volume in site.data.proceedings %}
--   As of {{ volume.date }} [Volume {{ volume.number }}]({{ volume.repo }}) **{{ volume.name }}** is available
+{% if volume.date %}
+-   As of {{ volume.date }} [Volume {{ volume.number }}]({{ volume.repo }}) **{{ volume.title }}** is available
+{% endif %}
 {% endfor %}
 
 Scheduled Volumes
 -----------------
 
 {% for volume in site.data.proceedings %}
--   Volume {{ volume.number }} assigned to **{{ volume.name }}** 
+{% if !volume.date %}
+-   Volume {{ volume.number }} assigned to **{{ volume.title }}** 
+{% endif %}
 {% endfor %}
 
 * * * * *
