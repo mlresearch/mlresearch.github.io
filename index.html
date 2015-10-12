@@ -11,15 +11,19 @@ layout: default
   <h1 class="page-heading">Posts</h1>
 
   <ul class="post-list">
-    {% for post in site.posts %}
+{% for repository in site.github.public_repositories %}
+{% if repository.has_pages %}
+{% unless repository.name contains 'github.io' %}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
         <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          <a class="post-link" href="{{ repository.name | prepend: site.baseurl }}"><b>{{ repository.name }}</b></a> {{ repository.description }} 
         </h2>
       </li>
-    {% endfor %}
+{% endunless %}
+{% endif %}
+{% endfor %}    
   </ul>
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
