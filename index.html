@@ -14,13 +14,11 @@ layout: default
 {% for repository in site.github.public_repositories %}
 {% if repository.has_pages %}
 {% unless repository.name contains 'github.io' %}
+{% if repository.name.first == "v" %}
       <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ repository.name | prepend: site.baseurl }}"><b>{{ repository.name }}</b></a> {{ repository.description }} 
-        </h2>
+        <a class="post-link" href="{{ repository.name | prepend: site.baseurl }}"><b>Volume {{ repository.name | remove_first: "v" }}</b></a> {{ repository.description }} 
       </li>
+      {% endif %}
 {% endunless %}
 {% endif %}
 {% endfor %}    
