@@ -14,8 +14,7 @@ layout: default
 {% for repository in site.github.public_repositories %}
 {% if repository.has_pages %}
 {% unless repository.name contains 'github.io' %}
-{% assign first_letter = repository.name | first %}
-{% if first_letter == "v" %}
+{% if repository.name contains 'v' %}
       <li>
         <a class="post-link" href="{{ repository.name | prepend: site.baseurl }}"><b>Volume {{ repository.name | remove_first: "v" }}</b></a> {{ repository.description }} 
       </li>
