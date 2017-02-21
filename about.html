@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<p>Welcome to the proceedings.mlr.press home page! 
+
+<p>This page hosts the <a href="./pmlr.html">Proceedings of Machine Learning Research</a>.
+
+<div class="home">
+
+  <h1 class="page-heading">Proceedings</h1>
+
+  <ul class="post-list">
+{% for repository in site.github.public_repositories %}
+{% if repository.has_pages %}
+{% unless repository.name contains 'github.io' %}
+{% if repository.name contains 'v' %}
+      <li>
+        <a class="post-link" href="{{ repository.name | prepend: site.baseurl }}"><b>Volume {{ repository.name | remove_first: "v" }}</b></a> {{ repository.description }} 
+      </li>
+      {% endif %}
+{% endunless %}
+{% endif %}
+{% endfor %}    
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
