@@ -20,7 +20,10 @@ Now run the ```create_volume.sh``` script
 ```bash
 create_volume.sh XX conf101
 ```
+
 This should ```rsync``` the files from the proceedings to a new directory ```vXX``` which it creates. It then creates the relevant ```gh-pages``` branch on github and moves the proceedings into place. Run this script from a sub-directory where you want the repo to be hosted on your machine (for example in my case I run it in ```/home/username/mlresearch/```).
+
+Once this is done, as a courtesy, set the default branch in the repo to be ```gh-pages``` that way the proceedings shows up when you go to the relevant github repo (as opposed to the master branch which is nearly empty). Unfortunately it seems this has to be done by the web interface (Go to repo, click settings, click branch, select gh-pages as default).
 
 And there you have it, the proceedings should now be online. 
 
