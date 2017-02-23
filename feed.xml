@@ -11,7 +11,8 @@ layout: null
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <generator>Jekyll v{{ jekyll.version }}</generator>
-{% for repository in site.github.public_repositories %}
+    {% assign sorted = (site.github.public_repositories | sort: 'created_at') %}
+{% for repository in sorted %}
 {% if repository.has_pages %}
 {% unless repository.name contains 'github.io' %}
 {% if repository.name contains 'v' %}
