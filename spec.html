@@ -6,7 +6,7 @@ title: "PMLR Proceedings Specification"
 <div id="content">
   <div id="wrapper">
       <h1 id="jmlr-wcp-proceedings-specification">PMLR Proceedings Specification</h1>
-<p><em>Version 1.0 – May 22nd, 2013</em></p>
+<p><em>Version 1.1 – Feb 23rd, 2017</em></p>
 <p>To publish a proceedings with PMLR, the organisers will need to provide the PMLR Production Editor (Mark Reid) with:</p>
 <ol style="list-style-type: decimal">
 <li>A BibTeX file (described below) with the details of each paper in the proceedings.</li>
@@ -25,11 +25,14 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <ul>
 <li>There <strong>must</strong> be a single <code>@Proceedings</code> entry with the conference details. It <strong>must</strong> include the following fields:
 <ul>
-<li><code>booktitle</code>: the long name of the conference</li>
+<li><code>booktitle</code>: the citation to the volume (e.g. Proceedings of the Twenty First International Conference on Machine Learning)</li>
+<li><code>name</code>: the long name of the conference (e.g. International Conference on Machine Learning)</li>
 <li><code>shortname</code> the abbreviation for the conference (without the year, e.g., ICML)</li>
 <li><code>year</code> : the year of the conference (e.g., 2013)</li>
 <li><code>editor</code>: the editors’ names (in “Lastname, Firstnames” format, separated by “and”)</li>
-<li><code>volume</code>: the PMLR number assigned to your conference</li>
+<li><code>volume</code>: the PMLR number assigned to your conference/workshop</li>
+<li><code>start</code>: the first day of the conference/workshop in YYYY-MM-DD format.</li>
+<li><code>end</code>: the last day of the conference/workshop in YYYY-MM-DD format.</li>
 <li>Other fields may be present in the <code>@Proceedings</code> entry but these will be ignored at present.</li>
 </ul></li>
 <li>There <strong>must</strong> be at one <code>@InProceedings</code> entry for each paper. Each entry <strong>must</strong> have the following fields:
