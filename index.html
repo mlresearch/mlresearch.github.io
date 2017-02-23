@@ -29,7 +29,8 @@ title: "Proceedings of Machine Learning Research"
   <h2>News</h2>
 
   <ul class="post-list">
-{% for repository in site.github.public_repositories %}
+    {% assign sorted = (site.github.public_repositories | sort: 'created_at') %}
+{% for repository in sorted %}
 {% if repository.has_pages %}
 {% unless repository.name contains 'github.io' %}
 {% if repository.name contains 'v' %}
