@@ -16,7 +16,7 @@ git remote -v
 git push -u origin master
 git checkout -b gh-pages
 git push origin gh-pages
-rsync -avz /Users/neil/jmlr/proceedings/papers/v$1/* /Users/neil/mlresearch/v$1
+rsync -avz $2 .
 git add .
-git commit -m "Add original version of JMLR page."
+git commit -m "Add first version of PMLR proceedings."
 git push --set-upstream origin gh-pages

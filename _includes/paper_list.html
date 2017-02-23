@@ -1,0 +1,15 @@
+<div class="paper">
+  <p class="title">{{ post.title }}</p>
+  <p class="details">
+    <span class="authors">
+      {% assign lastone = post.authors | last %}
+      {% for person in post.authors %}
+      {% include listperson.html %}
+      {% endfor %}
+    </span>
+  </p>
+  <p class="links">
+    [<a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">abs</a>]
+    [<a href="{{ post.pdf }}">pdf</a>]
+  </p>
+</div>
