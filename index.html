@@ -30,7 +30,8 @@ title: "Proceedings of Machine Learning Research"
 
   <ul class="post-list">
     {% assign sorted = (site.github.public_repositories | sort: 'created_at') %}
-{% for repository in sorted reversed %}
+    <!--{% for repository in sorted reversed %}-->
+    {% for repository in sorted %}
 {% if repository.has_pages %}
 {% unless repository.name contains 'github.io' %}
 {% if repository.name contains 'v' %}
