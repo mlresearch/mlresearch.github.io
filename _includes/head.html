@@ -1,8 +1,15 @@
-<link rel="alternate" type="application/rss+xml" href="http://www.jmlr.org/jmlr.xml" title="JMLR RSS">
-<link rel="stylesheet" type="text/css" href="../css/main.css" />
-
-{% include google_tracking_code.html %}
-
-{% include mathjax_code.html %}
-
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <link rel="alternate" type="application/rss+xml" href="http://www.jmlr.org/jmlr.xml" title="JMLR RSS">
+  <link rel="stylesheet" type="text/css" href="../css/main.css" />
+  
+  {% include google_tracking_code.html %}
+  
+  {% include mathjax_code.html %}
+</head>
 
