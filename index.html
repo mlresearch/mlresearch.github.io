@@ -22,7 +22,7 @@ title: "Proceedings of Machine Learning Research"
 
 <h2>Proceedings</h2>
 
-<ul>
+<ul class="proceedings-list">
   {% assign sorted = (site.github.public_repositories | sort: 'created_at') %}
   {% for repository in sorted %}
   {% if repository.has_pages %}
@@ -38,7 +38,7 @@ title: "Proceedings of Machine Learning Research"
 </ul>
 
 <h2>Scheduled Volumes</h2>
-<ul>
+<ul class="proceedings-list">
   <li>Volume 54 is assigned to AISTATS 2017</li>
   <li>Volume 58 is assigned to the NIPS 2016 Workshop on Imperfect Decision Makers</li>
   <li>Volume 59 is assigned to the NIPS 2016 Workshop on Reliable Machine Learning in the Wild</li>
