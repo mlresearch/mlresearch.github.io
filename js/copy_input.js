@@ -11,6 +11,5 @@ if (document.selection) {
      range.selectNode(document.getElementById(containerid));
      window.getSelection().addRange(range);
      document.execCommand("Copy");
-     alert("text copied") 
 }
 }
