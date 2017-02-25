@@ -30,17 +30,16 @@ title: "Proceedings of Machine Learning Research"
 
   <ul class="post-list">
     {% assign sorted = (site.github.public_repositories | sort: 'created_at') %}
-    <!--{% for repository in sorted reversed %}-->
     {% for repository in sorted %}
-{% if repository.has_pages %}
-{% unless repository.name contains 'github.io' %}
-{% if repository.name contains 'v' %}
+    {% if repository.has_pages %}
+    {% unless repository.name contains 'github.io' %}
+    {% if repository.name contains 'v' %}
     <li>
       <a class="post-link" href="{{ repository.name | prepend: site.baseurl }}"><b>Volume {{ repository.name | remove_first: "v" }}</b></a> {{ repository.description }} 
     </li>
     {% endif %}
-{% endunless %}
-{% endif %}
+    {% endunless %}
+    {% endif %}
 {% endfor %}    
   </ul>
 
