@@ -25,16 +25,39 @@ $content-width:    800px;
 $on-palm:          600px;
 $on-laptop:        800px;
 
-
-.authors, #authors { font-weight: bold; font-style: italic; display: inline; }
-.info, #info { display: inline; }
-.details, .links { margin-left: 2em; }
-#note { font-weight: bold; color: #444477; }
-#footer { border-top: 1px solid gray; padding-top: 1em; margin-top: 1em; font-size: smaller; }
-{font-family: Verdana, Helvetica, Arial, sans-serif}
-a {text-decoration:none;color:#3030a0}
-#content {
-	margin-top: 1em;
+.authors,
+#authors {
+    font-weight: bold;
+    font-style: italic;
+    display: inline;
+}
+.info,
+#info {
+    display: inline;
+}
+.details,
+.links {
+    margin-left: 2em;
+}
+#note {
+    font-weight: bold;
+    color: #444477;
+}
+#footer {
+    border-top: 1px solid gray;
+    padding-top: 1em;
+    margin-top: 1em;
+    font-size: smaller;
+}
+{
+    font-family: Verdana, Helvetica, Arial, sans-serif
+}
+a {
+    text-decoration: none;
+    color: #3030a0
+}
+##content {
+    margin-top: 1em;
     margin-left: 10em;
     margin-right: 0.5em;
 }
@@ -45,9 +68,9 @@ a {text-decoration:none;color:#3030a0}
     width: 8em;
     height: 100%;
 }
-#sectionnav { 
-	border-top: 1px solid gray;
-	border-bottom: 1px solid gray;
+#sectionnav {
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
 }
 body > #fixed {
     position: fixed;
@@ -58,7 +81,6 @@ img.jmlr {
 img.rss {
     width: 2em;
 }
-
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "base",
