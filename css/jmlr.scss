@@ -81,6 +81,12 @@ img.jmlr {
 img.rss {
     width: 2em;
 }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "base",

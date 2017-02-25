@@ -8,5 +8,6 @@ url: "http://proceedings.mlr.press" # the base hostname & protocol for your site
 twitter_username: 
 github_username:  mlresearch
 
+repository: mlresearch/mlresearch.github.io
 # Build settings
 markdown: kramdown
