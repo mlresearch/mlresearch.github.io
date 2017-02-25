@@ -5,11 +5,11 @@
 
 // Our variables
 $base-font-family: Helvetica, Arial, sans-serif;
-$base-font-size:   12px;
+$base-font-size:   14px;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
-$spacing-unit:     30px;
+$spacing-unit:     2px;
 
 $text-color:       #111;
 $background-color: #fdfdfd;
@@ -23,7 +23,7 @@ $grey-color-dark:  darken($grey-color, 25%);
 $content-width:    1024px;
 
 $on-palm:          600px;
-$on-laptop:        1024px;
+$on-laptop:        800px;
 
 .menuItem{
 text-decoration:none;
