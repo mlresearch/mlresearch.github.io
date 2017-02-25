@@ -1,6 +1,6 @@
 <body>
   <div id="content">
-    <center>This site last compiled {{ site.time }}</center>
+    <center>This site last compiled {{ site.time | date_to_rfc822 }}</center>
 
     <table width="100%">
       <tr>

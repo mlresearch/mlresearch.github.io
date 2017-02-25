@@ -5,11 +5,13 @@
   
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <link rel="alternate" type="application/rss+xml" href="http://www.jmlr.org/jmlr.xml" title="JMLR RSS">
   <link rel="stylesheet" type="text/css" href="../css/main.css" />
   
   {% include google_tracking_code.html %}
   
   {% include mathjax_code.html %}
+
+  {% include hidden_copy_code.html %}
+
 </head>
 

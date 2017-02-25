@@ -5,8 +5,8 @@
     {% assign lastone = post.author | last %}
     {% for person in post.author %}
     {% include listperson.html %}
-    {% endfor %};
-  </span>
+    {% endfor %}
+  </span>;
   <span class="info">PMLR {{ site.volume}}:{% if post.firstpage %}{{ post.firstpage }}{% endif %}{% if post.lastpage %}-{{ post.lastpage }}{% endif %}</span>
   </p>
     <p class="links">

@@ -1,0 +1,12 @@
+{% assign o = '{' %}
+{% assign c = '}' %}
+{% capture id %}{{ page.id | remove_first: '/' }}{% endcapture %}
+<table>
+  <tr>
+    <td><div class="codebox">
+	<pre><code id="bibtex">{% include bibtex_entry %}</code></pre></div></td>
+    <td><button id="button1" onclick="CopyToClipboard('bibtex')">Copy BibTeX</button></td>
+  </tr>
+</table>
+    
+

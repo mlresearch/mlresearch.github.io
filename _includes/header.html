@@ -1,6 +1,12 @@
 <header class="site-header">
+
   <div class="wrapper">
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    <table>
+      <tr>
+	<td><a align="left" class="site-logo" href="http://www.jmlr.org" target=_top><img align="right" class="jmlr" src="/img/jmlr.jpg" border="0"></a> </td>
+	<td><p class="site-title">{{ site.title }}</p></td>
+      </tr>
+    </table>
     <nav class="site-nav">
       <a href="#" class="menu-icon">
         <svg viewBox="0 0 18 15">
@@ -9,19 +15,16 @@
           <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
         </svg>
       </a>
-      <div id="fixed" class="trigger">
-	<a align="left" class="site-logo" href="http://www.jmlr.org" target=_top><img align="right" class="jmlr" src="/img/jmlr.jpg" border="0"></a> 
-	<br>
-	<p><br><br>
-	<p align="right"> <a class="page-link" href="/">PMLR</a>
-	<p align="right"> <a class="page-link" href="http://www.jmlr.org/">JMLR</a> 
-	<p align="right"> <a class="page-link" href="http://www.jmlr.org/mloss">MLOSS</a>
-	<p align="right"> <a class="page-link" href="/faq.html">FAQ</a>
-	<p align="right"> <a class="page-link" href="/spec.html">Submission Format</a>
-	<p><br><br>
-	<p align="right"> <a class="page-link" href="http://proceedings.mlr.press/feed.xml"> 
-	    <img src="/img/RSS.gif" class="rss" alt="RSS Feed">
-	  </a>
+      <div class="trigger">
+	<a class="page-link" href="/">PMLR</a>
+	<a class="page-link" href="http://www.jmlr.org/">JMLR</a> 
+	<a class="page-link" href="http://www.jmlr.org/mloss">MLOSS</a>
+	<a class="page-link" href="/faq.html">FAQ</a>
+	<a class="page-link" href="/spec.html">Submission Format</a>
+	<a class="page-link" href="{{site.url}}/{{ site.baseurl }}/feed.xml">
+	<img src="/img/RSS.gif" class="rss" alt="RSS Feed">
+	</a>
       </div>
     </nav>
+  </div>
 </header>
