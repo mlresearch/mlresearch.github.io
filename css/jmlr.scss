@@ -3,7 +3,27 @@
 ---
 @charset "utf-8";
 
-$base-font-family: Helvetica, Arial, sans-serif;
+// Our variables
+$base-font-family: Verdana, Helvetica, Arial, sans-serif;
+$base-font-size:   16px;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+$spacing-unit:     30px;
+
+$text-color:       #111;
+$background-color: #fdfdfd;
+$brand-color:      #2a7ae2;
+
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+// Width of the content area
+$content-width:    800px;
+
+$on-palm:          600px;
+$on-laptop:        800px;
 
 
 .authors, #authors { font-weight: bold; font-style: italic; display: inline; }
@@ -11,7 +31,7 @@ $base-font-family: Helvetica, Arial, sans-serif;
 .details, .links { margin-left: 2em; }
 #note { font-weight: bold; color: #444477; }
 #footer { border-top: 1px solid gray; padding-top: 1em; margin-top: 1em; font-size: smaller; }
-{font-family:verdana,helvetica,sans-serif}
+{font-family: $base-font-family}
 a {text-decoration:none;color:#3030a0}
 #content {
 	margin-top: 1em;
