@@ -20,16 +20,10 @@
     }
 }
 .site-logo {
-    font-size: 26px;
-    line-height: 56px;
     margin-bottom: 0;
     target: _top;
     float: left;
-
-    &,
-    &:visited {
-        color: $grey-color-dark;
-    }
+    width: 7em;
 }
 
 .site-nav {
