@@ -20,7 +20,7 @@ $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
 // Width of the content area
-$content-width:    1024px;
+$content-width:    800px;
 
 $on-palm:          600px;
 $on-laptop:        800px;
@@ -63,11 +63,11 @@ font-size:75%;
     width:20em;
     height:1.5ex;
     overflow:hidden;
-    padding:5px;
+    padding:1px;
 }
 .codebox code {
     /* Styles in here affect the text of the codebox */
-    font-size:0.9em;
+    font-size:0.7em;
     /* You could also put all sorts of styling here, like different font, color, underline, etc. for the code. */
 }
 
