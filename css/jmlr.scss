@@ -58,3 +58,10 @@ img.jmlr {
 img.rss {
     width: 2em;
 }
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "base",
+        "layout",
+        "syntax-highlighting"
+;
