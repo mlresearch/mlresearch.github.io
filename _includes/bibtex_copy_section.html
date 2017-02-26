@@ -1,3 +1,4 @@
+{% if site.bibtex_copy %}
 {% assign o = '{' %}
 {% assign c = '}' %}
 {% capture id %}{{ page.id | remove_first: '/' }}{% endcapture %}
@@ -8,5 +9,5 @@
     <td><button id="button1" onclick="CopyToClipboard('bibtex')">Copy BibTeX</button></td>
   </tr>
 </table>
-    
+{% endif %}
 
