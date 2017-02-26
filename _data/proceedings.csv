@@ -1,8 +1,8 @@
 date,number,title,repo
-11th March 2007,1,Gaussian Processes in Practice,papers/v1
-27th October 2007,2,AISTATS 2007,papers/v2
-11th September 2008,4,New Challenges for Feature Selection in Data Mining and Knowledge Discovery,papers/v4
-31st December 2008,3,Causation and Prediction Challenge (WCCI 2008),papers/v3
+11th March 2007,1,Gaussian Processes in Practice
+27th October 2007,2,AISTATS 2007
+11th September 2008,4,New Challenges for Feature Selection in Data Mining and Knowledge Discovery
+31st December 2008,3,Causation and Prediction Challenge (WCCI 2008)
 15th April 2009,5,AISTATS 2009
 4th December 2009,7,Proceedings of KDD-Cup 2009 competition
 18th February 2010,6,Causality: Objectives and Assessment (NIPS 2008 Workshop)
