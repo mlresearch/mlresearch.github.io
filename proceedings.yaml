@@ -3,7 +3,6 @@ layout: null
 ---
 {% assign sorted = (site.github.public_repositories | sort: 'created_at') %}{% for repository in sorted reversed %}{% if repository.has_pages %}{% unless repository.name contains 'github.io' %}{% if repository.name contains 'v' %}
 - volume: {{ repository.name | remove_first: "v" }}
-  url:  "{{ repository.name | prepend: site.baseurl }}"
-  yaml:  "{{ repository.name | prepend: site.baseurl }}/citeproc.yaml"
-  description: "{{ repository.description }}"
-{% endif %}{% endunless %}{% endif %}{% endfor %}    
+  url:  "{{ repository.name | prepend: site.baseurl | prepend: site.url }}"
+  yaml:  "{{ repository.name | prepend: site.baseurl | prepend: site.url }}/citeproc.yaml"
+  description: "{{ repository.description }}"{% endif %}{% endunless %}{% endif %}{% endfor %}    
