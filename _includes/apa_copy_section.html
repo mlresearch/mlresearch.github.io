@@ -1,0 +1,10 @@
+{% if site.apa_copy %}
+{% capture id %}{{ page.id | remove_first: '/' }}{% endcapture %}
+<table>
+  <tr>
+    <td><div class="codebox" id="apa" style="padding:1.5ex">{% include apa_entry %}</div></td>
+    <td><button id="button1" onclick="CopyToClipboard('apa')">Copy APA</button></td>
+  </tr>
+</table>
+{% endif %}    
+

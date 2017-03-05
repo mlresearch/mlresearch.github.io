@@ -1,0 +1,12 @@
+{% if site.endnote_copy %}
+{% capture id %}{{ page.id | remove_first: '/' }}{% endcapture %}
+<table>
+  <tr>
+    <td><div class="codebox" >
+	<pre><code id="endnote">{% include endnote_entry %}</code></pre></div></td>
+    <td><button id="button1" onclick="CopyToClipboard('endnote')">Copy Endnote</button></td>
+  </tr>
+</table>
+{% endif %}    
+    
+

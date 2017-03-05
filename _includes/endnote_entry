@@ -1,0 +1,15 @@
+%T {{ page.title }}
+%A {% assign lastone = page.author.last %}{% for person in page.author %}{{ person.given }} {{ person.family }}{% unless person == lastone %} and {%endunless %}{% endfor %}
+%B {{ page.container-title }}
+%C Proceedings of Machine Learning Research	
+%D {{ site.published | date: "%Y" }}
+%E {% assign lastone = site.editor.last %}{% for person in site.editor %}{{ person.given }} {{ person.family }}{% unless person == lastone %} and {%endunless %}{% endfor %}Editor/Secondary author	
+%F {{ id }}
+%I PMLR	
+%J Proceedings of Machine Learning Research	
+%P {{ page.firstpage }}--{{ page.lastpage }}
+%R {{ page.doi }}
+%U {{ site.url }}
+%V {{ site.volume }}
+%W PMLR
+%X {{ page.abstract }}
