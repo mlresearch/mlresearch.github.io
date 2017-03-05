@@ -42,12 +42,12 @@ title: "PMLR Proceedings Specification"
 <li><code>title</code>: The title of the paper</li>
 <li><code>author</code>: The paper’s authors in “Lastname, Firstnames” format, separated by “and”</li>
 <li><code>pages</code>: The page numbers in “startpage–endpage” format</li>
-<li><code>abstract</code>: The paper’s abstract in valid LaTeX</li>
+<li><code>abstract</code>: The paper’s abstract in valid LaTeX. Make sure there are no special characters in the abstract, such as those <a href="http://superuser.com/questions/375449/why-does-the-text-fi-get-cut-when-i-copy-from-a-pdf-or-print-a-document">arising from copying and pasting ligatures</a> from the pdf.</li>
 <li>Other fields may also appear in the <code>@InProceedings</code> entries but these will be ignored at present.</li>
 </ul></li>
 </ul>
-<p>The identifiers should be of the form <code>lastnameYY</code> where <code>lastname</code> is the lowercase last name of the first author and <code>YY</code> is the last two digits of the year of the conference. If two papers share the same identifier under this scheme, they must be disambiguated by appending one of <code>a</code>, <code>b</code>, <code>c</code>, etc. to the conflicting identifiers (e.g., <code>reid12a</code> and <code>reid12b</code>)</p>
-<h3 id="the-papers-and-supplementary-material">The Papers and Supplementary Material</h3>
+<p>The identifiers should be in the form <code>lastnameYY</code> where <code>lastname</code> is the lowercase last name of the first author and <code>YY</code> is the last two digits of the year of the conference. If two papers share the same identifier under this scheme, they must be disambiguated by appending one of <code>a</code>, <code>b</code>, <code>c</code>, etc. to the conflicting identifiers (e.g., <code>reid12a</code> and <code>reid12b</code>)</p>
+<h3 id="the-papers-and-supplementary-material">The Papers and Supplementary Material</h3>. If needed they can be disambiguated by adding an additional letter after the year letters. E.g. <code>reid12a</code> and <code>reid12b</code>
 <p>The paper PDFs must have a filename corresponding to the identifier of its BibTeX entry. For example, the PDF for the <code>reid12a</code> entry must have filename <code>reid12a.pdf</code>. These should all appear in the same directory as the BibTeX file describing all the entries.</p>
 <p>Make sure all supplementary filenames for a paper with ID <code>lastnameYY</code> begin with the same ID but end with the suffix <code>-supp</code> (e.g., The PDF supplementary should be named <code>lastnameYY-supp.pdf</code>). These should appear in the same directory as the BibTeX file you provide us. Use whichever file extension is most appropriate (e.g., <code>.pdf</code> for PDF files, <code>.zip</code> for zipped files, <code>.mov</code> for movies, etc.)</p>
 <p>For example, suppose the paper with identifier <code>reid12b</code> had a supplementary PDF file with proofs. You should give us a file named <code>reid12b-supp.pdf</code>. The generated site for the <code>reid12b</code> entry will contain a link titled <code>supplementary</code> to the files <code>reid12b-supp.pdf</code>.</p>
