@@ -40,7 +40,7 @@ title: "Proceedings of Machine Learning Research"
   {% unless repository.name contains 'github.io' %}
   {% if repository.name contains 'v' %}
   <li>
-    <a class="post-link" href="{{ repository.name | prepend: site.baseurl }}"><b>Volume {{ repository.name | remove_first: "v" }}</b></a> {{ repository.description }} 
+    <a href="{{ repository.name | prepend: site.baseurl }}"><b>Volume {{ repository.name | remove_first: "v" }}</b></a> {{ repository.description }} 
   </li>
   {% endif %}
   {% endunless %}
