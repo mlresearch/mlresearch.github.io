@@ -23,6 +23,6 @@ https://github.com/mlresearch/papersite/tree/master/ruby
 
 For details.
 
-Once those proceedings are ready, and have been checked by the proceedings editors, then you can trigger a recompile of this site to ensure that the list of proceedings is updated.
+Once those proceedings are ready, and have been checked by the proceedings editors, then you can trigger a recompile of this site to ensure that the list of proceedings is updated. This is best done by editing the `index.html` to remove the updated volume from the "Scheduled Volumes" list. New volumes are automatically added to the list under "Proceedings".
 
 
