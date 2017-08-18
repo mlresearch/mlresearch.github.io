@@ -20,7 +20,7 @@ layout: null
         <title>{{ repository.name | xml_escape }}</title>
         <description>{{ repository.description | xml_escape }}</description>
         <link>{{ repository.name | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ repository.name | prepend: site.baseurl | prepend: site.url }}</guid>
+        <guid isPermaLink="true">{{ repository.name | prepend: '/' | prepend: site.baseurl | prepend: site.url }}</guid>
       </item>
       {% endif %}
 {% endunless %}
