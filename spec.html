@@ -99,8 +99,24 @@ title: "PMLR Proceedings Specification"
 }</code></pre>
 <div class="footnotes">
 <hr />
+
+<p> We also support publishing in sections. To publish your proceedings in sections, add the following field to the proccedings bibtex entry.</p>
+
+<pre><code>@Proceedings{...
+ shortname = {ICE},
+ sections = {Preface|Contributed Papers|Invited Papers}
+}</code></pre>
+
+<p>And then to each bibtex entry add a field defining the section e.g.</p>
+
+<pre><code>@InProceedings{smythe13,
+  title = ...
+  section = {Contributed Papers}
+}</code></pre>
+
 <ol>
-<li id="fn1"><p>Note: gzipped tarballs are not the only way you can send material. For larger conferences, we recommend sharing a Dropbox directory or otherwise putting the files up on a server we can have access to.<a href="#fnref1">↩</a></p></li>
+  <li id="fn1"><p>Note: gzipped tarballs are not the only way you can send material. For larger conferences, we recommend sharing a Dropbox directory or otherwise putting the files up on a server we can have access to.<a href="#fnref1">↩</a></p></li>       
+      
 </ol>
 </div>
 
