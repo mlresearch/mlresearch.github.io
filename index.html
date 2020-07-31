@@ -9,7 +9,7 @@ title: "Proceedings of Machine Learning Research"
 
 <h2>Editors</h2>
 
-<p>The Series Editors are <a href="http://inverseprobability.com">Neil Lawrence</a> and <a href="http://people.cecs.anu.edu.au/user/2675">Mark Reid</a>. Please send proposals for new volumes under this series to Neil and Mark via e-mail: <a href="javascript:GoAddress('mark','reid.name');">mark<img src=/img/atr.gif border=0>reid.name</a> and <a href="javascript:GoAddress('ndl21','cam.ac.uk');">ndl21<img src=/img/atr.gif border=0>cam.ac.uk</a>. Each proposal should include:</p>
+<p>The Series Editors are <a href="http://inverseprobability.com">Neil Lawrence</a> and <a href="http://people.cecs.anu.edu.au/user/2675">Mark Reid</a>. Please send proposals for new volumes under this series to Neil and Mark via e-mail: <a href="javascript:GoAddress('mark','reid.name');">mark<img src=/assets/images/atr.gif border=0>reid.name</a> and <a href="javascript:GoAddress('ndl21','cam.ac.uk');">ndl21<img src=/assets/images/atr.gif border=0>cam.ac.uk</a>. Each proposal should include:</p>
   
 <ul>
   <li>A brief description of the event's scope and topics to be covered.</li>
@@ -30,7 +30,7 @@ title: "Proceedings of Machine Learning Research"
 <h2>Proceedings</h2>
 
 <ul class="proceedings-list">
-  {% assign sorted = (site.github.public_repositories | sort: 'created_at') %}
+  {% assign sorted = site.github.public_repositories | sort: 'created_at' %}
 {% for repository in sorted reversed %}{% if repository.has_pages %}{% unless repository.name contains 'github.io' %}{% if repository.name contains 'v' %}
   <li>
     <a href="{{ repository.name | prepend: site.baseurl }}"><b>Volume {{ repository.name | remove_first: "v" }}</b></a> {{ repository.description }} 

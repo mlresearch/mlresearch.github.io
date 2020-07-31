@@ -1,6 +1,9 @@
 # Site settings
 title: Proceedings of Machine Learning Research
 email: 
+plugins:
+- jekyll-remote-theme
+remote_theme: lawrennd/proceedings
 description: > # this means to ignore newlines until "baseurl:"
   The Proceedings of Machine Learning Research (formerly JMLR Workshop and Conference Proceedings) is a series aimed 
   specifically at publishing machine learning research presented at workshops and conferences. Each volume is separately 
