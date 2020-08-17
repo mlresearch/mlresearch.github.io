@@ -2,6 +2,8 @@
 title: Proceedings of Machine Learning Research
 email: 
 plugins:
+- jekyll-feed
+- jekyll-seo-tag
 - jekyll-remote-theme
 remote_theme: lawrennd/proceedings
 description: > # this means to ignore newlines until "baseurl:"
