@@ -19,6 +19,10 @@ url: "http://proceedings.mlr.press" # the base hostname & protocol for your site
 twitter_username: MLResearchPress
 github_username:  mlresearch
 
+ghub:
+  edit: true
+  repository: mlresearch.github.io
+
 analytics:
   google:
     tracking_id: UA-92432422-1
