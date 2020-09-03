@@ -30,7 +30,7 @@ title: "Proceedings of Machine Learning Research"
 <ul class="proceedings-list">
   {% assign sorted = site.github.public_repositories | sort: 'created_at' %}
   {% assign firstletter = repository.name | slice: 0 %}
-{% for repository in sorted reversed %}{% if repository.has_pages %}{% unless repository.name contains 'github.io' %}{% if repository.name contains 'v' %}
+{% for repository in sorted reversed %}{% if repository.has_pages %}{% unless repository.name contains 'github.io' %}
   <li>
     {%-if firstletter=='v'-%}
     <a href="{{ repository.name | prepend: site.baseurl }}"><b>V {{ repository.name | remove_first: "v" }}</b></a> {{ repository.description }}
