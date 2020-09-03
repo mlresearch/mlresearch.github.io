@@ -28,10 +28,9 @@ title: "Proceedings of Machine Learning Research"
 <h2>Proceedings</h2>
 
 <ul class="proceedings-list">
-  {% assign sorted = site.github.public_repositories | sort: 'created_at' %}
+{%- assign sorted = site.github.public_repositories | sort: 'created_at' -%}
+{%- for repository in sorted reversed -%}{%- if repository.has_pages -%}{%- unless repository.name contains 'github.io' -%}
   {% assign firstletter = repository.name | slice: 0 %}
-  Letter: {{ firstletter }}
-{%- for repository in sorted reversed %}{% if repository.has_pages %}{% unless repository.name contains 'github.io' -%}
   <li>
     {%-if firstletter=='v'-%}
     <a href="{{ repository.name | prepend: site.baseurl }}"><b>V {{ repository.name | remove_first: "v" }}</b></a> {{ repository.description }}
@@ -39,7 +38,7 @@ title: "Proceedings of Machine Learning Research"
     <a href="{{ repository.name | prepend: site.baseurl }}"><b>R {{ repository.name | remove_first: "r" }}</b></a> {{ repository.description }}
     {%-endif-%}
   </li>
-  {% endunless %}{% endif %}{%- endfor -%}    
+  {%- endunless -%}{%- endif -%}{%- endfor -%}    
 </ul>
 
 <p>The rebranding of JMLR W&CP was finalized on 10th April 2017. The first volume to be published only on the PMLR site is volume 54, the 2017 AISTATS Proceedings. The ISSN of the old proceedings was: 1938-7228.</p>
