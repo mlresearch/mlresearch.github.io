@@ -50,7 +50,7 @@ title: "PMLR Proceedings Specification"
       <li>There <strong>must</strong> be at one <code>@InProceedings</code> entry for each paper. Each entry <strong>must</strong> have the following fields:
         <ul>
           <li><code>title</code>: The title of the paper</li>
-          <li><code>author</code>: The paper’s authors in “Lastname, Firstnames” format, separated by “and”</li>
+          <li><code>author</code>: The paper’s authors in “Lastname, Firstnames” format, separated by “and”. Do *not* use unicode characters, use the LaTeX equivalents.</li>
           <li><code>pages</code>: The page numbers in “startpage–endpage” format</li>
           <li><code>abstract</code>: The paper’s abstract.
         <ul>
@@ -111,7 +111,7 @@ title: "PMLR Proceedings Specification"
 
 @InProceedings{jones13b,
     title = {Example Generalization via Skim Reading},
-    author = {Jones, Raphael and Frankel, David and Deutsch, Mark},
+    author = {K\"oller, Klaus and Frankel, David and Deutsch, Mark},
     pages = {10-18},
     abstract = {We show how skim reading a small number of examples can give a good sense of a more abstract specification. This is a complementary paper to (Jones et al. 2013) which shares the same first author as this paper and so must be properly disambiguated.}
 }
