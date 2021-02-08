@@ -1,16 +1,15 @@
 ---
-layout: default
+layout: home
 title: "Proceedings of Machine Learning Research"
 ---
 
-      
-<h2>ISSN: 1938-7228</h2>
+<h2>ISSN: 2640-3498</h2>
 
-<p>The Proceedings of Machine Learning Research (formerly JMLR Workshop and Conference Proceedings) is a series aimed specifically at publishing machine learning research presented at workshops and conferences. Each volume is separately titled and associated with a particular workshop or conference and will be published online on the PMLR web site. Authors will retain copyright and individual volume editors are free to make additional hardcopy publishing arrangements (see for example the <a href="http://www.mtome.com/Publications/CiML/ciml.html">Challenges in Machine Learning</a> series which includes free PDFs and low cost hard copies), but PMLR will not produce hardcopies of these volumes. </p>
+<p>The Proceedings of Machine Learning Research is a series that publishes machine learning research papers presented at workshops and conferences. Each volume is separately titled and associated with a particular workshop or conference and will be published online on the PMLR web site. Authors will retain copyright and individual volume editors are free to make additional hardcopy publishing arrangements (see for example the <a href="http://www.mtome.com/Publications/CiML/ciml.html">Challenges in Machine Learning</a> series which includes free PDFs and low cost hard copies), but PMLR will not produce hardcopies of these volumes. </p>
 
 <h2>Editors</h2>
 
-<p>The Series Editors are <a href="http://inverseprobability.com">Neil Lawrence</a> and <a href="http://people.cecs.anu.edu.au/user/2675">Mark Reid</a>. Please send proposals for new volumes under this series to Neil and Mark via e-mail: <a href="javascript:GoAddress('mark','reid.name');">mark<img src=/img/atr.gif border=0>reid.name</a> and <a href="javascript:GoAddress('N.Lawrence','sheffield.ac.uk');">N.Lawrence<img src=/img/atr.gif border=0>sheffield.ac.uk</a>. Each proposal should include:</p>
+<p>The Series Editors are <a href="http://inverseprobability.com">Neil Lawrence</a> and <a href="http://people.cecs.anu.edu.au/user/2675">Mark Reid</a>. Please send proposals for new volumes under this series to Neil and Mark via e-mail: <a href="javascript:GoAddress('mark','reid.name');">mark<img src=/assets/images/atr.gif border=0>reid.name</a> and <a href="javascript:GoAddress('ndl21','cam.ac.uk');">ndl21<img src=/assets/images/atr.gif border=0>cam.ac.uk</a>. Each proposal should include:</p>
   
 <ul>
   <li>A brief description of the event's scope and topics to be covered.</li>
@@ -20,36 +19,29 @@ title: "Proceedings of Machine Learning Research"
 
 <p>For frequently asked questions on preparing proceedings please see the <a href="./faq.html">FAQ</a>.</p>
 
+<!--<h2>Scheduled Volumes</h2>
+<ul class="proceedings-list">
+  <li>Volume 61 is assigned to the NIPS 2016 Symposium on Machine Learning and the Law</li>
+  <li>Volume 59 is assigned to the NIPS 2016 Workshop on Reliable Machine Learning in the Wild</li>
+</ul>-->
+
 <h2>Proceedings</h2>
 
 <ul class="proceedings-list">
-  {% assign sorted = (site.github.public_repositories | sort: 'created_at') %}
-{% for repository in sorted reversed %}
-  {% if repository.has_pages %}
-  {% unless repository.name contains 'github.io' %}
-  {% if repository.name contains 'v' %}
+{%- assign sorted = site.github.public_repositories | sort: 'created_at' -%}
+{%- for repository in sorted reversed -%}{%- if repository.has_pages -%}{%- unless repository.name contains 'github.io' -%}
+  {% assign firstletter = repository.name | slice: 0 %}
   <li>
-    <a class="post-link" href="{{ repository.name | prepend: site.baseurl }}"><b>Volume {{ repository.name | remove_first: "v" }}</b></a> {{ repository.description }} 
+    {%-if firstletter=='v'-%}
+    <a href="{{ repository.name | prepend: site.baseurl }}"><b>V {{ repository.name | remove_first: "v" }}</b></a> {{ repository.description }}
+    {%-elsif firstletter=='r'-%}
+    <a href="{{ repository.name | prepend: site.baseurl }}"><b>R {{ repository.name | remove_first: "r" }}</b></a> {{ repository.description }}
+    {%-endif-%}
   </li>
-  {% endif %}
-  {% endunless %}
-  {% endif %}
-  {% endfor %}    
+  {%- endunless -%}{%- endif -%}{%- endfor -%}    
 </ul>
 
-<h2>Scheduled Volumes</h2>
-<ul class="proceedings-list">
-  <li>Volume 54 is assigned to AISTATS 2017</li>
-  <li>Volume 58 is assigned to the NIPS 2016 Workshop on Imperfect Decision Makers</li>
-  <li>Volume 59 is assigned to the NIPS 2016 Workshop on Reliable Machine Learning in the Wild</li>
-  <li>Volume 60 is assigned to the Workshop on Conformal and Probabilistic Prediction with Applications (COPA) 2017</li>
-  <li>Volume 61 is assigned to the NIPS 2016 Symposium on Machine Learning and the Law</li>
-  <li>Volume 62 is assigned to the 2017 International Symposium on Imprecise Probability: Theories and Applications</li>
-  <li>Volume 65 is assigned to COLT 2017</li>
-  <li>Volume 66 is assigned to 1st IJCAI Workshop on Artificial Intelligence in Affective Computing</li>
-  <li> Volume 67 is assigned to International Conference on Predictive Applications and APIs</li>
-  <li> Volume 68 is to be announced</li>
-</ul>
+<p>The rebranding of JMLR W&CP was finalized on 10th April 2017. The first volume to be published only on the PMLR site is volume 54, the 2017 AISTATS Proceedings. The ISSN of the old proceedings was: 1938-7228.</p>
 
 <hr>
 

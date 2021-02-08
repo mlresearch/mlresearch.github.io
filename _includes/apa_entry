@@ -1,2 +1,0 @@
-{% assign lastone = page.author.last %}{% for person in page.author %}{{ person.family }}, {% assign firstnames = person.given | split:" " %}{% for name in firstnames %}{{ name | slice: 0, 1}}.{% endfor %}{% if page.author.size>1 %}{%if page.author[-2]==person %} & {% endif %}{% else %}{% unless person == lastone %}, {%endunless %}{% endif %}{% endfor %}. ({{ site.published | date: "%Y" }}). {{ page.title }}. <i>{{ page.container-title }}, in PMLR</i> {{ site.volume }}:{{page.firstpage}}-{{page.lastpage}}
-

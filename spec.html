@@ -5,55 +5,80 @@ title: "PMLR Proceedings Specification"
 
 <div id="content">
   <div id="wrapper">
-      <h1 id="jmlr-wcp-proceedings-specification">PMLR Proceedings Specification</h1>
-<p><em>Version 1.1 – Feb 23rd, 2017</em></p>
-<p>To publish a proceedings with PMLR, the organisers will need to provide the PMLR Production Editor (Mark Reid) with:</p>
-<ol style="list-style-type: decimal">
-<li>A BibTeX file (described below) with the details of each paper in the proceedings.</li>
-<li>A collection of PDF files (and, optionally, supplementary files).</li>
-</ol>
-      <p>The following specification is for simple conference proceedings that consist of one or more papers that are to be displayed in page order with links to associated PDF and supplementary files. If you need any clarifications, or need to publish proceedings with special sections, awards, multiple cycles, or other features, please email <a href="javascript:GoAddress('mark','reid.name');">mark<img src=/img/atr.gif border=0>reid.name</a>
+    <h1 id="jmlr-wcp-proceedings-specification">PMLR Proceedings Specification</h1>
 
-</p>
-<h3 id="the-bibtex-file">The BibTeX file</h3>
+    <p><em>Version 1.11 – Sep 2nd, 2017</em></p>
 
-<p>Use of <code>utf-8</code> encoding for special characters such as accented letters.</p>
-<p>For mathematics use standard latex inside two <code>$</code> marks, e.g. <code>$\int_{x=1}^z x^2 \text{d}x$.</p> 
-<p><strong>Note</strong>: <em>The contents of each field must be valid BibTeX (i.e., make sure characters are escaped correctly)</em>.</p>
-<p>All of the conference and paper details are contained in a single BibTeX file. You can name it whatever you like but we suggest you use some association with the conference name (e.g., <code>icml13.bib</code>)</p>
-<p>There are two types of entry that must appear in the BibTeX file:</p>
-<ul>
-<li>There <strong>must</strong> be a single <code>@Proceedings</code> entry with the conference details. It <strong>must</strong> include the following fields:
-<ul>
-<li><code>booktitle</code>: the citation to the volume (e.g. Proceedings of the Twenty First International Conference on Machine Learning)</li>
-<li><code>name</code>: the long name of the conference (e.g. International Conference on Machine Learning)</li>
-<li><code>shortname</code> the abbreviation for the conference (without the year, e.g., ICML)</li>
-<li><code>year</code> : the year of the conference (e.g., 2013)</li>
-<li><code>editor</code>: the editors’ names (in “Lastname, Firstnames” format, separated by “and”)</li>
-<li><code>volume</code>: the PMLR number assigned to your conference/workshop</li>
-<li><code>start</code>: the first day of the conference/workshop in YYYY-MM-DD format.</li>
-<li><code>end</code>: the last day of the conference/workshop in YYYY-MM-DD format.</li>
-<li><code>address</code>: the location of the conference in venue, city, country format.</li>
-<li><code>url</code>: the URL of the conference website.</li>
-<li><code>conference_number</code>: if the conference is part of a series, give the number in the series here.</li>
-<li>Other fields may be present in the <code>@Proceedings</code> entry but these will be ignored at present.</li>
-</ul></li>
-<li>There <strong>must</strong> be at one <code>@InProceedings</code> entry for each paper. Each entry <strong>must</strong> have the following fields:
-<ul>
-<li><code>title</code>: The title of the paper</li>
-<li><code>author</code>: The paper’s authors in “Lastname, Firstnames” format, separated by “and”</li>
-<li><code>pages</code>: The page numbers in “startpage–endpage” format</li>
-<li><code>abstract</code>: The paper’s abstract in valid LaTeX. Make sure there are no special characters in the abstract, such as those <a href="http://superuser.com/questions/375449/why-does-the-text-fi-get-cut-when-i-copy-from-a-pdf-or-print-a-document">arising from copying and pasting ligatures</a> from the pdf.</li>
-<li>Other fields may also appear in the <code>@InProceedings</code> entries but these will be ignored at present.</li>
-</ul></li>
-</ul>
-<p>The identifiers should be in the form <code>lastnameYY</code> where <code>lastname</code> is the lowercase last name of the first author and <code>YY</code> is the last two digits of the year of the conference. If two papers share the same identifier under this scheme, they must be disambiguated by appending one of <code>a</code>, <code>b</code>, <code>c</code>, etc. to the conflicting identifiers (e.g., <code>reid12a</code> and <code>reid12b</code>)</p>
-<h3 id="the-papers-and-supplementary-material">The Papers and Supplementary Material</h3>. If needed they can be disambiguated by adding an additional letter after the year letters. E.g. <code>reid12a</code> and <code>reid12b</code>
+    <p>To publish a proceedings with PMLR, the organisers will need to provide the editors with:</p>
+
+    <ol style="list-style-type: decimal">
+      <li>A BibTeX file (described below) with the details of each paper in the proceedings.</li>
+      <li>A collection of PDF files (and, optionally, supplementary files).</li>
+    </ol>
+
+    <p>The following specification is for simple conference proceedings that consist of one or more papers that are to be displayed in page order with links to associated PDF and supplementary files. If you need any clarifications, or need to publish proceedings with special sections, awards, multiple cycles, or other features, please email <a href="javascript:GoAddress('mark','reid.name');">mark<img src=/assets/images/atr.gif border=0>reid.name</a></p>
+    
+    <h3 id="the-bibtex-file">The BibTeX file</h3>
+    
+    <p>In titles and author names, please use Latex commands for representing special characters (such as <code>\'e</code> for an acute accent on <code>e</code>.</p>
+
+    <p>For mathematics use standard latex inside two <code>$</code> marks, e.g. <code>$\int_{x=1}^z x^2 \text{d}x$.</code></p> 
+
+    <p><strong>Note</strong>: <em>The contents of each field must be valid BibTeX (i.e., make sure characters are escaped correctly)</em>.</p>
+
+    <p>All of the conference and paper details are contained in a single BibTeX file. You can name it whatever you like but we suggest you use some association with the conference name (e.g., <code>icml13.bib</code>)</p>
+
+    <p>There are two types of entry that must appear in the BibTeX file:</p>
+
+    <ul>
+      <li>There <strong>must</strong> be a single <code>@Proceedings</code> entry with the conference details. It <strong>must</strong> include the following fields:
+        <ul>
+          <li><code>booktitle</code>: the citation to the volume (e.g. Proceedings of the Twenty First International Conference on Machine Learning)</li>
+          <li><code>name</code>: the long name of the conference (e.g. International Conference on Machine Learning)</li>
+          <li><code>shortname</code> the abbreviation for the conference (without the year, e.g., ICML)</li>
+          <li><code>year</code> : the year of the conference (e.g., 2013)</li>
+          <li><code>editor</code>: the editors’ names (in “Lastname, Firstnames” format, separated by “and”)</li>
+          <li><code>volume</code>: the PMLR number assigned to your conference/workshop</li>
+          <li><code>start</code>: the first day of the conference/workshop in YYYY-MM-DD format.</li>
+          <li><code>end</code>: the last day of the conference/workshop in YYYY-MM-DD format.</li>
+          <li><code>address</code>: the location of the conference in venue, city, country format.</li>
+          <li><code>url</code>: the URL of the conference website.</li>
+          <li><code>conference_number</code>: if the conference is part of a series, give the number in the series here.</li>
+          <li>Other fields may be present in the <code>@Proceedings</code> entry but these will be ignored at present.</li>
+        </ul>
+      </li>
+      <li>There <strong>must</strong> be at one <code>@InProceedings</code> entry for each paper. Each entry <strong>must</strong> have the following fields:
+        <ul>
+          <li><code>title</code>: The title of the paper</li>
+          <li><code>author</code>: The paper’s authors in “Lastname, Firstnames” format, separated by “and”. Do *not* use unicode characters, use the LaTeX equivalents.</li>
+          <li><code>pages</code>: The page numbers in “startpage–endpage” format</li>
+          <li><code>abstract</code>: The paper’s abstract.
+        <ul>
+          <li>It can include maths in valid LaTeX.</li><li> Make sure there are no special characters in the abstract, such as those <a href="http://superuser.com/questions/375449/why-does-the-text-fi-get-cut-when-i-copy-from-a-pdf-or-print-a-document">arising from copying and pasting ligatures</a> from the pdf.</li>
+          <li>You can use &lt;em&gt; tags for emphasis.</li>
+          <li>You can use &lt;b&gt; for bold.</li>
+          <li>You can use &lt;ul&gt; tags for bullets.</li>
+          <li>You can use &lt;ol&gt; for numerated lists.</li>
+          </ul>
+          </li>
+      <li>Other fields may also appear in the <code>@InProceedings</code> entries but these will be ignored at present.</li>
+    </ul>
+    </li>
+  </ul>
+
+<p>The identifiers should be in the form <code>lastnameYY</code> where <code>lastname</code> is the lowercase last name of the first author and <code>YY</code> is the last two digits of the year of the conference. If two papers share the same identifier under this scheme, they must be disambiguated by appending one of <code>a</code>, <code>b</code>, <code>c</code>, etc. to the conflicting identifiers (e.g., <code>reid12a</code> and <code>reid12b</code>).
+  Please do <b>not</b> use UTF-8 charcters in these names (or the file names). ASCII only.</p>
+    
+<h3 id="the-papers-and-supplementary-material">The Papers and Supplementary Material</h3>
+    
+    If needed they can be disambiguated by adding an additional letter after the year letters. E.g. <code>reid12a</code> and <code>reid12b</code>
 <p>The paper PDFs must have a filename corresponding to the identifier of its BibTeX entry. For example, the PDF for the <code>reid12a</code> entry must have filename <code>reid12a.pdf</code>. These should all appear in the same directory as the BibTeX file describing all the entries.</p>
 <p>Make sure all supplementary filenames for a paper with ID <code>lastnameYY</code> begin with the same ID but end with the suffix <code>-supp</code> (e.g., The PDF supplementary should be named <code>lastnameYY-supp.pdf</code>). These should appear in the same directory as the BibTeX file you provide us. Use whichever file extension is most appropriate (e.g., <code>.pdf</code> for PDF files, <code>.zip</code> for zipped files, <code>.mov</code> for movies, etc.)</p>
 <p>For example, suppose the paper with identifier <code>reid12b</code> had a supplementary PDF file with proofs. You should give us a file named <code>reid12b-supp.pdf</code>. The generated site for the <code>reid12b</code> entry will contain a link titled <code>supplementary</code> to the files <code>reid12b-supp.pdf</code>.</p>
+    
 <h2 id="sample-bibtex-file-and-papers">Sample BibTeX file and papers</h2>
-<p>Below is a sample of a BibTeX file for the 2nd International Conference on Examples (ICE’13) in 2013. It has been given volume number 57 and is edited by Jane Smith and Joe Bloggs. It contains three papers. It was provided as part of a gzipped tarball<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup> <code>ice13.tar.gz</code> along with the PDF and supplementary files. The contents of the tarball is:</p>
+
+    <p>Below is a sample of a BibTeX file for the 2nd International Conference on Examples (ICE’13) in 2013. It has been given volume number 57 and is edited by Jane Smith and Joe Bloggs. It contains three papers. It was provided as part of a gzipped tarball<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup> <code>ice13.tar.gz</code> along with the PDF and supplementary files. The contents of the tarball is:</p>
 <ul>
 <li><code>ice13.bib</code> (The BibTeX file below)</li>
 <li><code>jones13a.pdf</code></li>
@@ -63,7 +88,7 @@ title: "PMLR Proceedings Specification"
 <li><code>smythe13-supp.zip</code> (Supplementary code and data for <code>smythe13</code>)</li>
 </ul>
 <p>The content of the BibTeX file <code>ice13.bib</code> is:</p>
-<pre><code>@Proceedings{ICE-2013,
+<pre>@Proceedings{ICE-2013,
     booktitle = {Proceedings of The 2nd International Conference on Examples},
     name = {International Conference on Examples},
     shortname = {ICE},
@@ -86,7 +111,7 @@ title: "PMLR Proceedings Specification"
 
 @InProceedings{jones13b,
     title = {Example Generalization via Skim Reading},
-    author = {Jones, Raphael and Frankel, David and Deutsch, Mark},
+    author = {K\"oller, Klaus and Frankel, David and Deutsch, Mark},
     pages = {10-18},
     abstract = {We show how skim reading a small number of examples can give a good sense of a more abstract specification. This is a complementary paper to (Jones et al. 2013) which shares the same first author as this paper and so must be properly disambiguated.}
 }
@@ -96,11 +121,30 @@ title: "PMLR Proceedings Specification"
     author = {Smythe, Byron and Gordon, Trent},
     pages = {19-26},
     abstract = {We empirically verify that, for the purposes of conveying the details of an abstract BibTeX specification, three example suffice. The related problem of whether three examples are necessary is left as future work.}
+}</pre>
+
+<h3 id="sectioned-proceedings">Sectioned Proceedings</h3>
+
+<p> We also support publishing in sections. To publish your proceedings in sections, add the following field to the proccedings bibtex entry.</p>
+
+<pre><code>@Proceedings{...
+ shortname = {ICE},
+ sections = {Preface|Contributed Papers|Invited Papers}
 }</code></pre>
+
+<p>And then to each bibtex entry add a field defining the section e.g.</p>
+
+<pre><code>@InProceedings{smythe13,
+  title = ...
+  section = {Contributed Papers}
+}</code></pre>
+
 <div class="footnotes">
 <hr />
+
 <ol>
-<li id="fn1"><p>Note: gzipped tarballs are not the only way you can send material. For larger conferences, we recommend sharing a Dropbox directory or otherwise putting the files up on a server we can have access to.<a href="#fnref1">↩</a></p></li>
+  <li id="fn1"><p>Note: gzipped tarballs are not the only way you can send material. For larger conferences, we recommend sharing a Dropbox directory or otherwise putting the files up on a server we can have access to.<a href="#fnref1">↩</a></p></li>       
+      
 </ol>
 </div>
 

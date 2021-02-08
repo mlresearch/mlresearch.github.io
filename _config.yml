@@ -1,16 +1,31 @@
 # Site settings
 title: Proceedings of Machine Learning Research
 email: 
+plugins:
+- jekyll-feed
+- jekyll-seo-tag
+- jekyll-remote-theme
+remote_theme: lawrennd/proceedings
+style: pmlr
 description: > # this means to ignore newlines until "baseurl:"
   The Proceedings of Machine Learning Research (formerly JMLR Workshop and Conference Proceedings) is a series aimed 
   specifically at publishing machine learning research presented at workshops and conferences. Each volume is separately 
-  titled and associated with a particular workshop or conference and will be published online on the PMLR web site.
+  titled and associated with a particular workshop or
+  conference. Volumes are published online on the PMLR web site.
   
-  The Series Editors are Neil D. Lawrence and Mark Reid. As of 2017 there are 67 volumes planned or published.
+  The Series Editors are Neil D. Lawrence and Mark Reid. 
 baseurl: "/" # the subpath of your site, e.g. /blog/
 url: "http://proceedings.mlr.press" # the base hostname & protocol for your site
-twitter_username: 
+twitter_username: MLResearchPress
 github_username:  mlresearch
+
+ghub:
+  edit: true
+  repository: mlresearch.github.io
+
+analytics:
+  google:
+    tracking_id: UA-92432422-1
 
 repository: mlresearch/mlresearch.github.io
 # Build settings
