@@ -88,7 +88,9 @@ title: "PMLR Proceedings Specification"
 <li><code>smythe13-supp.zip</code> (Supplementary code and data for <code>smythe13</code>)</li>
 </ul>
 <p>The content of the BibTeX file <code>ice13.bib</code> is:</p>
-<pre>@Proceedings{ICE-2013,
+<pre>
+% if the proceedings is a reissued proceedings, please add the field 'firstpublished' to the entry below, giving the original data of publication in YYYY-MM-DD format.
+@Proceedings{ICE-2013,
     booktitle = {Proceedings of The 2nd International Conference on Examples},
     name = {International Conference on Examples},
     shortname = {ICE},
@@ -123,6 +125,7 @@ title: "PMLR Proceedings Specification"
     abstract = {We empirically verify that, for the purposes of conveying the details of an abstract BibTeX specification, three example suffice. The related problem of whether three examples are necessary is left as future work.}
 }</pre>
 
+    
 <h3 id="sectioned-proceedings">Sectioned Proceedings</h3>
 
 <p> We also support publishing in sections. To publish your proceedings in sections, add the following field to the proccedings bibtex entry.</p>
