@@ -42,7 +42,7 @@ title: "PMLR Proceedings Specification"
           <li><code>start</code>: the first day of the conference/workshop in YYYY-MM-DD format.</li>
           <li><code>end</code>: the last day of the conference/workshop in YYYY-MM-DD format.</li>
           <li><code>address</code>: the location of the conference in venue, city, country format.</li>
-          <li><code>url</code>: the URL of the conference website.</li>
+          <li><code>conference_url</code>: the URL of the conference website.</li>
           <li><code>conference_number</code>: if the conference is part of a series, give the number in the series here.</li>
           <li>Other fields may be present in the <code>@Proceedings</code> entry but these will be ignored at present.</li>
         </ul>
@@ -50,7 +50,7 @@ title: "PMLR Proceedings Specification"
       <li>There <strong>must</strong> be at one <code>@InProceedings</code> entry for each paper. Each entry <strong>must</strong> have the following fields:
         <ul>
           <li><code>title</code>: The title of the paper</li>
-          <li><code>author</code>: The paper’s authors in “Lastname, Firstnames” format, separated by “and”. Do *not* use unicode characters, use the LaTeX equivalents.</li>
+          <li><code>author</code>: The paper’s authors in “Lastname, Firstnames” format, separated by “and”. Do <em>not</em> use unicode characters, use the LaTeX equivalents.</li>
           <li><code>pages</code>: The page numbers in “startpage–endpage” format</li>
           <li><code>abstract</code>: The paper’s abstract.
         <ul>
@@ -88,7 +88,9 @@ title: "PMLR Proceedings Specification"
 <li><code>smythe13-supp.zip</code> (Supplementary code and data for <code>smythe13</code>)</li>
 </ul>
 <p>The content of the BibTeX file <code>ice13.bib</code> is:</p>
-<pre>@Proceedings{ICE-2013,
+<pre>
+% if the proceedings is a reissued proceedings, please add the field 'firstpublished' to the entry below, giving the original data of publication in YYYY-MM-DD format.
+@Proceedings{ICE-2013,
     booktitle = {Proceedings of The 2nd International Conference on Examples},
     name = {International Conference on Examples},
     shortname = {ICE},
@@ -97,8 +99,8 @@ title: "PMLR Proceedings Specification"
     year = {2013},
     start = {2012-12-15},
     end = {2012-12-15},
-    url = {http://exemplar.cc/ice2013},
     published = {2021-03-29},
+    conference_url = {http://exemplar.cc/ice2013},
     address = {Breckenridge, Colorado, USA},
     shortname = {ICE}
 }
@@ -131,6 +133,7 @@ title: "PMLR Proceedings Specification"
     abstract = {We demonstrate the ability of scripts to parse names containing prefixes such as 'van der' or 'von'. As a further extension, we consider suffices to names such as 'Jr' and 'III'.}
 }</pre>
 
+    
 <h3 id="sectioned-proceedings">Sectioned Proceedings</h3>
 
 <p> We also support publishing in sections. To publish your proceedings in sections, add the following field to the proccedings bibtex entry.</p>
