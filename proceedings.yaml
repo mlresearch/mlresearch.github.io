@@ -1,7 +1,7 @@
 ---
 layout: null
 ---
-{% assign sorted = site.github.public_repositories | sort: 'created_at' %}{% for repository in sorted reversed %}{% if repository.has_pages %}{% unless repository.name contains 'github.io' %}{% if repository.name.first == 'v' or repository.name.first == 'r' %}
+{% assign sorted = site.github.public_repositories | sort: 'created_at' %}{% for repository in sorted reversed %}{% if repository.has_pages %}{% unless repository.name contains 'github.io' %}{% if repository.name contains 'v' or repository.name contains 'r' %}
 - volume: {{ repository.name | remove_first: "v" }}
   url:  "{{ repository.name | prepend: "/" | prepend: site.baseurl | prepend: site.url }}"
   yaml:  "{{ repository.name | prepend: "/" | prepend: site.baseurl | prepend: site.url }}/assets/bib/citeproc.yaml"
