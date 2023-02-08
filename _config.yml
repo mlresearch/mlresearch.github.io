@@ -5,7 +5,7 @@ plugins:
 - jekyll-feed
 - jekyll-seo-tag
 - jekyll-remote-theme
-remote_theme: lawrennd/proceedings
+remote_theme: mlresearch/jekyll-theme
 style: pmlr
 description: > # this means to ignore newlines until "baseurl:"
   The Proceedings of Machine Learning Research (formerly JMLR Workshop and Conference Proceedings) is a series aimed 
