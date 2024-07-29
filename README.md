@@ -15,13 +15,13 @@ You can carry out these steps by following [this link](https://github.com/organi
 
 There are scripts in:
 
-https://github.com/mlresearch/papersite/
+<https://github.com/mlresearch/papersite/>
 
 Which allow the new proceedings to be created. See the readme on this page:
 
-https://github.com/mlresearch/papersite/tree/master/ruby
+<https://github.com/mlresearch/papersite/tree/master/ruby>
 
-For details.
+for details.
 
 Once those proceedings are ready, and have been checked by the proceedings editors, then you can trigger a recompile of this site to ensure that the list of proceedings is updated. This is best done by editing the `index.html` to remove the updated volume from the "Scheduled Volumes" list. New volumes are automatically added to the list under "Proceedings".
 
