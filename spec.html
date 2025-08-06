@@ -1,195 +1,779 @@
----
-layout: default
-title: "PMLR Proceedings Specification"
----
-
-<div id="content">
-  <div id="wrapper">
-    <h1 id="jmlr-wcp-proceedings-specification">PMLR Proceedings Specification</h1>
-
-    <p><em>Version 1.3 – Jul 27th, 2025</em></p>
-
-    <p>Once the proceedings is accepted you'll be provided with a github repository where you will upload the pdfs and the bibtex.</p>
-
-    <p>The proceedings repo will be derived on this <a href="https://github.com/mlresearch/proceedings-template/">this template</a>.</p>
-
-    <p>You shouild <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo">fork the proceedings</a> and add the files specified below. When the files are ready you can submit a pull request.</p>
-    
-    <p>Your forked proceedings should include:</p>
-
-    <ol style="list-style-type: decimal">
-      <li>A BibTeX file (described below) with the details of each paper in the proceedings.</li>
-      <li>A collection of PDF files (and, optionally, supplementary files).</li>
-    </ol>
-
-    <p>When you submit pull request you will be asked to fill in <a href="https://github.com/mlresearch/proceedings-template/blob/main/.github/pull_request_template.md">this check list.</p>
-    <p>The following specification is for simple conference proceedings that consist of one or more papers that are to be displayed in page order with links to associated PDF and supplementary files. If you need any clarifications, or need to publish proceedings with special sections, awards, multiple cycles, or other features, please email <a href="javascript:GoAddress('proceedings','mlr.press');">proceedings<img src=/assets/images/atr.gif border=0>mlr.press</a></p>
-    
-    <h3 id="the-bibtex-file">The BibTeX file</h3>
-    
-    <p>In titles and author names, please use Latex commands for representing special characters (such as <code>\'e</code> for an acute accent on <code>e</code>.</p>
-
-    <p>For mathematics use standard latex inside two <code>$</code> marks, e.g. <code>$\int_{x=1}^z x^2 \text{d}x$.</code></p> 
-
-    <p><strong>Note</strong>: <em>The contents of each field must be valid BibTeX (i.e., make sure characters are escaped correctly)</em>.</p>
-
-    <p>All of the conference and paper details are contained in a single BibTeX file. You can name it whatever you like but we suggest you use some association with the conference name (e.g., <code>icml13.bib</code>)</p>
-
-    <p>There are two types of entry that must appear in the BibTeX file:</p>
-
-    <ul>
-      <li>There <strong>must</strong> be a single <code>@Proceedings</code> entry with the conference details. It <strong>must</strong> include the following fields:
-        <ul>
-          <li><code>booktitle</code>: the citation to the volume (e.g. Proceedings of the Twenty First International Conference on Machine Learning)</li>
-          <li><code>name</code>: the long name of the conference (e.g. International Conference on Machine Learning)</li>
-          <li><code>shortname</code> the abbreviation for the conference (without the year, e.g., ICML)</li>
-          <li><code>year</code> : the year of the conference (e.g., 2013)</li>
-          <li><code>editor</code>: the editors’ names (in “Lastname, Firstnames” format, separated by “and”)</li>
-          <li><code>volume</code>: the PMLR number assigned to your conference/workshop</li>
-          <li><code>start</code>: the first day of the conference/workshop in YYYY-MM-DD format.</li>
-          <li><code>end</code>: the last day of the conference/workshop in YYYY-MM-DD format.</li>
-          <li><code>address</code>: the location of the conference in venue, city, country format.</li>
-          <li><code>conference_url</code>: the URL of the conference website.</li>
-          <li><code>conference_number</code>: if the conference is part of a series, give the number in the series here.</li>
-          <li>Other fields may be present in the <code>@Proceedings</code> entry but these will be ignored at present.</li>
-        </ul>
-      </li>
-      <li>There <strong>must</strong> be at one <code>@InProceedings</code> entry for each paper. Each entry <strong>must</strong> have the following fields:
-        <ul>
-          <li><code>title</code>: The title of the paper</li>
-          <li><code>author</code>: The paper’s authors in “Lastname, Firstnames” format, separated by “and”. Do <em>not</em> use unicode characters, use the LaTeX equivalents.</li>
-          <li><code>pages</code>: The page numbers in “startpage–endpage” format</li>
-          <li><code>abstract</code>: The paper’s abstract.
-        <ul>
-          <li>It can include maths in valid LaTeX.</li><li> Make sure there are no special characters in the abstract, such as those <a href="http://superuser.com/questions/375449/why-does-the-text-fi-get-cut-when-i-copy-from-a-pdf-or-print-a-document">arising from copying and pasting ligatures</a> from the pdf.</li>
-          <li>You can use &lt;em&gt; tags for emphasis.</li>
-          <li>You can use &lt;b&gt; for bold.</li>
-          <li>You can use &lt;ul&gt; tags for bullets.</li>
-          <li>You can use &lt;ol&gt; for numerated lists.</li>
-          </ul>
-          </li>
-      <li>Other fields may also appear in the <code>@InProceedings</code> entries but these will be ignored at present.</li>
-    </ul>
-    </li>
-  </ul>
-
-<p>The identifiers should be in the form <code>lastnameYY</code> where <code>lastname</code> is the lowercase last name of the first author and <code>YY</code> is the last two digits of the year of the conference. If two papers share the same identifier under this scheme, they must be disambiguated by appending one of <code>a</code>, <code>b</code>, <code>c</code>, etc. to the conflicting identifiers (e.g., <code>reid12a</code> and <code>reid12b</code>).
-  Please do <b>not</b> use UTF-8 charcters in these names (or the file names). ASCII only.</p>
-    
-<h3 id="the-papers-and-supplementary-material">The Papers and Supplementary Material</h3>
-    
-    If needed they can be disambiguated by adding an additional letter after the year letters. E.g. <code>reid12a</code> and <code>reid12b</code>
-<p>The paper PDFs must have a filename corresponding to the identifier of its BibTeX entry. For example, the PDF for the <code>reid12a</code> entry must have filename <code>reid12a.pdf</code>. These should all appear in the same directory as the BibTeX file describing all the entries.</p>
-<p>Make sure all supplementary filenames for a paper with ID <code>lastnameYY</code> begin with the same ID but end with the suffix <code>-supp</code> (e.g., The PDF supplementary should be named <code>lastnameYY-supp.pdf</code>). These should appear in the same directory as the BibTeX file you provide us. Use whichever file extension is most appropriate (e.g., <code>.pdf</code> for PDF files)</p>
-<p>Please do <i>not</i> provide a single zipped file with supplementary material in it. This provides a poor experience for the user. For software and video see sections below on <a href="#software-links">Software</a> and <a href="#video-links">videos</a>.</p>   
-<p>For example, suppose the paper with identifier <code>reid12b</code> had a supplementary PDF file with proofs. You should give us a file named <code>reid12b-supp.pdf</code>. The generated site for the <code>reid12b</code> entry will contain a link titled <code>supplementary</code> to the files <code>reid12b-supp.pdf</code>.</p>
-    
-<h2 id="sample-bibtex-file-and-papers">Sample BibTeX file and papers</h2>
-
-    <p>Below is a sample of a BibTeX file for the 2nd International Conference on Examples (ICE’13) in 2013. It has been given volume number 57 and is edited by Jane Smith and Joe Bloggs. It contains three papers. It was provided as part of a gzipped tarball<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup> <code>ice13.tar.gz</code> along with the PDF and supplementary files. The contents of the tarball is:</p>
-<ul>
-<li><code>ice13.bib</code> (The BibTeX file below)</li>
-<li><code>jones13a.pdf</code></li>
-<li><code>jones13a-supp.pdf</code> (Supplementary proofs for <code>jones13a</code>)</li>
-<li><code>jones13b.pdf</code></li>
-<li><code>smythe13.pdf</code></li>
-</ul>
-<p>The content of the BibTeX file <code>ice13.bib</code> is:</p>
-<pre>
 % if the proceedings is a reissued proceedings, please add the field 
 % 'firstpublished' to the entry below, giving the original data of 
 % publication in YYYY-MM-DD format.
-@Proceedings{ICE-2013,
-    booktitle = {Proceedings of The 2nd International Conference on Examples},
-    name = {International Conference on Examples},
-    shortname = {ICE},
-    editor = {Smith, Jane and Bloggs, Joe},
-    volume = {57},
-    year = {2013},
-    start = {2012-12-15},
-    end = {2012-12-15},
-    published = {2021-03-29},
-    conference_url = {http://exemplar.cc/ice2013},
-    address = {Breckenridge, Colorado, USA}
+@Proceedings{MLIC-2025,
+    booktitle = {Proceedings of 2025 2nd International Conference on Machine Learning and Intelligent Computing},
+    name = {International Conference on Machine Learning and Intelligent Computing},
+    shortname = {MLIC},
+    editor = {Zeng, Nianyin and Pachori, Ram Bilas and Wang, Dongshu},
+    volume = {278},
+    year = {2025},
+    start = {2025-04-25},
+    end = {2025-04-27},
+    published = {},
+    conference_url = {https://www.icmlic.org},
+    address = {Zhengzhou, China}
 }
 
-@InProceedings{jones13a,
-    title = {A Meta-Heuristic for Example Invention},
-    author = {Jones, Raphael and Howard, Peter},
-    pages = {1-9},
-    abstract = {This paper considers the problem of inventing examples to convey features of an abstract specification. We provide a straightforward meta-technique to develop examples by writing any old rubbish that fills up space but still reads like English. Experiments show that this approach fares better than ``lorum ipsum'' text in a variety of cases. Running time (including LaTeX mathematics) is $O(1)$.}
+@InProceedings{mlic25-01,
+    title = {DCMTrack: Rethinking the Motion for Vehicle Multi-Object Tracking},
+    author = {Li, Peng and Ni, Jun and Tao, Dapeng},
+    pages = {1-7},
+    abstract = {Vehicle multi-object tracking has significant applications in many fields. Existing methods struggle to address the challenges of nonlinear motion and prolonged occlusion in vehicle tracking. In this paper, an advanced tracker featuring a Nonlinear Noise Adaptive Unscented Kalman Filter, namely DCMTrack, is designed to finely adjust measurement noise and significantly enhance the accuracy of target motion state predictions. An Adaptive Direction and Confidence Cost Matrix is designed to more precisely calculate trajectory direction and confidence, enhancing the accuracy of target association. Ultimately, a Category-Aware Initialization Mechanism that integrates target category and environmental information is proposed to minimize false trajectories and optimize the overall trajectory management process. We conducted extensive experiments on the VehiclesMOT dataset, validating its effectiveness.}
 }
 
-@InProceedings{jones13b,
-    title = {Example Generalization via Skim Reading},
-    author = {K\"oller, Klaus and Frankel, David and Deutsch, Mark},
-    pages = {10-18},
-    abstract = {We show how skim reading a small number of examples can give a good sense of a more abstract specification. This is a complementary paper to (Jones et al. 2013) which shares the same first author as this paper and so must be properly disambiguated.}
+@InProceedings{mlic25-02,
+    title = {Digital Twin-Assisted Satellite-Ground Cooperative Edge Network Resource Optimization Method},
+    author = {Li, Shuopeng and Han, Ran},
+    pages = {8-22},
+    abstract = {To address the challenge of efficiently processing data on resource-constrained IoT devices, this paper proposes a digital twin architecture for satellite-terrestrial collaborative edge networks and introduces Coordinated Constrained DDPG (CC\_DDPG), a deep reinforcement learning (DRL)-based task offloading and resource allocation algorithm tailored for model training tasks. First, digital twin models for UAVs and satellites are constructed to enable real-time network state monitoring and decision support. Second, the joint optimization of task offloading, communication, and computing resources is formulated as a Markov Decision Process (MDP). By enhancing the actor network in the conventional DDPG method, the proposed algorithm dynamically balances training latency and energy consumption. Simulation results demonstrate that CC\_DDPG significantly outperforms benchmark heuristic algorithms in convergence stability and multi-objective optimization performance.}
 }
 
-@InProceedings{smythe13,
-    title = {Are Three Examples Sufficient?},
-    author = {Smythe, Byron and Gordon, Trent},
-    pages = {19-26},
-    abstract = {We empirically verify that, for the purposes of conveying the details of an abstract BibTeX specification, three example suffice. The related problem of whether three examples are necessary is left as future work.}
+@InProceedings{mlic25-03,
+    title = {Zero-shot object counting with visual feature extraction and language-guidance},
+    author = {Ma, Gaoxin and Zhu, Zhenfeng},
+    pages = {23-29},
+    abstract = {Zero - Shot Object Counting (ZSC) focuses on counting objects of any class in a query image without the need for user - supplied exemplars. Recently, ZSC has attracted growing interest because of its broad applicability and higher efficiency when contrasted with Few - Shot Object Counting (FSC). Different from FSC, a significant problem in existing ZSC methods is their failure to efficiently recognize high - quality exemplar features. In this paper, we propose a Zero-Shot Object Counting network with Visual Feature Extraction and Language-Guidance (VELG). Through the visual feature extraction module, we progressively fuse the scale and geometric information of the exemplars. Meanwhile, we introduce a language-guidance module that helps the exemplar learn informative image-level visual representations and refine the exemplar features using Contrastive Language-Image Pre-training. Extensive experiments on the FSC147 and CARPK datasets verify the accuracy and strong generalizability of the proposed approach.}
 }
 
-@InProceedings{vonHamburg13,
-    title = {Handling Prefixes and Suffixes in Names},
-    author = {von Hamburg, Hans and van der Petersburg, Pieter and de Gier, Willhelm and Hirst, Jr, Peter},
-    pages = {27-41},
-    abstract = {We demonstrate the ability of scripts to parse names containing prefixes such as 'van der' or 'von'. As a further extension, we consider suffices to names such as 'Jr' and 'III'.}
-}</pre>
+@InProceedings{mlic25-04,
+    title = {Cloud Resource Auto-Scaling Strategy Based on CNN-Lightweight Transformer},
+    author = {Zhang, Yue and Song, Chunhe},
+    pages = {30-35},
+    abstract = {  With the rapid development of cloud computing and containerization technologies, load forecasting has become increasingly important in resource management. This paper proposes a load forecasting model based on a lightweight Transformer and local convolution fusion, aiming to efficiently capture multi-scale features of complex loads while maintaining low computational overhead. Furthermore, this paper introduces a predictive error feedback and adaptive cooling period adjustment mechanism based on traditional Horizontal Pod Autoscaling (HPA), enhancing the system's adaptability to load variations by dynamically adjusting scaling strategies. Experimental results demonstrate that the proposed model excels in both load forecasting accuracy and scheduling stability, effectively balancing response speed and system robustness, providing an efficient solution for cloud resource management.}
+}
 
-    
-<h3 id="sectioned-proceedings">Sectioned Proceedings</h3>
+@InProceedings{mlic25-05,
+    title = {A Machine Learning Framework for Predicting Natural Product-Protein Interactions},
+    author = {Li, Jiabo and Gai, Shijie and Shen, Wenfeng  and Lei, Zhou},
+    pages = {36-45},
+    abstract = { Natural products (NPs) are valuable resources for drug development, but accurately predicting their interactions with protein targets remains challenging due to the limitations of existing methods, which primarily rely on either ligand-based approaches or hybrid feature-based methods that require protein pocket data. To address these limitations, we developed a Y-shaped machine learning framework that integrates NP structural data with protein sequence information. We constructed a comprehensive NP-protein interaction dataset and extracted features from NPs, including Atom Sequence Path (ASP), PubChem, and Extended Connectivity Fingerprints (ECFP), as well as protein features such as Amino Acid Composition (AAC), Conjoint Triad (CTriad), and Dipeptide Composition (DPC). Six machine learning models—Random Forest (RF), AdaBoost, XGBoost, K-Nearest Neighbors (KNN), Stochastic Gradient Descent (SGD), and Logistic Regression (LR)—were trained and evaluated. Experimental results demonstrated that NP-derived PubChem features and protein-derived DPC features were the most effective, with XGBoost achieving the best performance among all models. Our study provides an efficient and generalizable framework for NP-protein interaction prediction, significantly advancing the potential for drug discovery.}
+}
 
-<p> We also support publishing in sections. To publish your proceedings in sections, add the following field to the proccedings bibtex entry.</p>
 
-<pre><code>@Proceedings{...
- shortname = {ICE},
- sections = {Preface|Contributed Papers|Invited Papers}
-}</code></pre>
+@InProceedings{mlic25-06,
+    title = {{Enhancing Robustness in Multi-Step Reasoning: A Synergistic Approach Combining Planning with Reflective Self-Correction},
+    author = {Wang, Xinyuan and Wang, Danli and Zhang, Hehao and You, Bo and Li, Xueen and Gu, Yu},
+    pages = {46-56},
+    abstract = {Large Reasoning Models (LRMs) have significantly advanced complex problem-solving capabilities by incorporating extended chain-of-thought (CoT) reasoning. However, managing error propagation over long inference chains remains a critical challenge. In this work, we propose a novel self-supervised framework named \textbf{P}lanning and \textbf{Re}flective \textbf{S}elf-\textbf{C}orrection that integrates two complementary mechanisms: planning phase and reflection phase. The planning phase decomposes complex queries into streaming sub-problems and generates detailed reasoning trajectories, while the reflection phase leverages corrective feedback from erroneous outputs to refine these trajectories. The datasets sampled through these two mechanisms are used for self-supervised training, further reinforcing the LLM’s reasoning capabilities. Experiments conducted on the multi-hop Question Answering dataset demonstrate that our approach enhances the model's ability to generate coherent and accurate reasoning paths. Ablation studies further reveal the distinct contributions of planning and reflection to the overall performance. Our results suggest that integrating anticipatory planning with reflective self-correction provides a promising avenue for robust long-range inference in LRMs.}
+}
 
-<p>And then to each bibtex entry add a field defining the section e.g.</p>
 
-<pre><code>@InProceedings{smythe13,
-  title = ...
-  section = {Contributed Papers}
-}</code></pre>
-    
-<h3 id="openreview-links">Openreview</h3>
+@InProceedings{mlic25-07,
+    title = {Speech Enhancement for Headphones Based on Spectrum Subtraction and DMA},
+    author = {Yu, Jiaqi},
+    pages = {57-66},
+    abstract = {For headphone speech enhancement, traditional mono noise reduction methods, such as Wiener filter, have limited noise reduction effects and large computational costs, the directivity of the differential microphone array (DMA) is used to optimize the voice pickup and improve the signal-to-noise ratio of the input signal. Experimental simulation results show that the proposed method improves the output signal-to-noise ratio by 6dB under different output signal-to-noise ratios, and still has a 2dB speech enhancement effect under the condition of low signal-to-noise ratio of -5dB, and has strong anti-interference ability. The effect is stable in the background of broadband noise and low-frequency noise, which can better optimize the user's experience during call.}
+}
 
-<p> If you reviewed your proceedings using openreview, then you might like to have the reviews linked to from the proceedings. If you require this, you need to add a section to each bib entry specifying the openreview code. e.g.</p>
+@InProceedings{mlic25-08,
+    title = {Research on Part of Speech Enhanced Text Classification Based on Rotation Position Encoding and Hierarchical Features fusion Text Classification Text Classification},
+    author = {Li, Mingjian and Li, Huaiyang},
+    pages = {67-76},
+    abstract = {In response to the current problems of missing contextual information, incomplete feature representation, and difficulty in semantic parsing in text classification. This article proposes a text classification framework that combines feature fusion and vocabulary enhancement. Firstly, use WoBERT to encode the text, collect dynamic word vectors, and effectively integrate vocabulary into characters to enhance boundary interaction; Secondly, rotation position encoding is introduced into the character vector to obtain relative distance information between characters and improve feature embedding; Subsequently, to enhance the feature capture capability, the D-mixup structure was introduced to cross fuse the relative distance and CLS information, and continuously extract the global representation of the text in depth; Finally, the Multi Sample Dropout method is used to calculate the loss of multi-level mixed global representations, improving the learning ability of the model. In the experiments on the THUCnews and SMP2020 datasets, the F1 values of the proposed model were 94.72\% and 78.38\%, respectively, indicating better performance than the current research methods. This indicates that the model proposed in this article can effectively improve generalization and robustness, enhance text classification performance, and is easy to implement, providing reference ideas for future research.}
+}
 
-<pre><code>@InProceedings{smythe13,
-  title = ...
-  openreview = {zaMwvOjsyym}
-}</code></pre>
-    
-<h3 id="software-links">Software Availability</h3>
 
-<p>Many papers have associated code provided. You can provide a link to a url that specifies the code. If you require this, you need to add a section to each bib entry specifying the openreview code. e.g.</p>
+@InProceedings{mlic25-09,
+    title = {YOLOv11-based Flame Recognition Algorithm Utilizing a Fusion Dual-stream Attention Mechanism},
+    author = {Gong, Rui and Li, Qiang and Li, Jingyu},
+    pages = {77-86},
+    abstract = {Flame change characteristics are affected by ignition source, air pressure, wind direction and other factors, and the traditional method describes the problems of leakage, false alarm and poor real-time performance. Vision-based image detection is one of the important means to solve the above problems. Therefore, a YOLOv11 optimized flame detection algorithm is proposed. First, the feature extraction PCF module is designed to enhance the characterization of different layers of feature maps. Second, the model incorporates the dual-stream mechanism attention mechanism to improve the attention to different scale features. Finally, the model introduces an improved Focal Loss function to optimize the regression accuracy and network robustness in the prediction region. The model is subjected to comparative experiments on the Flame public dataset. The results show that the improved model performs well for flame smoke detection in complex scenarios, reaching 49.6\% on mAP50 and 18.9\% on mAP75, which is an improvement of 2\% and 8\% in accuracy compared to the original YOLOv11 model.}
+}
 
-<pre><code>@InProceedings{smythe13,
-  title = ...
-  software = {https://github.com/SheffieldML/GPy}
-}</code></pre>
 
-<h3 id="video-links">Video Availability</h3>
+@InProceedings{mlic25-10,
+    title = {Low-Dose CT Reconstruction Based on Fused State-Space Modelling},
+    author = {Liu, Yucong and Zhao, Zhe and Xu, Dandan and Lin, Yusong},
+    pages = {87-93},
+    abstract = {Low-dose CT is widely used in medical imaging, but reducing the radiation dose introduces noise that affects image quality. To this end, we propose a low-dose CT reconstruction method based on fused state-space modelling, which uses the FuseSSM module to extract contextual information in the spatial and channel domains, balances short-range and long-range sensitivities, and introducesthe Axial Attention mechanism to reduce the computational complexity, while enhancing the remote-dependent modelling and global texture consistency. The experiments validate the model on the Mayo-2016 dataset, which outperforms the comparative methods in PSNR, SSIM and RMSE metrics, showing good potential for clinical applications.}
+}
 
-<p>Please don't send videos as supplementary material. Instead you can provide a link to a url that specifies the video location. If you require this, you need to add a section to each bib entry specifying the openreview code. e.g.</p>
 
-<pre><code>@InProceedings{smythe13,
-  title = ...
-  video = {https://www.youtube.com/watch?v=01z6agTRvOo}
-}</code></pre>
+@InProceedings{mlic25-11,
+    title = {Multi-instance Causal Representation Learning-based Network for Glioma Grading},
+    author = {Zhang, Hanbing and Zhao, Guohua and Lin, Yusong},
+    pages = {94-99},
+    abstract = {Gliomas are the most common primary intracranial malignant tumors, characterized by high heterogeneity, recurrence, and mortality. Accurate grading is essential for treatment planning and prognosis assessment. MRI, as a non-invasive modality, is widely used, but traditional diagnosis depends on expert experience, leading to subjectivity and inefficiency. AI-based automatic grading has made progress, yet challenges persist due to tumor boundary ambiguity, structural heterogeneity, and the ``black box" nature of AI models, limiting robustness, generalization, and interpretability. To address these issues, this study proposes a multi-instance causal representation learning-based network for glioma grading (MCRNet). MCRNet employs multi-instance learning to aggregate MRI slice features, effectively handling tumor heterogeneity. The causal-aware attention mechanism (CAAM) and causal-aware dynamic aggregation mechanism (CDAM) enhance feature selection and aggregation efficiency. Evaluated on BraTS2020 and a private clinical dataset, MCRNet improves robustness, generalization, and interpretability. It minimizes the performance gap between validation and test sets, reducing the AUC difference by up to 3.21\% compared to existing methods, demonstrating its potential for reliable clinical application.}
+}
 
-    
-<div class="footnotes">
-<hr />
 
-</div>
+@InProceedings{mlic25-12,
+    title = {Research on the Emotional Classification Model of Online Public Opinion Based on Complex Contexts},
+    author = {Ren, Qinyu and Zhang, Zhiming and Qiu, Xiaohua},
+    pages = {100-110},
+    abstract = {Under the backdrop of the information explosion and the accelerated pace of globalization, online public opinion has become an important channel for reflecting social dynamics and public attitudes. With its huge volume of information, rapid dissemination, diverse viewpoints and ambiguous correlations, it is difficult for traditional sentiment analysis methods to cope with it. This paper aims to construct a sentiment analysis model for online public opinion that can adapt to complex contexts. By means of the Scrapy crawler framework, the public opinion data about the ``problematic vaccines" on Sina Weibo is collected. A convolutional neural network situational awareness classification model that combines spatial features and word vectors is proposed. Firstly, preprocessing is carried out based on the spatial distribution characteristics of words in the text. Then, word vectors are constructed based on sentiment features. Finally, the model is constructed and trained. Through comparison with models such as Linear SVM and CNN+Skip-gram, the results show that this model has a certain improvement in both accuracy and recall rate. This paper provides more effective decision-making support and theoretical reference for the analysis of online public opinion, and realizes the improvement of the sentiment classification model in complex contexts.}
+}
 
-    </div>
-</div>
+
+@InProceedings{mlic25-13,
+    title = {Small Sample Patents Classification Task Based on Mengzi-BERT-base Single Model},
+    author = {Huang, Hao and Liu, Yi},
+    pages = {111-118},
+    abstract = {Small sample data classification faces challenges such as data scarcity, overfitting risks, and feature representation learning. In order to tackle these challenges, the present study proposes a transfer learning methodology that leverages the insights gained from extensive datasets or pre-trained models to enhance the model's capacity for generalization. Furthermore, meta-learning methodologies facilitate the rapid adaptation of models to novel tasks using a limited number of samples by employing strategies that enhance the learning process itself. Concurrently, data augmentation techniques enhance both the diversity and volume of samples through the synthesis, expansion, or transformation of small datasets, thereby augmenting the model's generalization capabilities. The paper also presents an active learning method that uses the uncertainty and information gain of the model to automatically select the most valuable samples for labeling to optimize the training effect of the model. It solves the problem of obtaining large-scale annotated data in many practical scenarios, and provides efficient classification and analysis of small amounts of annotated data. Moreover, it serves as the basis of zero-sample learning, which has important knowledge transfer and application value. The paper concludes by showing that the proposed approach outperforms existing methods on a benchmark dataset, demonstrating its effectiveness in addressing the challenges of small sample data classification.}
+}
+
+
+
+@InProceedings{mlic25-14,
+    title = {MUnet-Lite: A Mamba-Based Lightweight Network for Efficient Abdominal Image Segmentation},
+    author = {Hou, Ziyang and Zhao, Zhe and Lin, Yusong},
+    pages = {119-124},
+    abstract = {The human abdomen houses multiple vital organs, and medical imaging technology precisely captures pathological features, providing a foundation for clinical diagnosis and treatment. High-precision abdominal image segmentation is crucial for lesion localization, organ measurement, and surgical planning. However, existing methods face challenges in local feature extraction and multi-scale information modeling. To overcome the limitations of Transformer-based approaches, such as insufficient local information perception, large model size, and high computational cost, we propose MUnet-Lite, a lightweight segmentation model. It combines the Mamba method with a U-Net architecture, incorporating a residual spatial modeling unit for enhanced feature extraction and an efficient decoding unit to reduce computation. Experiments on the Synapse dataset show that MUnet-Lite achieves a Dice score of 83.79\% and a Hausdorff distance of 16.43mm, with only 26.71M parameters and 925.9 GFLOPs, significantly lowering computational cost while maintaining high segmentation accuracy. This provides a practical solution for real-world applications.}
+}
+
+
+
+@InProceedings{mlic25-15,
+    title = {Decoding Olympic Glory: A Data-Driven Approach to Medal Predictions and Strategic Insights},
+    author = {Dong, Peijun and He, Mingtao and Xu, Zengrui},
+    pages = {125-131},
+    abstract = {The objective of this study is to investigate the potential of data science and machine learning to find optimal performance levels for athletes and maximize strategies for national improvement. Utilizing Olympic data from 1986 to 2024, it implements the Fusion Medal Prediction Model (FMPM) to assist decision-making for athletes and coaches. Initially, we establish the XG-Prophet Model to forecast the 2028 Olympic medal table with MAE equals to 1.09/0.95/1.12/2.24 for gold/silver/bronze/total medals respectively. Additionally, GRU-ARIMA + XGBoost (Fusion Learning, ROC-AUC: 0.917) to identify the first winner. Furthermore, we explore medal distributions based on event types, employing K-means clustering to observe different contributions by country and finds that field and swimming events are key across all countries but with varying importance. An examination of event selection on a country-to-country basis through correlation shows that if the host country selects stronger events, even potentially favoring those in which they can excel, their numbers of medals naturally increase.}
+}
+
+
+@InProceedings{mlic25-16,
+    title = {Structure Interaction Dehazing Network Combined with YCbCr Color Space for Real-World Image Dehazing},
+    author = {Zhao, Fengnian and Lv, Kai},
+    pages = {132-143},
+    abstract = {Dehazing in the RGB space often causes artifacts and detail blurring due to the difficulty in separating luminance and color. Traditional encoder-decoder models also suffer from semantic discontinuity and insufficient multi-scale feature interaction. To address these issues, we propose a novel method called the Structure Interaction Dehazing Network (SIDN), which leverages the advantages of the YCbCr color space in separating color and luminance to guide RGB feature extraction. SIDN consists of two core components: the Dual-space Feature Branch (DFB) and the Cross-Feature Block (CFB). The DFB integrates YCbCr features through the Phase Fusion Module (PFM) and Density-aware Feature Extraction Block (DFEB), enhancing texture recovery and guiding RGB feature reconstruction. The CFB improves multi-scale feature interaction and semantic alignment through an enhanced cross-layer mechanism. Experimental results show that SIDN achieves a 1.25dB improvement in PSNR and SSIM metrics on real-world datasets compared to previous methods, and also outperforms the latest methods in terms of FADE and NIQE metrics.}
+}
+
+
+@InProceedings{mlic25-17,
+    title = {Enhanced YOLOv8-Based Lightweight Algorithm for Flame Detection},
+    author = {Duan, Shichen and Zhou, Jun},
+    pages = {144-154},
+    abstract = {This paper presents an enhanced real-time lightweight fire flame detection algorithm based on improved YOLOv8n. To address the challenges of flame detection in complex scenarios, the algorithm integrates the RVB Block and EMA attention mechanism into the YOLOv8n backbone, enhancing its ability to capture fire features accurately. Additionally, a lightweight Slim-Neck structure is introduced to reduce computational complexity and parameters, facilitating embedded deployment. The proposed WiseIoU loss function further accelerates convergence and optimizes bounding box loss. Experiments demonstrate that the improved algorithm achieves a precision rate of 97.7\%, a mAP@50 of 98\% and a recall rate of 94.4\%, with a 16\% reduction in parameters and a 1.7 reduction in GFLOPs. The algorithm's lightweight nature and high accuracy provide strong technical support for early fire warning and control.}
+}
+
+
+@InProceedings{mlic25-18,
+    title = {A Visual SLAM Algorithm for Indoor Dynamic Scenes Based on Semantic Feature Screening},
+    author = {Wang, Yao and Pan, Changzhong and Huang, Hao},
+    pages = {155-163},
+    abstract = {This study innovatively proposes a dynamic scene SLAM al- gorithm that integrates semantic feature filtering mechanism to address the problems of large positioning deviation and dense map artifacts in visual SLAM systems in indoor dynamic environments. In the track- ing module of the ORB-SLAM3 framework, this algorithm introduces a lightweight YOLOv11-seg neural network for scene semantic analysis and target area calibration. Through semantic information, depth data, and geometric relationships, feature point motion state discrimination is achieved, and a high-precision dynamic feature filtering algorithm is developed. To verify the performance of the algorithm, benchmark tests were conducted on the TUM dataset of the Technical University of Mu- nich. Comparative experimental data showed that in the high dynamic conditions of the TUM testing scenario, this scheme achieved significant improvement in trajectory tracking accuracy, and its positioning per- formance was significantly better than the current mainstream dynamic SLAM technology.}
+}
+
+
+@InProceedings{mlic25-19,
+    title = {6D Pose Estimation of Camera Based on the Fusion of Checkerboard and ICP Algorithm},
+    author = {Li, Ziqiang and Fu, Siyv and Liao, Wenxing and Wu, Tao},
+    pages = {164-170},
+    abstract = {Nowadays, camera pose estimation, as a core technology in the field of 3D vision, plays a crucial role in various applications such as autonomous driving. This paper presents a camera pose estimation method that combines checkerboard pattern and ICP (Iterative Closest Point) algorithm. Based on the chessboard calibration plate captured by the mobile camera, by extracting two-dimensional feature points through pixel-level corner detection and then performing sub-pixel optimization on the feature points, and then precisely matched with the three-dimensional point cloud data obtained by the Gemini2 depth camera. A registration model based on the ICP algorithm is constructed to simultaneously solve the rotation matrix and translation vector of the camera. The experimental results demonstrate that this method exhibits high accuracy and achieves a root mean square error (RMSE) of 0.0109 and the fitness is 1. By merely utilizing 40 key feature points (derived from an 8×5 checkerboard), this method reduces the computational load, enables ICP to converge within 40 iterations, and enhances the real-time efficiency.}
+}
+
+
+
+@InProceedings{mlic25-20,
+    title = {A Review of Dynamic Facial Expression Recognition: Methods, Datasets and Directions},
+    author = {Nie, Xuantao and Fei, Zixiang and Zhou, Wenju and Fei, Minrui},
+    pages = {171-180},
+    abstract = {Dynamic facial expression recognition (DFER) has emerged as an essential area of research in computer vision, with implications in human-computer interaction, psychological analysis, and security. Although image-based static facial expression recognition (SFER) is well-developed, DFER captures temporal dynamics, remains less explored. This paper comprehensively reviews DFER, focusing on feature extraction methods from traditional handcrafted features to advanced deep learning techniques, analyzing performance metrics, and examining publicly available datasets with their comparative characteristics. We discuss specific challenges faced by DFER systems such as occlusion, pose variations, and temporal alignment. Finally, we explore promising applications in healthcare and human-computer interaction, providing concrete implementation strategies and future research directions.}
+}
+
+
+
+@InProceedings{mlic25-21,
+    title = {YOLOv5n-ShuffleNetv2: A Lightweight Transmission Line Insulator Defect Detection Algorithm},
+    author = {Luo, Wanbo},
+    pages = {181-188},
+    abstract = {Insulators represent a pivotal component of transmission lines, with their functionality directly impacting the reliable operation of the power grid. Current insulator defect detection algorithms face significant challenges, including low accuracy and long latency, which hinder their practical application in the timely and reliable maintenance of power systems. Therefore, this paper proposed a lightweight detector to minimize the model’s parameters and calculations. First, the YOLOv5n algorithm was chosen as the foundation for the detection system's lightweight design. Second, the ShuffleNetv2 backbone replaced the YOLOv5n backbone to further lightweight the model. Experimental results showed that the proposed YOLOv5n-ShuffleNetv2 model achieved 84.5\% mAP50 at 87.7 FPS using the Nvidia Jetson Orin Nano 4G. Although the accuracy decreased by 4.1\%, the model achieved a 44.7\% reduction in the number of parameters and a 22\% increase in detection speed, demonstrating a significant improvement in efficiency and practicality.}
+}
+
+
+@InProceedings{mlic25-22,
+    title = {Research on gesture recognition based on YOLOv8},
+    author = {Yang, Yang},
+    pages = {189-196},
+    abstract = {Recognizing gestures quickly and accurately has always been a research topic that has attracted much attention. However, existing gesture recognition algorithms still face two challenges. The computational complexity and parameters of gesture recognition deep learning models are often numerous, making them difficult to deploy on resource-limited embedded devices. Secondly, the deep learning model for dynamic gesture recognition is still insufficient in its ability to extract location spatial features. To solve the above problems, this paper proposes a gesture recognition algorithm based on an attention mechanism. First, You Only Look Once (YOLO) v8n lightweight object detection algorithm was selected to reduce parameters and calculations. Furthermore, the Multi-Head Self-Attention (MHSA) model was integrated into the YOLOv8n network to enhance the feature extraction capabilities from the position and spatial dimensions. Experimental results demonstrated that the proposed algorithm achieved 99.2\% accuracy, surpassing by 1.1\% compared to the original algorithm. Furthermore, it had a 233 FPS detection speed on the Nvidia RTX 3070 GPU.}
+}
+
+
+@InProceedings{mlic25-23,
+    title = {YOLOv5n-MobileNetv4: A Lightweight Crop Pest Detection Algorithm},
+    author = {Yang, Qin},
+    pages = {197-204},
+    abstract = {Pests significantly impact crop quality and yield, making their management crucial for agriculture. The real-time and accurate identification of agricultural pests is essential for implementing effective pest control measures, ensuring timely intervention, and minimizing crop losses. Existing pest detection systems face challenges such as low accuracy and excessive parameters, which hinder their efficiency and practicality in real-world applications. Therefore, this paper proposed a real-time pest detector for embedded devices by combining the state-of-the-art mobile device-based MobileNetv4 and lightweight You Only Look Once (YOLO) v5n object detection algorithms, achieving high efficiency and performance. The proposed YOLOv5n-MobileNetv4 model replaced the YOLOv5n backbone with the MobileNetv4 backbone, effectively reducing parameters while maintaining high detection accuracy. Experimental results showed that the improved model achieved 82.1\% mAP50 at 87.7 frames per second (FPS). It achieved a 36.2\% reduction in parameters and a 31.1\% increase in speed, with a slight accuracy drop.}
+}
+
+
+
+@InProceedings{mlic25-24,
+    title = {Application of Genetic Algorithm-Optimized Backpropagation Network in Library Energy Consumption Prediction},
+    author = {Tian, Xiangyu and Xie, Haiyan},
+    pages = {205-211},
+    abstract = {The development of building energy consumption prediction models is crucial for achieving sustainable development in the construction industry; however, establishing rational, accurate, and efficient models to promote energy conservation and enhance energy utilization efficiency remains a challenge. This study takes libraries as a representative building type, selecting operational hours, humidity, maximum temperature, occupancy density, and solar irradiance as key influencing factors to construct a Genetic Algorithm-optimized Backpropagation (GA-BP) neural network for energy consumption prediction. Comparative experiments with a standard Backpropagation (BP) neural network, Regularized Radial Basis Function (RRBF) neural network, and Generalized Radial Basis Function (GRBF) neural network demonstrate the superior fitting performance of the GA-BP model, providing reliable scientific support for library energy management and offering a practical framework for energy-efficient building operations.}
+}
+
+
+
+
+@InProceedings{mlic25-25,
+    title = {Event-Based Binary Neural Networks for Efficient and Accurate Lip Reading},
+    author = {Zhang, Xueyi and Sun, Jialu and Zhu, Peiyin and Wang, Bowen and Lao, Mingrui and Guo, Yanming },
+    pages = {212-221},
+    abstract = {Event cameras provide exceptional temporal resolution and consume minimal power, making them highly suitable for lip reading tasks. However, traditional methods struggle with the high computational costs of processing asynchronous event streams. We propose STCNet, a spatio-temporal convolutional network optimized for event-driven lip reading, and its binary counterpart B-STCNet,which results in a substantial reduction in computational and memory resource requirements. B-STCNet introduces Kernel-Specific Scaling Factors to bridge the performance gap induced by binarization and adopts quantization-aware training to enhance model stability. Evaluated on the DVS-Lip dataset, B-STCNet achieves state-of-the-art accuracy with over 90\% reduction in parameters and 50\% fewer FLOPs, demonstrating its potential for deployment on resource-constrained edge devices.}
+}
+
+
+
+@InProceedings{mlic25-26,
+    title = {A Study on Japanese-English Machine Translation Based on Large Language Models and Post-Editing Strategies},
+    author = {Wang, Sirui and Li, Xiang},
+    pages = {222-228},
+    abstract = { This study investigates the role of post-editing in enhancing neural machine translation (NMT) quality, focusing on Japanese-to-English translations in the Information and Communication Technology (ICT) sector. By analyzing outputs from three NMT platforms (DeepSeek, Youdao, DeepL) against an official benchmark, the research identifies persistent challenges, including inconsistent terminology (e.g., ``critical infrastructure" vs. ``core facilities"), tense inaccuracies (``had been restored" vs. ``have returned"), and omissions of technical annotations (e.g., ``Hikari (fiber-optic)"). While DeepL and DeepSeek demonstrate superior semantic and structural fidelity, their outputs require adjustments to align with domain-specific standards. The proposed post-editing framework prioritizes terminological alignment with authoritative references, temporal precision to emphasize ongoing actions, and structural coherence to restore source-text logic. Full post-editing is advocated for formal contexts to achieve human parity, whereas light post-editing suffices for rapid delivery with minimal quality compromises. Industry data highlights the dominance of the ``machine translation + post-editing" model, adopted in 30.4\% of projects in 2023, underscoring its efficiency and cost-effectiveness. However, human expertise remains irreplaceable in addressing nuanced challenges such as cultural adaptation and contextual dependencies. The study concludes by advocating for AI-augmented post-editing tools to streamline workflows while preserving the ``humanistic core" essential for high-stakes translations. This synergy between technological advancement and human judgment is critical for advancing translation quality in the AI era, particularly in high-demand sectors like ICT.}
+}
+
+
+@InProceedings{mlic25-27,
+    title = {Research on the Intelligent Screening Algorithm for College Faculty Recruitment Based on BiGRU-attention},
+    author = {Gai, Shirui},
+    pages = {229-239},
+    abstract = {With the rapid development of higher education, university faculty recruitment is facing increasing pressure to resume screening. Traditional screening methods are inefficient and highly subjective, making it difficult to meet the needs of universities for outstanding talent. This study aimed to construct an intelligent screening model based on the Bidirectional Gated Recurrent Unit (BiGRU) and attention mechanism to improve the efficiency and accuracy of university faculty recruitment. First, a large amount of university faculty recruitment resume data were collected and preprocessed to construct a high-quality dataset. Subsequently, the BiGRU model was introduced to deeply mine the text features of the resumes. By taking advantage of its ability to effectively process sequential data and capture contextual information, the model enhances the ability to extract key information from resumes. Simultaneously, combined with the attention mechanism, the model could focus on important features, further improving the screening accuracy. The experimental results showed that the constructed BiGRU-attention model performs excellently in the task of screening university faculty recruitment resumes. Compared with traditional methods, it significantly improved indicators such as the accuracy and recall rate. It could provide more efficient and intelligent decision support for university recruitment work, help universities select outstanding teaching talents that better meet job requirements, and promote the construction of teaching staff in higher education.}
+}
+
+
+
+
+@InProceedings{mlic25-28,
+    title = {Design and Implementation of Lightweight Fitness System Based on Mediapipe Framework},
+    author = {Shi, Jialei and Lin, Ruohan and Zhou, Bohao},
+    pages = {240-250},
+    abstract = {With the development of the social economy, people are paying increasing attention to personal health and regard fitness as an essential way to improve physical quality. However, China has a large population and cannot provide high-quality physical education for everyone, facing enormous logistical and resource challenges. Therefore, this study designed a lightweight, intelligent fitness system based on Mediapipe and OpenCV, which offers high adaptability, portability, and a lightweight design, particularly for micro mobile devices. The system can provide users with more convenient, personalized, and efficient training methods. This paper offers an in-depth introduction to the functional framework and development details of the system and conducts functional testing and comparison. According to the experimental results, the system shows good performance, stable operation, and high recognition rate, achieving the expected experimental goal.}
+}
+
+
+
+@InProceedings{mlic25-29,
+    title = {DCRes2Net: Enhanced Res2Net with Dimensional Feature Fusion for Speaker Verification},
+    author = {Li, Ya and Zhou, Bin and Hu, Bo},
+    pages = {251-259},
+    abstract = {Many classical convolutional architectures have been introduced to the field of speaker verification; however, solely employing one-dimensional or two-dimensional convolutions is insufficient for efficiently modeling speaker features. To address this limitation, this paper introduces a multi-dimensional feature fusion strategy and presents an enhanced Res2Net architecture based on dimensional feature fusion. Different feature modeling techniques complement each other, fully leveraging their respective advantages in temporal and spatial feature extraction to achieve comprehensive representation of multi-dimensional data. Experiments conducted on the VoxCeleb dataset demonstrate that the proposed architecture achieves competitive performance along with robust generalizability.}
+}
+
+
+
+@InProceedings{mlic25-30,
+    title = {Review of Research on Artificial Intelligence-Based Carbon Emission Prediction},
+    author = {Wang, Weixian and Zhang, Lu and Pan, Mingyu and Zhuo, Jie and Lu, Sirui},
+    pages = {260-269},
+    abstract = {Under the global climate governance framework, carbon emission prediction has emerged as a pivotal technology for low-carbon energy transition. This review systematically examines the advancements in artificial intelligence-based carbon emission forecasting, revealing the evolutionary dynamics between traditional statistical methods and data-driven models. A novel ``data-model-scenario" triadic analytical framework is proposed to deconstruct core challenges in this field. The study demonstrates that conventional approaches (e.g., ARIMA, grey models) exhibit structural deficiencies in high renewable energy penetration scenarios, including poor adaptability to abrupt changes and low cross-source data integration efficiency ($<$60\%). In contrast, data-driven methods (XGBoost, LSTM, Transformer) achieve significant accuracy improvements through dynamic modeling and feature decoupling. Hybrid paradigms integrating physical constraints and multimodal alignment show promise in bridging the mechanism-data gap, yet face persistent challenges: inefficient multi-source data fusion (feature alignment success rate $<$60\%), delayed response to sudden scenarios (recovery time $>$30 minutes), and computational-precision tradeoffs in edge deployment. The paper proposes a ``dual-driven" evolutionary path for hybrid modeling and constructs a multi-scale scenario linkage matrix, providing theoretical guidance for next-generation prediction frameworks. Emerging technologies such as digital twins and federated meta-learning are highlighted as critical directions for future research.}
+}
+
+
+@InProceedings{mlic25-31,
+    title = {Road Sign Detection in Extreme Weather Conditions},
+    author = {Zhang, Jianhui and Wei, Kun and Wei, Wenqing and Muzdybayev, Murat},
+    pages = {270-277},
+    abstract = {In road traffic sign detection, the low detection precision of road traffic signs in the detection screen is attributed to their small proportion and adverse weather conditions, such as fog, snow, and nighttime. To enhance the detection precision of road signs in extreme weather, this paper proposes an algorithm based on a lightweight improvement of YOLOv8n, referred to as FRPP-YOLOv8n (FFA-Net-RFAConv-PSA-P2-YOLOv8n). Firstly, the improved lightweight FFA-Net module is incorporated to dehaze the images. Secondly, RFAConv (Receptive-Field Attention convolutional operation) is introduced to enhance network performance. The PSA (Partial self-attention) mechanism is employed to improve detection precision, and finally, a small target detection layer is added to enhance the detection precision of small targets. The experimental results indicate that the improved algorithm achieves 53.4\% mAP50-95 and 82.1\% mAP50 on the CCTSDB2021 traffic sign dataset, which is an increase of 4.5\% for both metrics compared to the original algorithm. Additionally, it maintains a high precision rate of 91.3\%, representing a 4\% improvement over the original algorithm.}
+}
+
+
+
+@InProceedings{mlic25-32,
+    title = {The Remaining Useful Life Prediction of Bearings Based on ICPO-TCN},
+    author = {Tian, Jiayu and Liang, Tiantian and Ma, Zhuangzhuang},
+    pages = {278-288},
+    abstract = {In modern industrial equipment maintenance management, bearings, as key rotating components, perform a crucial role in maintaining the stable performance of machinery. Therefore, this paper proposes a bearing Remaining Useful Life (RUL) prediction method based on the Improved Crested Porcupine Optimizer-Time Convolutional Network (ICPO-TCN). Firstly, the improved crested porcupine optimizer (ICPO) is used to search for the best number of modes and penalty factor in VMD, enabling the selection of effective components for signal reconstruction, noise reduction, and enhanced time-frequency feature extraction. A feature dataset is then constructed by combining the selected time-domain and frequency-domain characteristics. Next, reducing the dimensionality by kernel principal component analysis (KPCA), which is then used as input for the TCN model. Finally, ICPO is again employed to optimize the convolution kernel size and learning rate of the TCN to improve RUL prediction accuracy. Experimental results demonstrate that ICPO-TCN outperforms traditional TCN and LSTM models, achieving higher prediction accuracy.}
+}
+
+
+@InProceedings{mlic25-33,
+    title = {Underwater Object Detection via Structural Pruning of YOLOv7},
+    author = {Liu, Junjie and Li, Zhanying and Wang, Zijun and Liu, Longhui},
+    pages = {289-297},
+    abstract = {This study addresses the challenge of deploying object detection models in resource-constrained underwater environments by optimizing YOLOv7 through pruning techniques.Underwater detection faces limitations due to low-light conditions, water turbidity, and mobile device constraints.The proposed method applies channel pruning to YOLOv7, strategically removing low-weight channels to reduce computational load and parameter count while maintaining accuracy.Comparative experiments evaluated pruning rates (0\%, 20\%, 40\%, 50\%, 60\%, 80\%) on the UPRC dataset, focusing on sea urchins, scallops, sea cucumbers, and starfish.Results showed that a 50\% pruning rate achieved optimal balance: mAP increased by 2.3\% (from 83.8\% to 85.7\%), while parameters and computations reduced to one-fourth of original values.}
+}
+
+
+@InProceedings{mlic25-34,
+    title = {PatchPrune: Reducing Hallucinations in Vision Language Models by Pruning Redundant Image Patches},
+    author = {Liu, Changyan},
+    pages = {298-304},
+    abstract = {Large language models (LLMs) have advanced significantly in natural language processing, and vision language models (VLMs) have extended this progress to tasks like image captioning and visual question answering (VQA). Despite this success, VLMs often generate hallucinated or factually inconsistent contents. Traditional methods focus on improving model reasoning by modifying the inference procedure, but we propose a new approach: PatchPrune, which dynamically prunes redundant or uninformative image patches, using a composite importance score based on activation magnitude and feature entropy. As shown in Figure  By reducing input noise, PatchPrune enables the model to focus on relevant features, improving the accuracy and reliability of its outputs. Experimental results show that PatchPrune enhances multimodal reasoning and mitigates hallucinations effectively.}
+}
+
+
+
+@InProceedings{mlic25-35,
+    title = {Few-Shot Object Detection via  Decoupled and Balanced Contrastive Learning},
+    author = {Kang, Pengxin and Cui, Yuyong and Cao, Xiaohe and Li, Dong and Luo, Zhenbao and Jiang, Huhai and Zhang, Qi and Shi, Yi and Tang, Zhonghe},
+    pages = {305-312},
+    abstract = {Abstract. Only a few training examples are used for object detection task, and The productivity of the neural network model will show a dramatic decrease. Countless approaches to few-shot object detection (FSOD) have been formulated to solve the problem with a fine-tuning mechanism. Whereas those methods usually result in misclassification of novel classes and are biased in favor of base classes. For coping with this problem, we advance a fine-tuning learning framework with decoupled and balanced contrastive schemes(FSDB). More precisely, we first incorporate supervised contrastive learning with a decoupled loss to obtain a more outstanding performance for novel classes. Based on the decoupled supervised contrastive learning, we  then put forward a class-balanced learning technique to resolve the issue of unequal sample distribution of base and new classes in the fine-tuning procedure. Rigorous experiments conducted on PASCAL VOC and MS-COCO datasets indicate that the presented technique has obtained excellent results for FSOD tasks.}
+}
+
+
+@InProceedings{mlic25-36,
+    title = {Analysis of Learning Factors and Academic Performance of Non-Elite Students Using Machine Learning Models},
+    author = {Yang, Guangda and Zhang, Hongfei and Pang, Yongjiao and Luo, Suning},
+    pages = {313-321},
+    abstract = {This study applies machine learning models, including logistic regression, random forest, support vector machine (SVM), and XGBoost, to analyze and predict the final grades of non-elite university science students. The data includes attendance, note-taking scores, homework scores, quiz scores, and screen-cutting behavior. The results indicate that quiz scores, homework scores, and note-taking scores are the key factors for predicting final grades, with a particular impact from mid-term and pre-final quiz scores. SVM performs well in predicting students at risk of failing, while random forest and XGBoost show stronger stability in handling complex data. Analysis of the importance analysis reveals that students’ engagement, such as quiz and homework scores, is strongly correlated with final grades. The findings suggest that machine learning can effectively identify students at academic risk, providing data support for educational interventions. Future research could integrate more student behavior data and sentiment analysis to further improve prediction accuracy.}
+}
+
+
+@InProceedings{mlic25-37,
+    title = {An Improved YOLOv11 Algorithm For Traffic Sign Detection},
+    author = {Chen, Qianlong and Zhu, Changming and Li, Hengbin},
+    pages = {322-330},
+    abstract = {As an important part of the Intelligent Transportation System (ITS), traffic sign recognition is of great significance for ensuring driving safety and improving traffic efficiency. This paper proposes a method that incorporates three modules, namely Adaptive Spatial Feature Fusion (ASFF), Spatial and Channel Synergistic Attention (SCSA), and Omni-Dimensional Dynamic Convolution (ODConv), into YOLOv11, aiming to enhance the performance of traffic sign detection. By enhancing the adaptability of feature scales through ASFF, optimizing feature extraction and fusion with SCSA, and strengthening the convolution operation with ODConv, the research results effectively improve the recognition accuracy and speed of various road signs on complex roads. Experimental results show that this integrated model outperforms the original YOLOv11 model and other comparative models in the traffic sign detection task, providing a more effective detection solution for the intelligent transportation field.}
+}
+
+
+
+@InProceedings{mlic25-38,
+    title = {An object detection algorithm for complex urban scenarios based on YOLOv11},
+    author = {Yuan, Wenshuai and Zhu, Changming},
+    pages = {331-340},
+    abstract = {In recent years, with the rapid development of fields such as autonomous driving and intelligent transportation, the detection of pedestrians and vehicles in complex urban scenarios has become a hot topic in the field of object detection. However, these complex urban scenarios pose significant challenges to object detection. This paper proposes an improved algorithm based on YOLOv11, namely the YOLOv11 - APAS - MDC algorithm for object detection in complex urban scenarios on the Urban Environment Detection dataset. The aim is to enhance the accuracy and robustness of detecting pedestrians and vehicles under conditions such as occlusion and multi - scale targets in complex urban environments. This paper proposes a multi - scale edge information enhancement module called APAS based on the YOLOv11 basic model. This module highlights important edge feature information and can improve the model's perception ability of multi - scale features. Secondly, this paper presents the MDC module. By using convolutional layers with different dilation rates, this module can extract features at different scales. In addition, this paper introduces the RepGFPN feature network. This network re - parameterizes the structure and reduces redundant operations. Through a more complex cross - layer connection mechanism, it enhances the interaction of features at different levels, thereby improving the performance and efficiency of the detection model. The experimental verification results on the Urban Environment Detection dataset show that the improved algorithm in this paper outperforms the traditional YOLOv11 algorithm in terms of detection accuracy and robustness under conditions such as occlusion and multi - scale targets. }
+}
+
+
+@InProceedings{mlic25-39,
+    title = {CleanBattack: A Clean-Label Text Backdoor Attack with Limited Information},
+    author = {Li, Huahui and Xiong, Xi and Yv, Yan and Li, Zhongzhi},
+    pages = {341-349},
+    abstract = {As a new security threat against deep neural networks (DNNS), backdoor attacks have been widely studied in the field of Natural Language Processing (NLP). By providing poisoned training data, the attacker injects hidden backdoors into the victim model, which causes the victim model to behave normally on normal inputs but produce attatter-specified malicious outputs on poisoned inputs embedded with special triggers. Backdoor attacks that inject data that appears to be labeled correctly to bypass human inspection are often referred to as clean label attacks." However, the existing clean label attacks have some limitations, such as requiring a high proportion of poisoned samples, relying on explicit triggers, or difficult to obtain complete training data.
+In this paper, we propose CleanBattack, a clean label backdoor attack that only requires knowledge of the target category of training data, designs precise vectors as triggers, and combines synonym replacement to achieve attack injection. The experimental results show that the attack success rate of CleanBattack is 6.3\%and 15.9\%higher than that of the baseline, and the clean accuracy rate is 0.8\%and 0.9\%higher than that of the baseline, which proves that the method has significant advantages in concealment and effectiveness, expands the application scope of clean label attack, and makes existing defense methods have failure risk.}
+}
+
+
+
+@InProceedings{mlic25-40,
+    title = {Self-Supervised Learning of ECG and PPG Signals for Multi-Modal Health Monitoring},
+    author = {Liu, SiChang and Wang, Ning and Wang, ZongMin},
+    pages = {350-358},
+    abstract = {Self-supervised multimodal time-series analysis faces critical challenges including cross-domain temporal shifts, sensor noise, and inter-subject variability, which degrade disease classification performance. Existing methods often depend on labeled data or explicit target domain alignment, limiting their clinical practicality. We propose TSTA-Net, a novel framework that integrates: (1) a residual spatiotemporal transformer (STN) to dynamically correct sensor shifts and motion artifacts, (2) a dual-branch Transformer for capturing long-range dependencies, and (3) hierarchical contrastive learning for spatiotemporal alignment of ECG and PPG signals. This integrated approach addresses both temporal dynamics and spatial inconsistencies through joint optimization. On atrial fibrillation detection, TSTA-Net achieves a 9.3\% higher F1-score than state-of-the-art self-supervised methods, with ablation studies verifying that the spatiotemporal alignment mechanism contributes 68\% of the performance gain. The lightweight framework ($<$1M parameters) reduces annotation dependency while enabling real-time arrhythmia screening on wearable devices, advancing self-supervised learning for practical healthcare applications.}
+}
+
+
+
+@InProceedings{mlic25-41,
+    title = {An improved YOLOv11 algorithm for rice diseases},
+    author = {Wang, Tao and Zhu, Changming},
+    pages = {359-368},
+    abstract = {The timely identification of rice diseases is of vital importance to national food security. This paper proposes an improved model based on YOLOv11, and uses three key innovations to enhance the detection performance of the model. Firstly, DynamicConv enables the network to increase the number of parameters while maintaining a low number of floating-point operations (FLOPs), allowing these networks to benefit from large-scale visual pre-training. Secondly, the iterative attention feature fusion (iAFF) improves the detection accuracy by enhancing the feature fusion process. In addition, the Synergistic Cross-Scale Attention module (SCSA) is designed to effectively combine the advantages of channel and spatial attention, making full use of multi-semantic information, thus improving the performance of visual tasks. The experimental results show that the innovated model can effectively improve the detection efficiency of rice diseases, providing a reliable solution for agricultural security.}
+}
+
+
+@InProceedings{mlic25-42,
+    title = {FENet: Frequency-Enhanced Network Based on AFFormer for Wood Surface Defect Detection},
+    author = {Cheng, Guanghe and Shao, Yifei and Bai, Jinqiang and Xia, Junjie and Hao, Fengqi and Tang, Yongwei},
+    pages = {369-378},
+    abstract = {The bark is one of the major defects affecting the value of Eucalyptus veneer and must be accurately identified during detection. Currently, for bark defects exhibiting multiple shapes and colors, spatial-domain-based semantic segmentation models often encounter issues with semantic information loss in regions where the color or shape changes, which can lead to incomplete segmentation results. In contrast, utilizing texture features in the frequency domain can reduce the interference caused by variations in color and shape for the model, thereby enabling more effective identification of bark defects. Therefore, in this paper, a Frequency-Enhanced network based on Adaptive Frequency Transformer (AFFormer) is proposed. First, we propose an Inverted Depth-wise Separable Stem to extract more texture information by expanding the number of feature map channels through inverted depth-wise separable convolution. Moreover, we adopt the Rectangular Self-Calibration Module to refine the AFFormer as the backbone network. This enhances the ability to localize bark defects with different shapes and extracts frequency characteristics that are beneficial for semantic segmentation. Finally, the Frequency-Enhanced Channel Attention module enhances the frequency features for semantic segmentation and fuses the spatial-domain feature maps to recover the local details, thereby effectively improving the segmentation accuracy of multi-scale bark defects. Experimental results show that FENet outperforms existing semantic segmentation methods for segmenting bark defects.}
+}
+
+
+
+@InProceedings{mlic25-43,
+    title = {Multidimensional Danmaku Analytics via a BERT-SVM Fusion Model},
+    author = {Lin, Ya and Zhang, Xudong and Peng, Guangbin and He, Xiang and Deng, Yuanxia},
+    pages = {379-394},
+    abstract = {Danmaku (bullet comments), characterized by real-time interactivity, high concurrency, and textual fragmentation, present unique challenges for semantic analysis in film audience feedback research. To address the limitations of conventional methods in processing sparse short texts and imbalanced data distributions, this study proposes a BERT-SVM fusion model integrating BERT-based semantic representation with SVM classification, supplemented by SMOTE oversampling. Validated on 450,000 Danmaku comments from The Wandering Eart series, the framework achieves a sentiment classification accuracy of 92.6\%. Furthermore, a multidimensional analysis pipeline is implemented, combining BERT embedding compression, KMeans clustering, and LDA topic modeling to systematically identify audience discussion themes. Experimental results demonstrate that The Wandering Earth 2 not only elicits a higher proportion of positive sentiment than its predecessor but also shifts thematic focus toward advanced sci-fi elements such as digital life and lunar crisis resolution. This work establishes an efficient analytical framework for large-scale Danmaku data, offering actionable insights to enhance narrative design and audience engagement strategies in the film industry.}
+}
+
+
+
+@InProceedings{mlic25-44,
+    title = {Optimized YOLOv8 Model for Aerial Pedestrian Detection in Drone-Based Monitoring Systems},
+    author = {Wang, Zijun and Meng, Huimin and Liu, Junjie and Meng, Ge},
+    pages = {395-403},
+    abstract = {The widespread application of unmanned aerial vehicles (UAVs) in emergency rescue and security inspection poses stringent demands for accuracy and real-time performance in small-target personnel detection from aerial perspectives. Addressing the limitations of existing algorithms in complex background interference, multi-scale targets, and feature sparsity, this paper proposes an improved lightweight YOLOv8 detection model. By designing a multi-dimensional attention collaboration module to enhance feature focus, constructing a high-resolution detection layer to improve shallow feature utilization, and optimizing localization accuracy with geometrically constrained loss functions, the method achieves an 11.68\% detection accuracy improvement over the baseline model on UAV datasets while maintaining real-time processing at 158 FPS. It effectively resolves small-target missed and false detection issues, providing reliable technical support for UAV-based intelligent inspection tasks.}
+}
+
+
+
+@InProceedings{mlic25-45,
+    title = {EfficientNetV2 Pump Anomaly Detection Method Based on Improved CBAM Attention Mechanism},
+    author = {Sun, Fuyue},
+    pages = {404-413},
+    abstract = {In the process of industrial production, pump as the core equipment, its stable operation directly affects the safety and production efficiency of the factory. However, in practical applications, pumps often face various abnormal conditions, which may lead to equipment failure and even safety accidents in serious cases. To solve this problem, we design a new anomaly detection method, which improves the EfficientNetV2 network: The original Attention Module is replaced with the optimized CBAM module, its channel attention is retained to capture the cross-channel dependencies, and the Simple Attention Module (SimAM) is introduced into the spatial attention part to effectively reduce the computational complexity and enhance the sensitivity of the model to local details and global context information. In order to better deal with the problem of data imbalance, we use MixUp data augmentation and Label Smoothing regularization strategy in the training process, and choose BCEWithLogitsLoss as the loss function. In the pre-training phase, the pump-related audio modules in the MIMII dataset are used for weight initialization, which is subsequently fine-tuned on the pump anomaly binary classification task. Experimental results show that the proposed model improves the classification accuracy by 0.76\% compared with the original EfficientNetV2‑Small network under the same data set and evaluation metrics, which verifies the effectiveness and superiority of the architecture optimization in pump anomaly detection. }
+}
+
+
+@InProceedings{mlic25-46,
+    title = {Ground States of Mixed Local and Nonlocal System of Choquard Type},
+    author = {Cheng, Xiaohong and Deng, Zhiying},
+    pages = {414-420},
+    abstract = {This paper establishes the existence of solution for a family of weakly coupled nonlinear Choquard-type system. We apply variational methods and utilize the introduced manifold  $\mathcal{N}_{\omega}  $ to investigate this problem.}
+}
+
+
+@InProceedings{mlic25-47,
+    title = {Research on Multi-population Quantum Genetic Algorithm Based on Optimal Computation Allocation Technology},
+    author = {Guo, Ziyuan},
+    pages = {421-426},
+    abstract = {Quantum genetic algorithms have proven their unique superiority in dealing with stochastic optimization problems. In this paper, we propose an innovative multi-population quantum genetic algorithm, which is based on optimal computational resource allocation techniques. By carefully optimizing the initialization strategy of the population and introducing the concept of an elite population, combined with optimal computational resource allocation techniques, we have significantly improved the performance of the algorithm on stochastic optimization problems. After a series of experimental verifications, we found that the proposed algorithm surpasses traditional quantum genetic algorithms and other classical optimization algorithms in terms of convergence speed and solution accuracy.}
+}
+
+
+
+@InProceedings{mlic25-48,
+    title = {An Inexact Golden Ratio Primal-Dual Algorithm for a Saddle Point Problem},
+    author = {Liu, Jinxiu and Fang, Changjie and Qiu, Jingtao},
+    pages = {427-433},
+    abstract = {Convex optimization problems have wide applications in many fields such as mathematics, finance, industrial engineering, and management science. The primal dual algorithm (PDA), which is a classical approach for tackling a certain class of convex-concave saddle point problems, still has shortcomings such as fixed step size and difficulty in accurately solving certain subproblems. Therefore, designing more efficient inexact algorithms to solve these problems has important practical significance. During this investigation, we introduce an inexact golden ratio primal-dual algorithm based on the absolute error criteria of non-negative summable sequences. We establish the global convergence and the $O(1/N)$ rate of convergence for the proposed inexact algorithm, and the effectiveness of the proposed algorithm is verified by the image restoration experiment.}
+}
+
+
+
+
+@InProceedings{mlic25-49,
+    title = {Directional Risk-Averse Integrated Loss Strategy for Time Series},
+    author = {Fu, Qixuan and Chen, Xi and Liu, Chao and Ding, Xiaosong},
+    pages = {434-439},
+    abstract = {This study focuses on time series forecasting for risk-averse decision-makers, emphasizing trend direction over precise numerical predictions. Traditional methods like MSE fail to capture directional accuracy, which is crucial for risk-averse decisions. While techniques like DILATE improve time alignment, they still rely on numerical metrics. We introduce DRAILS (Directional Risk-Averse Integrated Loss Strategy for time series), a novel loss function that prioritizes directional accuracy while maintaining numerical precision. By incorporating a dynamic reward-penalty system inspired by the newsvendor model, DRAILS minimizes directional errors. Our experiments have shown that DRAILS outperforms existing methods in directional accuracy while maintaining competitive numerical results.}
+}
+
+
+
+@InProceedings{mlic25-50,
+    title = {Research on Data Mining Techniques Based on DeepSeek-R1},
+    author = {Cai, Lei and Yin, Fan and Meng, Xianbo},
+    pages = {440-452},
+    abstract = {With the rapid development of artificial intelligence technology, data mining, as one of its important application fields, is facing new opportunities and challenges. DeepSeek-R1, as an advanced pre-trained model, provides new technical means for data mining with its powerful feature extraction capabilities and efficient inference performance. This paper systematically investigates data mining techniques based on DeepSeek-R1, offering a comprehensive exploration of technical principles, application methods, and performance optimization. Experimental results demonstrate that DeepSeek-R1 exhibits significant performance advantages in data mining tasks, and corresponding optimization strategies are proposed. The research in this paper not only enriches the theoretical system of data mining technology but also provides valuable references for practical applications.}
+}
+
+
+@InProceedings{mlic25-51,
+    title = {Viral Load-Driven Modeling of Epidemic Spread in Networks},
+    author = {Yang, Tingxuan},
+    pages = {453-460},
+    abstract = {This paper studies epidemic transmission in scale-free networks using an SIS model with viral load-dependent infectivity. A network disease model is developed and analyzed via HMF theory, deriving the basic reproduction number   and its link to equilibrium stability. Simulations showing how viral load, network heterogeneity, and scale jointly affect transmission. Experiments indicate that:  High-er initial viral load   increases infection prevalence; larger degree exponent reduces infection due to low-degree node ``transmission dead ends"; infection grows with network size in scale-free networks.}
+}
+
+
+
+
+@InProceedings{mlic25-52,
+    title = {Urat: Universal regularized adversarial training in robust reinforcement learning},
+    author = {Chen, Jingtang and Chen, Haoxiang and Niu, Zilin and Zhu, Yi},
+    pages = {461-475},
+    abstract = {With the increasing maturity of reinforcement learning (RL)technology, its application areas have been widely expanded to several cutting-edge scientific fields, such as artificial intelligence, robotics, intelligent manufacturing, self-driving cars, and cognitive computing. However, the complexity and uncertainty of the real world pose serious challenges to the stability of RL models. For example, in the field of autonomous driving, unpredictable road conditions and variable weather conditions can adversely affect the decision-making process of intelligent driving algorithms, leading them to make irrational decisions. To address this problem, this study proposes a training method called Universal Regularized Adversarial Training in Robust Reinforcement Learning (Urat), which aims to enhance the robustness of the robustness of DRL strategies against potential adversarial attacks. In this study, we introduce a powerful attacker for targeted adversarial training of DRL intelligence. In addition, we innovatively incorporate a robust strategy regularizer into the algorithm to facilitate the learning of strategies by intelligences that can effectively defend against various attacks. The methods in this study have been tested adversarially in several OpenAI Gym  environments, including  HalfCheetah-v4, Swimmer-v4, and  Arcbot-vl.The  test  results show that the Urat training method can effectively improve the robustness of DRL strategies and achieve robust performance in complex and uncertain environments. This research result not only provides a new perspective in the field of reinforcement learning but also provides theoretical support and technical guarantee for intelligent decision-making in practical application scenarios such as autonomous driving.}
+}
+
+
+
+@InProceedings{mlic25-53,
+    title = {SDE for Olympic selection Based on Dynamic Bayesian Network},
+    author = {Chen, Si and Peng, Xiang and Xu, Shixuan},
+    pages = {476-482},
+    abstract = {This paper concentrates on the evaluation of Sports, Disciplines, or Events (SDEs) for Olympic selection. It presents a comprehensive approach that integrates multiple methods. The Dynamic Bayesian Network (DBN) is at the core, supplemented by data collection, normalization, and the TOPSIS method. This approach allows for a systematic assessment of SDEs, taking into account various criteria such as popularity, gender equity, and sustainability. The model's outcomes provide valuable predictions for future Olympic SDE selection, and sensitivity analyses confirm its stability. The research proposes a data-centric approach for the International Olympic Committee (IOC) to refine and enhance the Olympic sports program, leveraging insights from AI and analytics.}
+}
+
+
+@InProceedings{mlic25-54,
+    title = {Forest to Agriculture: Based on The Lotka-Volterra Ecosystem Model},
+    author = {Hou, Yanxu and Wang, Zike and Yin, Yuhuan and Zhang, Yujie},
+    pages = {483-490},
+    abstract = {As people's demand for land continues to grow, large areas of land have been reclaimed for agricultural production. As forests recede and soils change, chemicals begin to appear on farmland, and the original ecological relationships in the forest gradually evolve into a food chain driven by human activity. In this article, we established an agricultural ecological model based on Lotka-Volterra to analyze the interactions between different biological populations.
+
+First, We construct the Lotka-Volterra model based on the producer and multi-stage consumer model, determine how different species are related to each other. Second, we introduce decomposers and peregrine falcons (tertiary consumers) into the model to reflect the reappearance of species. We derive the corresponding equations and use the fourth-order Runge-Kutta method to calculate each population's rate of change. Third, we added bats to the food web model and considered their role in insect hunting and pollination to analyze their impact. Finally, we performed a sensitivity analysis of the model, changing four survival conditions. For a given range of data, the number of organism populations eventually plateaued. This validates the sensitivity of the model and confirms the stability of organic agro-ecology.}
+}
+
+
+@InProceedings{mlic25-55,
+    title = {Study on Wavelet Convolution-Based Underwater Image Denoising},
+    author = {Li, Wei and Xie, Haiyan and Li, Jiaxi},
+    pages = {491-497},
+    abstract = {The processing of underwater images is critical for marine science, seafloor mapping, and underwater rescue operations. However, underwater optical images often suffer from poor quality due to light absorption and scattering caused by suspended particles. Additionally, due to technical limitations and environmental interference, underwater robots often capture images where light has been reflected and refracted multiple times before reaching the camera, further exacerbating noise. To address these challenges, this paper proposes an innovative underwater image processing model that combines wavelet convolution and dilated convolution for noise reduction. The model employs wavelet transformation to decompose images into high- and low-frequency components for preliminary processing, followed by the use of dilated convolution to extract noise and image features. This approach effectively removes noise from underwater images. Experimental results demonstrate that this method can adaptively handle illumination and detail information across different scales, addressing challenges such as uneven lighting, low contrast color distortion, and suspended particle noise. The processed images exhibit significantly improved clarity and contrast, even in complex underwater environments.}
+}
+
+@InProceedings{mlic25-56,
+    title = {Research on interpretable methods for detecting elongated objects in power operations},
+    author = {Li, Miao and Liu, Yanxia},
+    pages = {498-510},
+    abstract = {  Power operations take place in high-risk environments, such as high voltage and strong magnetic fields, making standardized procedures crucial. Employing object detection technology to monitor operational compliance enhances electrical safety. However, the presence of numerous elongated objects and background columnar interferences in power operation datasets significantly affects detection accuracy. To address this issue, we explore model structure improvements from an interpretability perspective. Using Grad-CAM heatmap visualization, we analyze the regions where the model focuses on detection targets. We propose a lightweight convolutional attention mechanism, LCA (Lightweight Convolution Attention), which significantly enhances YOLOv7's attention to elongated targets while reducing the impact of columnar interference. This improves both the model’s robustness and interpretability. Experimental results show that LCA outperforms classical attention modules such as SE, ECA, and CA, while maintaining a minimal parameter size. Specifically, the mAP of the extremely elongated and challenging sample ``operatingbar" increased by 4.4\%, and the mAP of the small target ``wrongglove" improved by approximately 2\%. This makes LCA well-suited for detecting elongated targets in complex power operation environments. }
+}
+
+
+@InProceedings{mlic25-57,
+    title = {Competitive Influence Maximization Across Social Networks},
+    author = {Yang, Ruisi and Bu, Chunfen and Yue, Qiang and Jiang, Xing and Ma, Qiangnan and Zhang, Yunfei},
+    pages = {511-518},
+    abstract = { The proliferation of Web 2.0 technologies has significantly reshaped information propagation dynamics across social media platforms. While existing studies extensively analyze influence maximization within single-platform environments, competitive propagation dynamics across multiple interconnected social networks remain underexplored. Addressing this research gap, we define the Competitive Influence Maximization Across Social Networks (CIMASN) problem and introduce a novel Competitive Independent Cascade Model (CICM) that incorporates competitive influences propagating simultaneously across multiple platforms. A greedy algorithm is proposed for effective seed node selection under this competitive scenario, validated through extensive experiments on both real-world and synthetic datasets. Results demonstrate that our model and algorithm significantly outperform traditional approaches, highlighting the necessity and effectiveness of modeling competitive propagation dynamics across multiple social networks.}
+}
+
+
+@InProceedings{mlic25-58,
+    title = {Semi-Supervised L2KC (S-L2KC) Classifier},
+    author = {Lv, Yue},
+    pages = {519-526},
+    abstract = {Building upon the density difference paradigm, a novel kernel classifier distinct from Support Vector Machines (SVM) — the L2-norm Kernel Classifier (L2KC) — has been developed. This methodology establishes an integrated squared error(ISE) criterion to estimate the true ${{d}_{\gamma }}\left( x \right) $ through minimizing the L2-distance between ${{d}_{\gamma }}\left( x \right) $ and ${{\overset{\scriptscriptstyle\frown}{d}}_{\gamma }}\left( x \right) $, thereby achieving classification via explicit density difference representation. While L2KC demonstrates comparable accuracy to SVM with enhanced decision efficiency, its performance on real-world semi-supervised datasets requires improvement. To address this limitation, we propose the Semi-supervised L2KC (S-L2KC) by incorporating a locality-preserving projection (LPP) based manifold regularization term into the L2KC objective function. This integration effectively enforces the manifold assumption. Experimental results on benchmark datasets from the UCI and LIBSVM demonstrate that compared to L2KC, the proposed S-L2KC exhibits superior generalization capability, characterized by higher mean test accuracy with comparable or even smaller variance.}
+}
+
+
+@InProceedings{mlic25-59,
+    title = {A Comparative Study of Several Different Neural Network Approaches for Information Security Modeling},
+    author = {Xie, Jiahui and Li, Junpeng and Qiu, Ping},
+    pages = {527-533},
+    abstract = {In the rapid development of the Internet, people's lives have been deeply bound to the Internet, and the network information data is explosive growth. However, along with it, there is an increasingly serious problem of network information security. In order to achieve more accurate network information security classification judgment, we use BP neural network, RBF neural network, based on genetic algorithm optimization of RBF neural network three models to compare the information security model respectively, used to assess their ability to assess the information security risk (threatening, vulnerability, asset identification). The experimental results show that the RBF neural network optimized based on genetic algorithm has higher accuracy and lower error in information security risk assessment, which has significant advantages over the traditional neural network and provides a strong basis for improving the level of information security protection and selecting the best neural network model.}
+}
+
+
+@InProceedings{mlic25-60,
+    title = {Equivalent Modelling and Simulation Method for 2.5D Chips Based on Machine Learning and Multi-Physics Field Coupling},
+    author = {Yuan, Quan},
+    pages = {534-542},
+    abstract = {Aiming at the problems of low computational efficiency and high resource consumption of traditional finite element simulation owing to complex structures such as through-silicon vias (TSVs) and bumps in 2.5D chip packages, this paper proposes an intelligent equivalent modelling and simulation optimization method that integrates machine learning and multi-physics field coupling. By constructing a dynamic equivalent model adaptive mechanism and adjusting the material parameters in real time based on deep neural network to capture the temperature-stress coupling effect; combining with the multi-scale geometry simplification technology, the deep learning is used to identify the key regions and differentially assign the modelling accuracy, which reduces the overall mesh number by 50\% while ensuring the refined simulation of key regions (e.g., heat-sensitive and stress-concentrated regions). Dynamic model reconstruction and real-time optimization under multi-physics field coupling are further achieved through the integration of sensor data and simulation feedback. The experimental results show that compared with the traditional finite element method, the method shortens the simulation time by more than 30\%, reduces the memory consumption by 50\%, reduces the root mean square error (RMSE) of the temperature field by 2.8°C, and controls the maximum error of the stress field within 4.8\%, which significantly improves the multi-physics simulation efficiency and accuracy of the complex 2.5D chip package and provides a highly efficient and reliable solution for the design optimization of high-density integrated chips. solution for the design optimization of high-density integrated chips.}
+}
+
+
+@InProceedings{mlic25-61,
+    title = {Dispersive optical solitons of the stochastic Fokas-Lenells equation with multiplicative white noise based on the trial equation method},
+    author = {Guo, Shiyi},
+    pages = {543-549},
+    abstract = {In this paper, we study the Fokas-Lenells (FL) equation with multiplicative white noise in the Itô sense for polarization-maintaining fibers, using the trial equation method and the polynomial complete discriminant system approach. All exact solutions of the equation in its general form are obtained, including solitary wave solutions, trigonometric function solutions, rational solutions, and Jacobian elliptic function doubly periodic solutions. Furthermore, several representative numerical simulation results are presented under given parameter conditions.}
+}
+
+
+
+
+@InProceedings{mlic25-62,
+    title = {Optimizing the Path of AIGC Creative Content Generation Based on Large Language Models and Knowledge Graphs},
+    author = {Cao, Yushu},
+    pages = {550-559},
+    abstract = {With the rapid development of generative artificial intelligence (AIGC) technologies, creative content generation using large language models (LLMs) and knowledge graphs (KGs) has become a key area of research. However, current methods often fail to fully harness the semantic enhancement capabilities of knowledge graphs in the content generation process. To address this gap, this paper proposes an innovative creative content generation path optimization model, KG-GPT-opt, which integrates large language models with knowledge graphs. Experimental results demonstrate that the KG-GPT-opt model outperforms traditional baseline models across several standard evaluation metrics, achieving improvements of 6.4\%, 7.5\%, and 4.8\% in BLEU, ROUGE-L, and METEOR, respectively. Furthermore, the model receives high expert ratings of 8.6 and 8.8 for creativity and coherence, surpassing other generation models. This study offers a novel approach for the AIGC field, advancing the integration of large language models and knowledge graphs, and broadening the potential applications of intelligent content generation in areas such as cultural creativity and smart marketing.}
+}
+
+
+
+@InProceedings{mlic25-63,
+    title = {WAFUzz:A Fuzz-based WAF protection function testing technology},
+    author = {Mao, Enhui and Li, Danbo and Yan, Xuexiong},
+    pages = {560-572},
+    abstract = {Web Application Firewalls (WAFs) are designed to detect and intercept potentially malicious HTTP requests, thereby protecting web applications from various attacks. However, if the WAF's rule set and detection strategy are flawed, its protection function may fail under certain conditions, making it difficult to ensure comprehensive application security. Existing WAF protection testing methods either rely on fixed attack payload datasets, which may lead to inefficient testing due to dataset limitations, or use machine learning to pre-train adversarial WAF models, which are not suitable for testing WAF services deployed in the real world.
+
+To address this issue, we propose a new WAF evaluation technique based on fuzz testing. This method uses context-free grammars to generate diverse attack payloads and combines Monte Carlo Tree Search (MCTS) to optimize mutation paths, thereby achieving systematic testing of WAF defense measures. Specifically, we predefine context-free grammars for SQL injection (SQLi) and cross-site scripting (XSS) based on expert knowledge to generate the initial input for fuzz testing and serve as seed payloads for subsequent mutations. Then, MCTS guides the mutation process by dynamically adjusting node weights to prioritize the exploration of promising paths, thereby improving test efficiency and effectiveness.
+
+Experimental results show that our approach reduces the protection failure rate of SQLi and XSS to 48.80\% and 37.80\%, respectively, outperforming benchmark tools such as WAF-A-MOLE and SqlMap. In addition, the invalid payload rate is also reduced to 5.63\% and 6.72\% for SQLi and XSS, and the number of WAF queries is reduced by more than 22 times, demonstrating the excellent evaluation efficiency of our approach.}
+}
+
+@InProceedings{mlic25-64,
+    title = {FRE-Based Sparrow Search Algorithm for Green Flexible Job Shop Scheduling},
+    author = {Xue, Ziming and Zhou, Jun},
+    pages = {573-586},
+    abstract = {The modern manufacturing is facing the challenge of energy saving and emission reduction. This study addresses the Multi-objective Green Flexible Job-shop Scheduling Problem (MGFJSP) with three objectives makespan, machine workload and carbon emissions, a Fuzzy Relative Entropy (FRE)-based improved Sparrow Search Algorithm (FISSA) is proposed. FISSA begins with special initialize methods to ensure a uniform distribution in solution space. Next, a logarithmic spiral is introduced in scroungers to enhance global search capability. Additionally, an insertion strategy is implemented to reduce machine idle time and carbon emissions. Finally, a FRE coefficient is introduced, where solutions are evaluated by comparing them with the ideal point, diversity is quantified, and selection is guided. Experimental results confirm that FISSA outperforms other multi-objective algorithms, significantly minimizing processing time and carbon emissions, demonstrate superior robustness and convergence.}
+}
+
+
+
+
+@InProceedings{mlic25-65,
+    title = {R-PBFT: Efficient DAG-based consensus Algorithm for Internet of Vehicles},
+    author = {Niu, Kedong and Cao, Yangjie and Li, Jie},
+    pages = {587-594},
+    abstract = {With the increase in the number of vehicles in residential households, the traffic flow on roads has shown a significant growth trend, which places higher demands on the capacity of vehicular networks. It is worth noting that the traditional PBFT algorithm experiences a significant decline in consensus efficiency as the number of nodes increases, which may pose a key constraint on the information exchange efficiency in vehicular networks. Based on this, this study proposes an R-PBFT consensus algorithm based on DAG blockchain. This algorithm optimizes the consensus mechanism and significantly improves the information transmission rate between roadside units and vehicles. Experimental results show that, compared to traditional consensus algorithms, the proposed solution effectively improves consensus efficiency while reducing communication costs.}
+}
+
+
+
+@InProceedings{mlic25-66,
+    title = {Reinforcement Learning Based Collaborative Path Planning Research for UAVs and Unmanned Vehicles},
+    author = {Li, Xuanran and Yao, Longxin and Li, Mingzhe and Zhang, Bo},
+    pages = {595-603},
+    abstract = {This paper presents a reinforcement learning framework for multi-UAV and UGV coordinated path planning with charging constraints. We formulate the problem as a Markov Decision Process and develop a Transformer-based solution combining encoder-decoder architecture with policy gradients to optimize path synchronization and charging coordination. Experimental results demonstrate that our approach outperforms existing heuristic methods (GLS, TS) in terms of solution quality and generalization across different problem scales. The proposed method effectively minimizes mission completion time while handling energy constraints through intelligent charging point synchronization.}
+}
+
+
+
+@InProceedings{mlic25-67,
+    title = {HD-MF: Hierarchical Dynamic-aware Multimodal Fusion for Fine-Grained Bird Recognition},
+    author = {Li, Junjing and Liu, Xing and Luo, Jiu},
+    pages = {604-613},
+    abstract = {Fine-grained bird recognition plays a crucial role in biodiversity monitoring. Its primary challenge lies in identifying subtle inter-class visual differences and overcoming the inherent limitations of unimodal information. Audio provides crucial complementary cues, yet audiovisual fusion still faces challenges such as the semantic gap. To address these challenges, this paper proposed a hierarchical dynamic-aware multimodal fusion (HD-MF) architecture. This architecture captures locally aligned cross-modal features via its Cross-modal Spatial Interaction Module, extracts global high-order cross-modal correlations using the Factorized Bilinear Fusion Module, and dynamically integrates the outputs of these two fusion approaches through a Dynamically Adaptive Gated Fusion Unit. Evaluated on AViS, a paired audiovisual dataset constructed for this study, HD-MF achieved state-of-the-art performance. Experimental results demonstrated that HD-MF effectively integrates audiovisual complementary information, providing a novel and effective approach for enhancing fine-grained bird recognition performance.}
+}
+
+
+@InProceedings{mlic25-68,
+    title = {JSOSAL: Joint Sampling for Open-Set Active Learning},
+    author = {Zhang, Yongxiang and Zhang, Bo and Dai, Zhiqiang and Cao, Yangjie},
+    pages = {614-621},
+    abstract = { Traditional active learning methods typically operate under closed-set assumptions, where unlabeled data samples are selected for annotation from a pool consisting exclusively of known classes. However, real-world scenarios predominantly exhibit open-set conditions, characterized by the presence of substantial unknown-class instances within datasets. This fundamental discrepancy renders most conventional active learning approaches ineffective in practical applications.To address the annotation challenge in open-set environments, we propose JSOSAL (Joint Sampling for Open-Set Active Learning), an innovative approach that applies a Bayesian Gaussian Mixture Model (BGMM) to represent the probability distribution of the highest activation values, enabling effective discrimination between known and unknown classes. Our method subsequently selects high-entropy samples from the identified known-class subset for annotation. Rigorous testing on CIFAR-10 and CIFAR-100 shows that JSOSAL achieves superior performance compared to existing leading methods.}
+}
+
+
+
+@InProceedings{mlic25-69,
+    title = {A Quantum Game Model and Simulation Study on Collaborative Operation of Container Sea-Rail Intermodal Transport},
+    author = {Zhao, Yufeng and Zhao, Fuyang and Guo, Zhida},
+    pages = {622-631},
+    abstract = {Under the new development pattern of ``double circulation" and the continuous promotion of the Belt and Road Initiative, the demand for container sea-rail intermodal transport is increasing day by day, and the efficiency and stability of its collaborative operation become the key. This paper focuses on this, and constructs a quantum game model for the coordinated operation of container sea rail intermodal transport. The model brings the relevant stakeholders such as shipping enterprises and railway transport enterprises into the game framework, and analyzes the benefits under different strategy combinations. Through the design of simulation experiments, the model is verified. The results show that this model can accurately describe the decision-making behavior and synergy effect of various stakeholders, provide a new theory and method for optimizing the collaborative operation of sea rail intermodal transport, and help to improve the overall operation efficiency and service level.}
+}
+
+
+@InProceedings{mlic25-70,
+    title = {Dynamic Trading Strategies for Volatile Assets: A Hybrid GM-LSTM Model with Finite State Machine Optimization},
+    author = {Sun, Haoran and Song, Bohan and Cong, Meng and Wang, Zeran and Liu, Zexian and Wang, Xueru and Han, Yujie and Cui, Xinqi},
+    pages = {632-643},
+    abstract = {This study addresses the challenge of predicting investments in highly volatile assets, such as gold and ancient coins, by proposing a hybrid forecasting strategy that integrates the Grey Model (GM), Long Short-Term Memory (LSTM), and Gated Recurrent Unit (GRU). A finite automaton-based trading decision model is developed to enable rapid decision-making in dynamic market environments. Traditional methods often struggle to adapt to the unpredictability of such assets, prompting the need for advanced predictive frameworks. The methodology encompasses data preprocessing, model training, and validation, with a focus on optimizing short- and long-term forecasts. Experimental results demonstrate that the hybrid GM-LSTM strategy significantly enhances prediction accuracy: GM excels in short-term forecasting (first 200 days) due to its efficiency with limited data, while LSTM outperforms in long-term scenarios by capturing complex temporal dependencies. A dynamic weight adjustment mechanism, incorporating profit (PI) and risk indices (RI), balances returns and risks. Sensitivity analysis reveals the model’s robustness under varying transaction costs (0.1\%–10\%), maintaining profitability even at higher cost levels. Key performance metrics—annualized return, Sharpe ratio, and maximum drawdown—validate the strategy’s superiority over benchmarks like buy-and-hold. The state machine-driven trading model, evaluated through Value at Risk (VaR) and sliding window protocols, ensures adaptability across market conditions. This work provides traders with a data-driven decision-making tool, optimizing investment strategies while mitigating risks in volatile markets.}
+}
+
+
+
+@InProceedings{mlic25-71,
+    title = {Trust-Region Bayesian Optimization for High-Dimensional Black-Box Problems: Integrating Deep Kernel Learning with Adaptive Gradient Mechanisms},
+    author = {Yang, Guolin and Qin, Hua and Fu, Yanming},
+    pages = {644-659},
+    abstract = {The traditional Bayesian optimization (BO) algorithm faces significant performance bottlenecks when addressing high-dimensional black-box optimization problems. To mitigate this challenge, the present paper introduces a novel trust region Bayesian optimization algorithm. Firstly, in the design of the BO surrogate model, we employ a combination of deep neural networks and kernel methods to enhance the Gaussian process regression (GPR) model. This approach improves GPR's capacity to identify and fit the nonlinear characteristics of black-box functions while also increasing regression accuracy. Secondly, in formulating the BO acquisition function, an adaptive gradient trust region adjustment method is utilized to bolster BO's search capabilities within high-dimensional solution spaces. Concurrently, a hybrid sampling strategy is implemented to generate more diverse sampling points, thereby enhancing BO’s ability to escape local optima. The proposed algorithm has been validated on three 60D multimodal complex functions as well as two engineering application problems and compared with other advanced variants of BO. Experimental results demonstrate that our proposed algorithm exhibits superior iterative convergence, rapidly approaches optimal values for black-box problems with fewer function evaluations, and achieves higher computational accuracy. These findings confirm both the feasibility and effectiveness of the improved BO approach presented in this paper.}
+}
+
+
+@InProceedings{mlic25-72,
+    title = {Confidence-Aware Contrastive Distillation for Test-time Prompt Tuning},
+    author = {Wang, Min and Cheng, Qing},
+    pages = {660-666},
+    abstract = {Pre-trained vision-language models like CLIP have shown strong performance on various visual recognition tasks but often suffer from poor generalization under distribution shifts. Test-Time Prompt Tuning (TPT) is a promising solution that adapts prompt embeddings during inference using entropy minimization on unlabeled test data, while keeping the vision and text encoders frozen. However, entropy-based tuning lacks structural regularization and can lead to overconfident misclassifications. In this paper, we introduce Confidence-Aware Contrastive Distillation (CaCoD), a lightweight and effective approach to improve the robustness and calibration of TPT. Our method leverages the confidence structure of test-time predictions by identifying high- and low-confidence samples, and aligning their feature representations through a contrastive distillation loss. This encourages semantically meaningful updates to the prompt embeddings without requiring labels or retraining. Experiments across 11 fine-grained datasets demonstrate that CaCoD consistently reduces calibration error and improves predictive reliability, while maintaining strong accuracy. Our approach is model-agnostic and easily pluggable into existing TPT pipelines.}
+}
+
+
+@InProceedings{mlic25-73,
+    title = {Rate-controllable Learned Image Compression Using Channel Attention},
+    author = {Xie, Zhiwei and Zhang, Wenyu and Shao, Hua and Yang, Xianze and Zhang, Xiao},
+    pages = {667-677},
+    abstract = {Classical learned image compression (LIC) methods usually require training multiple models to achieve the best compression performances at different rates, which greatly increases their training and deployment cost. Though existing methods can realize rate variation by using channel scaling factors or transform of the Lagrange multiplier, they are not able to adaptively control the compression process with desired rates, which causes additional trial cost if we want to obtain results with given compression ratios. In this paper, we address this issue by employing channel attention modules that use the desired target bit-rate as side information to adjust the distributions of feature channels, and a new rate-distortion loss function that integrates the target bit-rate into the rate-distortion optimization framework is proposed to train the model to realize continuous rate control. Additionally, a two-stage training strategy is utilized to ensure that the network can adaptively adjust the bit-rates, at the same time achieving the best rate-distortion performance. Experimental results demonstrate that our method achieves effective rate control over a wide range of bit-per-pixels (BPPs).}
+}
+
+@InProceedings{mlic25-74,
+    title = {A Spectrum Filtering Framework for Domain Generalization},
+    author = {Li, Fuchao and Li, Kun},
+    pages = {678-684},
+    abstract = {Domain generalization aims to address the distribution shift problem inherent in neural networks, wherein a misalignment between test data distribution and training data distribution leads to significant performance degradation. This paper introduces Fourier Style Restitution (FSR), a Fourier-transform-driven method for domain generalization. FSR integrates the principles of Fourier augmentation and style disentanglement with feature reconstruction, enhancing model generalizability to unseen domains. The framework implements a cross-domain filtering enhancement strategy based on Fourier transform, leveraging frequency domain filtering to bolster model robustness against distributional variations. Through this paradigm, each sample transcends source domain constraints to derive optimized domain-invariant feature representations tailored to its intrinsic characteristics. The framework further incorporates style regularization to distill consistency signals from stylized images and employs prototype compensation to recover lost domain-invariant features. Extensive experiments demonstrate state-of-the-art performance on benchmark datasets. The method's efficacy stems from feature enhancement and style reconstruction through Fourier-based operations for robust domain generalization.}
+}
+
+
+
+@InProceedings{mlic25-75,
+    title = {Survey on Path Planning Based on Deep Reinforcement Learning},
+    author = {Xu, Lihan and Zhang, Wenzhi},
+    pages = {685-695},
+    abstract = { In recent years, deep reinforcement learning (DRL) has demonstrated significant potential in the field of path planning and control, offering breakthrough solutions for path planning in dynamic and complex environments. DRL has been widely applied in UAV obstacle avoidance, autonomous vehicle path optimization, multi-robot coordination, and complex terrain navigation, demonstrating ad-vantages such as superior path quality, improved smoothness, and enhanced safety. This paper provides a systematic review of recent advances and applications of DRL core techniques. Value-based methods (e.g. DQN) significantly improve decision-making efficiency through optimized reward design and network architectures. Policy gradient algorithms (such as PPO, DDPG, and TD3) achieve high-precision control in continuous action spaces. The Actor-Critic framework, combined with double Q-networks and delayed update mechanisms (e.g. TD3), further expands the application scenarios. Future research should focus on enhancing cross-scenario generalization capabilities and improving deployment efficiency at the industrial level, thereby promoting the practical application of DRL in autonomous driving and industrial robotics.}
+}
+
+
+
+@InProceedings{mlic25-76,
+    title = {Study on Time-Sensitive Targets Strike Path Planning Based on Improved Crayfish Optimization Algorithm},
+    author = {Wang, Yalong and Shi, Xianming and Yang, Mifen and Liu, Penghua and Zhao, Qian},
+    pages = {696-706},
+    abstract = {Addressing the challenges of complex solution and low accuracy in time-sensitive targets strike path planning, this paper proposes a novel path planning method which, based on the Open Vehicle Path Problem (OVRP), builds a model and applies the Improved Crayfish Optimization Algorithm (ICOA) to solving it. Relative to the initial Crayfish Optimization Algorithm (COA), the ICOA employs an improved strategy, namely ``Chaos Accumulation-Environment Awareness-Lens Imaging” to markedly enhance the optimization efficiency and robustness of the algorithm and, through integer coding and crossover operation, is integrated with a Genetic Algorithm (GA) and innovatively applied to addressing the OVRPs. The experimental results demonstrate that ICOA exhibits better convergence speed and optimization accuracy over the other algorithms in composite optimization, displays enhanced robustness, and is capable of rapidly generating a path planning scheme with a shorter total flight distance in the OVRP model, further verifying the effectiveness of ICOA in solving the OVRPs.}
+}
+
+
+
+@InProceedings{mlic25-77,
+    title = {Local Hurst index timing strategy},
+    author = {Shi, Qingzheng and Li, Wenzhuo and Wang, Jincheng and Zhang, Xuezhen and Zou, Hui},
+    pages = {707-716},
+    abstract = {This paper proposes a technical analysis strategy based on the Hurst index to predict stock price trends in uncertain markets. As a robust timing tool requiring minimal assumptions, the Hurst index effectively captures market memory effects. We apply this method to the CSI 300, mathematically analyze its properties, and empirically validate its profitability.}
+}
+
+
+@InProceedings{mlic25-78,
+    title = {Uncovering the Secrets of Momentum Hidden in the Game of Tennis},
+    author = {Huo, Haoqian},
+    pages = {717-725},
+    abstract = {Advances in sports technology have had a profound impact on the tennis game, not only improving the fairness and enjoyment of the game, but also changing the way players are trained and performance analyzed. This article builds a momentum evaluation model and deeply explores the impact of momentum on game results based on the game data set.
+
+Before building the model, we cleaned and standardized the given data and classified it into four parts: fatigue level, psychological state, personal technical ability, and real-time conditions. Preliminary preparations were made for the construction and solution of the model.
+
+We developed a comprehensive tennis player ``momentum” evaluation model using Logistic-LGBM, employing point granularity and five-fold cross validation. This model dynamically assesses and captures real-time changes in player momentum. Our real-time visualization during the 2023 Wimbledon men’s singles final revealed observable momentum trends. However, due to the complexity of factors affecting player scores, not accounting for them introduced significant noise and disrupted player scores. This insight serves as a foundation for refining the model.}
+}
+
+
+
+@InProceedings{mlic25-79,
+    title = {Modeling and Analysis of Olympic Medal Table Based on Multiple Features},
+    author = {Chen, HanBang and Kong, Delin and Jin, Biao and Huang, CaiLing and Ke, YiXiang and Zhang, MingCheng and Li, GuanHua and Tan, Chao},
+    pages = {726-733},
+    abstract = {In the first part, this study first used the winning records and medal data of Olympic competitions. Based on the relevant variation characteristics of medal counts, their impact was assessed by quantifying the fluctuation of medal counts under multiple characteristics. For medal counts, they were incorporated into a medal prediction model under time series through stacked integration. LR, LASSO, SVM, and Catboost were used as base leaners in the first layer ; RF, XGBoost, and LightGBM were used in the second layer of the meta-learner; and the optimal stacked integration learning for medal count prediction under time series was subsequently determined. Subsequently, the medal standings for the 2028 Summer Olympics in Los Angeles, USA were predicted under dynamic simulation as the entire sequential system was varied. Based on the parameter-adjusted feature structure of countries without medal counts, two evaluation models were constructed, one of which was initialized with a fixed medal-associated parameter ratio. According to the model framework, the impact of no medal data is parameterized according to the model parameter distribution law to complete the analysis of countries with no medal counts.}
+}
+
+
+
+
+@InProceedings{mlic25-80,
+    title = {Explainable Deep Neural Network for Lung Squamous Cell Carcinoma Survival Analysis by Integrating Genomic and Clinical Data},
+    author = {Zhou, Xudan and Yang, Qinglin and Zhang, Yuxin and Hou, Yanyan and Chen, Changlong and Ma, Guohui and Luo, Jin and Shu, Wei},
+    pages = {734-746},
+    abstract = {we utilized explainable deep learning methodologies to elucidate critical genes and prospective biomarkers correlated with the prognosis of Lung Squamous Cell Carcinoma (LUSC). Transcriptomic data were systematically acquired from the TCGA repository and underwent comprehensive differential expression profiling to identify candidate genes warranting in-depth exploration. We developed Cox-PASNet, a pathway-aware deep learning model designed to predict survival outcomes in lung squamous cell carcinoma (LUSC) by integrating multi-modal data, including clinical variables, transcriptomic profiles, and curated biological pathways. The model demonstrated robust performance, achieving an AUC of 0.73 in stratifying patients into long- and short-term survival groups. Beyond predictive accuracy, Cox-PASNet offers interpretable insights into key molecular pathways, facilitating the discovery of novel prognostic biomarkers (CCDC181, B2M, BTD, C1orf112, ANAPC7) and their related biological pathways (regulation of cell cycle, DNA repair, cytoskeletal dynamics, tumor microenvironment, and metastasis) associated with LUSC survival. The significance of these genes was validated using external datasets and clinical indicators. Notably, members of the CCDC family were particularly important, with many found to enhance tumor cell proliferation. Elevated expression levels of CCDC proteins demonstrated a significant correlation with adverse clinical outcomes, including diminished overall survival rates and unfavorable prognosis. In summary, through interpretable deep learning and bioinformatics approaches, we identified several relevant genes, with CCDC genes being closely linked to LUSC survival.}
+}
+
+
+
+@InProceedings{mlic25-81,
+    title = {HBADTI: Drug-target interaction prediction based on multi head attention and bidirectional cross attention},
+    author = {Zhao, Jiaming},
+    pages = {747-759},
+    abstract = {The study of drug-target interactions (DTIs) holds critical importance in the drug development process. The core challenge in DTI prediction lies in accurately capturing the features of both drugs and proteins, as well as thoroughly understanding their interaction mechanisms. In light of this, we developed an end-to-end DTI prediction model called HBADTI. The model employs graph convolutional networks to encode drug features. For protein feature extraction, we designed a dedicated feature extraction module (ESAM) that combines convolutional neural networks (CNNs) with multi-head self-attention mechanisms to effectively capture protein sequence characteristics. Subsequently, a bidirectional cross-attention network is utilized to integrate the features of both drugs and proteins, followed by a multilayer perceptron to classify unknown drug-target pairs.Comparative experimental results demonstrate that HBADTI outperforms multiple baseline methods. Ablation studies further confirm that both the bidirectional attention network and the ESAM module significantly contribute to the improvement of DTI prediction performance.}
+}
+
+
+@InProceedings{mlic25-82,
+    title = {GANFL: A log anomaly detection method based on collaborative optimization of federated learning and generative adversarial networks},
+    author = {Yao, Longxin and Li, Xuanran and Li, Mingzhe and Zhang, Bo},
+    pages = {760-767},
+    abstract = { With the rapid development of information technology, the amount of data is growing explosively. Enterprises and society have an increasing demand for data storage, processing and analysis. Data centers have emerged as the times require. They can centrally manage massive amounts of data, provide efficient computing and storage capabilities, meet the high requirements of different industries for data processing, and ensure data security and reliability. In data centers, numerous devices, systems and applications continuously generate a large number of logs during operation. These logs record the activities and status information at all levels of the data center, including the operating status of the server, the traffic of network devices, and the operation records of applications. Log anomalies refer to the presence of records that do not conform to normal patterns or expected content in the log files that record the operating system's own operating events. Log analysis can help developers quickly locate the source of the fault. By analyzing the log data, they can determine the device where the fault occurred and the cause of the fault. At the same time, they can also conduct advance analysis based on the existing log data to discover potential problems.In this paper, the method of co-optimization of GAN and federated learning is adopted, which not only solves the problem of data silos, but also solves the problem of insufficient data.}
+}
+
+
+@InProceedings{mlic25-83,
+    title = {MEFN: A Multi-scale Entropy-aware Fusion Network For Image-Text Retrieval},
+    author = {Liu, Jinjin and Fan, Changchang},
+    pages = {768-778},
+    abstract = {Image-Text Retrieval(ITR), a crucial task in multi-modal learning, aims to achieve cross-modal information retrieval through semantic alignment and matching between images and text. With the advancement of deep learning, significant progress has been made in the accuracy and efficiency of ITR methods. However, existing approaches still face challenges such as modality heterogeneity, information redundancy, and insufficient multi-scale feature alignment between images and text. To address these issues, this paper proposes an Image-Text Retrieval method based on a Multi-scale Entropy-aware Fusion Network (MEFN). By introducing entropy-aware modeling and multi-scale attention mechanisms, this method enhances the correlation between image and text features, further improving cross-modal semantic matching capabilities. Specifically, MEFN first guides the fusion of image and text features through an entropy-aware model, then finely models multi-scale features using local and global attention mechanisms to generate efficient image-text fusion representations. Experimental results demonstrate that MEFN significantly improves the accuracy and robustness of image-text retrieval compared to mainstream methods on benchmark datasets such as Flickr30K and MSCOCO, especially showing superior performance in fine-grained object matching and complex scenarios. This study provides a new perspective for image-text retrieval methods and holds promise for further applications in multi-lingual image-text retrieval and video-text retrieval fields. }
+}
+
+
+
+@InProceedings{mlic25-84,
+    title = {A Knowledge Augmented Framework for Multimodal News\\ Object-Entity Relation Extraction},
+    author = {Li, PeiLing and Li, Lin},
+    pages = {779-788},
+    abstract = {Multimodal relation extraction, as an important research direction in the field of information extraction, aims to identify entities and objects from both text and images and establish cross-modal semantic associations. Current mainstream methods still face challenges in handling complex multimodal data, such as semantic alignment confusion and redundant associations, which lead to erroneous associations between irrelevant entities and objects, severely affecting system performance. To address this issue, this paper proposes a multimodal relation extraction framework that integrates knowledge graphs. This approach uses the knowledge graph as external semantic support to filter candidate entity-object pairs through structured semantic information, and leverages a multimodal alignment module to achieve precise semantic matching. Experimental results show that this method significantly outperforms existing methods on multiple benchmark datasets, especially in fine-grained relation recognition, where the F1 score increases by 4 percentage points, effectively demonstrating the framework's ability to mitigate cross-modal noise interference.}
+}
+
+
+@InProceedings{mlic25-85,
+    title = {A Functional Area Layout Model of Agricultural Products Logistics Park Based on PSO Algorithm},
+    author = {Zhao, Wanning and Zhao, Fuyang},
+    pages = {789-797},
+    abstract = {This paper proposes a functional area layout model for an agricultural products logistics park based on particle swarm optimization ( PSO ). Targeting the the layout planning of an agricultural products logistics park in C County, a multi-objective planning model is established ,considering the total material handling cost, land area utilization rate, and the comprehensive correlation of functional areas. The PSO algorithm is employed to solve the model and obtain the optimal layout scheme. Through field research and data analysis, the validity and practicability of the model are verified. The results indicate that the model can significantly enhance the operational efficiency and service quality of agricultural products logistics parks, reduce logistics costs, and promote the sustainable development of the agricultural products logistics industry.}
+}
+
+
+
+@InProceedings{mlic25-86,
+    title = {A Hybrid XGBoost and Stacked Regression Model with Optimized Feature Selection for Port Throughput Prediction},
+    author = {Ding, Ning and Zhao, Fuyang and Wang, Xiaoyu},
+    pages = {798-807},
+    abstract = {The prediction of port throughput is very important for port operation management. Aiming at the prediction of port throughput, this study selected the level of economic and trade and development vitality in the hinterland, regional transportation capacity in the hinterland, port infrastructure conditions and other first-class indicators and 13 second-class indicators, used xgboost to analyze the importance of characteristics, and screened out 9 key influencing factors. The combined model based on xgboost and stacking algorithm was constructed, and the parameters were optimized by cross validation and grid search method. Taking Dalian port as an example, the experiment shows that when xgboost stacking model is used to predict port throughput, MAE, MAPE and RMSE are the lowest, and $R^2$ is the highest. The prediction performance is significantly better than other models, which verifies the effectiveness and superiority of the model in port throughput prediction, and provides a new method and idea for port throughput prediction.}
+}
+
+
+
+@InProceedings{mlic25-87,
+    title = {Research on Chinese Text Similarity by Fusing Deep and Shallow Features},
+    author = {Lu, Chengfang and Li, Gang and Hou, Linjie},
+    pages = {808-818},
+    abstract = {Existing Chinese text similarity calculation methods typically focus on a single dimension, resulting in insufficient information integration and difficulty in comprehensively merging semantic, feature, and structural information. To address this issue, a Chinese text similarity calculation model that integrates deep and shallow similarities has been proposed. The model first utilizes a Siamese neural network to obtain dynamic vector representations of the texts, further extracting features and calculating deep semantic similarity. Next, based on traditional edit distance algorithms, an improved component-weighted edit distance algorithm is designed by introducing tokenization and assigning weights to different parts of speech, to more accurately reflect the lexical-level shallow features and structural information of the texts. Finally, by linearly weighting and fusing deep semantic similarity with shallow feature similarity, a more comprehensive text similarity evaluation is achieved. Experimental results show that in experiments based on Chinese STS-B and Chinese SICK datasets, the Spearman correlation coefficients improved by 4.34 and 3.76, respectively, compared to the baseline model Siamese-RoBERTa. This model effectively enhances the performance of Chinese short text similarity calculation and better aligns with the expression habits of Chinese texts.}
+}
+
+
+
+@InProceedings{mlic25-88,
+    title = {An optimization problem Based on Integer Programming Theory},
+    author = {Wang, Hui and Ji, Xiaoqing and Sheng, Quanbo and Zhao, Jingjing and Wang, Mengwei},
+    pages = {819-825},
+    abstract = {With the implementation of the rural revitalization strategy, promoting high-quality rural development has become a strategic requirement. A key challenge in optimizing rural development is achieving high-quality agricultural cultivation. Given fixed arable land areas and seed quality, determining optimal crop planting strategies is a critical research focus. This study takes a village in North China's mountainous region as an example, incorporating local land types, suitable crops, terrain areas, and infrastructure (traditional greenhouses and smart greenhouses). First, land is classified based on given data. Second, yields, planting costs, and sales prices of the same crop across different terrains are analyzed, with median prices used for profit comparisons. Finally, using integer programming principles and intelligent software, an optimal planting strategy for 2024 is proposed through yield models, planting area models, and maximum revenue models.}
+}
+
+
+
+@InProceedings{mlic25-89,
+    title = {Evolution of Bitcoin Trust Communities},
+    author = {Cao, Yuemin},
+    pages = {826-835},
+    abstract = {Bitcoin, a digital currency facilitated by blockchain technology, enables direct exchange and personal ownership of digital assets, verified through mathematical consensus. This paper explores and analyzes transaction data within the Bitcoin network, with a focus on improving the efficiency of entity recognition methods and identifying illegal transaction patterns. We begin by introducing Bitcoin's development background, underlying principles, and transaction processes. We then delve into the structure of Bitcoin transaction data and review recent literature on its analysis, summarizing key technologies and research directions. To address the inefficiencies of traditional heuristic entity recognition methods, we propose an innovative solution that establishes entity relationship sets and utilizes active address data. Our approach introduces specific advancements, including a novel algorithm designed to enhance network connectivity and stability, and a centrality aggregation index that outperforms traditional node centrality indices. This algorithm facilitates quick reconnection to previously successful peer nodes, discovers new nodes upon connection loss, and propagates node information across the network for more stable connections. Additionally, it employs a seed node mechanism to expedite network discovery. Our method leverages a core data structure that maintains a list of peers for initial connections, automated through a seed node process. This bootstrapping mechanism allows Bitcoin clients to efficiently connect to the entire Bitcoin network. For implementation and analysis, we utilize NetworkX, a Python package for manipulating and investigating complex networks. We visualize the network structure using the number of transactions or reviews as node size, average review sentiment as node color, review mistrust as edge length, and a force-directed algorithm for node positioning. Our results demonstrate that the first-order aggregation centrality index performs better than the node centrality index, confirming that incorporating more information about first-order correlation attributes around a node enhances the model's effectiveness. Our proposed model, integrating the centrality aggregation index, achieves a 1\% improvement in precision, a 5\% improvement in recall, and a 4\% improvement in F1 score compared to the original feature set model. We define C as the node centrality feature set, C1 as the first-order aggregated feature set, C2 as the second-order aggregated feature set, and AF as the original feature set. From both model performance and visualization perspectives, the centrality aggregation index enables quick identification of key nodes and enhances the discovery of illegal transaction patterns in the network. By reversing and backtracking the capital flow path, our method can uncover more illegal transaction nodes and provide greater interpretability for the illegal transaction model. Finally, we discuss how to analyze and identify illegal behavior characteristics in Bitcoin transaction data, concluding with an examination of data sources, network construction, and analysis methods. By offering a comprehensive exploration of Bitcoin transaction data and advancing entity recognition methods, this paper provides valuable insights into the evolving landscape of cryptocurrency and blockchain technology. Our proposed innovations result in significant efficiency improvements and enhanced detection of illegal activities within the Bitcoin network.}
+}
+
