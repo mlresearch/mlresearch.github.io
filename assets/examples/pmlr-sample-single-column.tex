@@ -1,0 +1,170 @@
+% Sample LaTeX file for PMLR single-column format
+% This is the standard format for most PMLR proceedings
+
+\documentclass[pmlr]{jmlr} % This is the PMLR single-column format
+
+% Recommended packages
+\usepackage{booktabs} % For better tables
+\usepackage{graphicx} % For including figures
+\usepackage{url}      % For URLs
+\usepackage{amsmath}  % For mathematical notation
+\usepackage{algorithm2e} % For algorithms (optional)
+
+% Proceedings information
+\jmlrvolume{123}
+\jmlryear{2024}
+\jmlrworkshop{Workshop on Machine Learning Theory}
+
+% Title and author information
+\title{Sample Paper Title: A Comprehensive Approach to Machine Learning}
+
+% Use \Name{Author Name} to specify the name.
+% If the surname contains spaces, enclose the surname
+% in braces, e.g. \Name{John {Smith Jones}} similarly
+% if the name has a "von" part, e.g \Name{Jane {de Winter}}.
+% If the first letter in the forenames is a diacritic
+% enclose the diacritic in braces, e.g. \Name{{\'E}louise Smith}
+
+% Authors with diverse names demonstrating proper formatting:
+\author{\Name{Mar\'ia Garc\'ia-L\'opez} \Email{maria.garcia@example.edu}\\
+  \addr Department of Computer Science\\
+  Technical University of Madrid\\
+  Madrid, Spain
+  \AND
+  \Name{Li Wei} \Email{li.wei@example.edu.cn}\\
+  \addr Institute of Computing Technology\\
+  Chinese Academy of Sciences\\
+  Beijing, China
+  \AND
+  \Name{Jamal O'Brien-Williams} \Email{jamal.obrien@example.ie}\\
+  \addr School of Computer Science\\
+  Trinity College Dublin\\
+  Dublin, Ireland
+  \AND
+  \Name{Nguy\~{e}n Th\d{i} Minh} \Email{nguyen.minh@example.edu.vn}\\
+  \addr Faculty of Information Technology\\
+  University of Science, VNU-HCM\\
+  Ho Chi Minh City, Vietnam
+}
+
+\editor{Sarah Johnson and Robert Chen}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This is a sample abstract for a PMLR paper in single-column format. 
+The abstract should be a brief summary of your paper, typically 
+100-200 words. It should clearly state the problem, your approach, 
+and the main results. Mathematical notation can be included, such as 
+$f(x) = \sum_{i=1}^{n} w_i x_i$, and the abstract can span multiple 
+lines as needed.
+\end{abstract}
+
+\begin{keywords}
+Machine Learning, Sample Paper, PMLR Format, Single Column
+\end{keywords}
+
+\section{Introduction}
+
+This is a sample PMLR paper in single-column format. The single-column
+format is the standard format for many PMLR proceedings. This format
+uses the \texttt{jmlr} class with the \texttt{pmlr} option, which
+automatically sets the header to read ``Proceedings of Machine Learning
+Research''.
+
+You can include citations using standard \LaTeX{} citation commands,
+such as \citet{example2023} or \citep{example2023}. Mathematical equations can be displayed:
+
+\begin{equation}
+  \label{eq:example}
+  f(x) = \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+\end{equation}
+
+\section{Methods}
+
+Here you would describe your methods. You can include figures using
+the standard \texttt{figure} environment:
+
+\begin{figure}[htbp]
+  \centering
+  % Uncomment the line below when you have an actual figure
+  % \includegraphics[width=0.8\columnwidth]{figure.pdf}
+  \caption{This is a sample figure caption. Figures should be
+    referenced in the text using \texttt{Figure~\ref{fig:sample}}.}
+  \label{fig:sample}
+\end{figure}
+
+\subsection{Algorithms}
+
+You can also include algorithms. Here's a simple example:
+
+\begin{algorithm}[htbp]
+  \SetAlgoLined
+  \KwIn{Training data $(x_1, y_1), \ldots, (x_n, y_n)$}
+  \KwOut{Model parameters $\theta$}
+  Initialize $\theta$ randomly\;
+  \While{not converged}{
+    Compute gradient $\nabla L(\theta)$\;
+    Update $\theta \leftarrow \theta - \eta \nabla L(\theta)$\;
+  }
+  \Return $\theta$\;
+  \caption{Sample gradient descent algorithm}
+  \label{alg:sample}
+\end{algorithm}
+
+\section{Results}
+
+Present your results here. Tables can be formatted using the
+\texttt{booktabs} package:
+
+\begin{table}[htbp]
+  \centering
+  \caption{Sample results table}
+  \label{tab:results}
+  \begin{tabular}{lcc}
+    \toprule
+    Method & Accuracy & Training Time (s) \\
+    \midrule
+    Baseline & 85.2\% & 120 \\
+    Our Method & 92.1\% & 95 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Conclusion}
+
+Summarize your findings and their implications here.
+
+\section*{Acknowledgments}
+
+Acknowledge funding sources and collaborators here. Note that this
+section is unnumbered (using \texttt{section*}).
+
+% Bibliography
+% PMLR uses author-year citations by default
+% Use \citet{} for textual citations: "Smith and Jones (2023) showed..."
+% Use \citep{} for parenthetical citations: "as shown previously (Smith and Jones, 2023)"
+
+% You can use BibTeX (recommended) or write entries manually as shown below
+% For BibTeX, use: \bibliography{yourbibfile}
+
+\begin{thebibliography}{10}
+
+\bibitem[Author and Collaborator(2023)]{example2023}
+Author, A. and Collaborator, B.
+\newblock Sample Paper Title.
+\newblock \emph{Proceedings of Machine Learning Research}, 123:456--789, 2023.
+
+\end{thebibliography}
+
+% Appendix (optional)
+\appendix
+\section{Additional Details}
+
+Any supplementary material, proofs, or additional details can be
+included in an appendix.
+
+\end{document}
+

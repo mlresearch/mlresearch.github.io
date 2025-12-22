@@ -1,0 +1,205 @@
+% Sample LaTeX file for PMLR double-column format
+% This format is used for conferences that prefer double-column format.
+
+\documentclass[pmlr,twocolumn]{jmlr} % This is the PMLR double-column format
+
+% Recommended packages
+\usepackage{booktabs} % For better tables
+\usepackage{graphicx} % For including figures
+\usepackage{url}      % For URLs
+\usepackage{amsmath}  % For mathematical notation
+\usepackage{algorithm2e} % For algorithms (optional)
+
+% Proceedings information
+\jmlrvolume{151}
+\jmlryear{2024}
+\jmlrworkshop{Artificial Intelligence and Statistics}
+
+% Title and author information
+\title{Sample Paper Title: A Comprehensive Approach to Statistical Learning}
+
+% Use \Name{Author Name} to specify the name.
+% If the surname contains spaces, enclose the surname
+% in braces, e.g. \Name{John {Smith Jones}} similarly
+% if the name has a "von" part, e.g \Name{Jane {de Winter}}.
+% If the first letter in the forenames is a diacritic
+% enclose the diacritic in braces, e.g. \Name{{\'E}louise Smith}
+
+% Authors with diverse names demonstrating proper formatting:
+\author{\Name{{\'E}lise {de la Fontaine}} \Email{elise.delafontaine@example.fr}\\
+  \addr INRIA Paris\\
+  Paris, France
+  \AND
+  \Name{Amit Kumar Singh} \Email{amit.singh@example.in}\\
+  \addr Indian Institute of Technology\\
+  Mumbai, India
+  \AND
+  \Name{Fatima Al-Rahman} \Email{fatima.alrahman@example.sa}\\
+  \addr King Abdullah University\\
+  Thuwal, Saudi Arabia
+  \AND
+  \Name{Yuki Tanaka} \Email{yuki.tanaka@example.jp}\\
+  \addr University of Tokyo\\
+  Tokyo, Japan
+}
+
+\editor{David Williams and Priya Sharma}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This is a sample abstract for a PMLR paper in double-column format. 
+The abstract should be a brief summary of your paper, typically 
+100-200 words. It should clearly state the problem, your approach, 
+and the main results. Mathematical notation can be included, such as 
+$f(x) = \sum_{i=1}^{n} w_i x_i$, and the abstract can span multiple 
+lines as needed.
+\end{abstract}
+
+\begin{keywords}
+Machine Learning, Sample Paper, PMLR Format, Two Column
+\end{keywords}
+
+\section{Introduction}
+
+This is a sample PMLR paper in double-column format. The double-column
+format is used for some PMLR proceedings, such as AISTATS. This format
+uses the \texttt{jmlr} class with both the \texttt{pmlr} and 
+\texttt{twocolumn} options, which automatically sets the header to 
+read ``Proceedings of Machine Learning Research'' and formats the 
+content in two columns.
+
+You can include citations using standard \LaTeX{} citation commands,
+such as \citet{example2023} or \citep{example2023}. Mathematical equations can be displayed:
+
+\begin{equation}
+  \label{eq:example}
+  f(x) = \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+\end{equation}
+
+In double-column format, equations and text automatically flow
+within the column width.
+
+\section{Methods}
+
+Here you would describe your methods. You can include figures using
+the standard \texttt{figure} environment. In two-column format, you
+can use \texttt{figure} for single-column figures or \texttt{figure*}
+for figures that span both columns:
+
+\begin{figure}[htbp]
+  \centering
+  % Uncomment the line below when you have an actual figure
+  % \includegraphics[width=\columnwidth]{figure.pdf}
+  \caption{This is a single-column figure that fits within one column.
+    Figures should be referenced in the text using 
+    \texttt{Figure~\ref{fig:sample}}.}
+  \label{fig:sample}
+\end{figure}
+
+For figures that need more space:
+
+\begin{figure*}[htbp]
+  \centering
+  % Uncomment the line below when you have an actual figure
+  % \includegraphics[width=0.8\textwidth]{wide-figure.pdf}
+  \caption{This is a double-column figure that spans both columns.
+    Use \texttt{figure*} for wide figures. Note that these figures
+    are typically placed at the top of a page.}
+  \label{fig:wide}
+\end{figure*}
+
+\subsection{Algorithms}
+
+You can also include algorithms. Here's a simple example:
+
+\begin{algorithm}[htbp]
+  \SetAlgoLined
+  \KwIn{Data $(x_1, \ldots, x_n)$}
+  \KwOut{Parameters $\theta$}
+  Initialize $\theta$ randomly\;
+  \While{not converged}{
+    $\nabla L(\theta) \leftarrow$ gradient\;
+    $\theta \leftarrow \theta - \eta \nabla L$\;
+  }
+  \Return $\theta$\;
+  \caption{Sample stochastic gradient descent algorithm}
+  \label{alg:sample}
+\end{algorithm}
+
+\section{Results}
+
+Present your results here. Tables can be formatted using the
+\texttt{booktabs} package. Similar to figures, you can use
+\texttt{table} for single-column tables or \texttt{table*}
+for tables that span both columns:
+
+\begin{table}[htbp]
+  \centering
+  \caption{Sample results (single column)}
+  \label{tab:results}
+  \begin{tabular}{lc}
+    \toprule
+    Method & Accuracy \\
+    \midrule
+    Baseline & 85.2\% \\
+    Our Method & 92.1\% \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table*}[htbp]
+  \centering
+  \caption{Detailed results spanning both columns}
+  \label{tab:detailed}
+  \begin{tabular}{lccccc}
+    \toprule
+    Method & Accuracy & Precision & Recall & F1-Score & Training Time (s) \\
+    \midrule
+    Baseline & 85.2\% & 83.1\% & 87.3\% & 85.1\% & 120 \\
+    Method A & 89.5\% & 88.2\% & 90.8\% & 89.5\% & 110 \\
+    Our Method & 92.1\% & 91.5\% & 92.7\% & 92.1\% & 95 \\
+    \bottomrule
+  \end{tabular}
+\end{table*}
+
+\section{Conclusion}
+
+Summarize your findings and their implications here. The double-column
+format allows for more compact presentation while maintaining
+readability.
+
+\section*{Acknowledgments}
+
+Acknowledge funding sources and collaborators here. Note that this
+section is unnumbered (using \texttt{section*}).
+
+% Bibliography
+% PMLR uses author-year citations by default
+% Use \citet{} for textual citations: "Smith and Jones (2023) showed..."
+% Use \citep{} for parenthetical citations: "as shown previously (Smith and Jones, 2023)"
+
+% You can use BibTeX (recommended) or write entries manually as shown below
+% For BibTeX, use: \bibliography{yourbibfile}
+
+\begin{thebibliography}{10}
+
+\bibitem[Author and Collaborator(2023)]{example2023}
+Author, A. and Collaborator, B.
+\newblock Sample Paper Title.
+\newblock \emph{Proceedings of Machine Learning Research}, 123:456--789, 2023.
+
+\end{thebibliography}
+
+% Appendix (optional)
+\appendix
+\section{Additional Details}
+
+Any supplementary material, proofs, or additional details can be
+included in an appendix. In two-column format, appendix content
+also flows across both columns.
+
+\end{document}
+

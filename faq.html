@@ -68,7 +68,45 @@ call before the workshop and put the proceedings on line in time for
 
 <h2>What is the Style File for the Proceedings?</h2>
 
-<p>There are two style files, a two column style file (see for example the AISTATS volumes) or a one column style file similar to the standard JMLR style (although you'll need to set the header to read "Proceedings of Machine Learning Research" instead of "Journal of Machine Learning Research"). As of 2010 <a href="http://theoval.cmp.uea.ac.uk/~nlct/">Nicola Talbot</a> has kindly put together a LaTeX package for these styles. It is available <a href="http://ctan.org/tex-archive/macros/latex/contrib/jmlr">here</a>. We don't support preparation systems other than LaTeX.
+<p>PMLR proceedings use the <code>jmlr</code> LaTeX class, which supports both single-column and double-column formats. As of 2010, <a href="http://theoval.cmp.uea.ac.uk/~nlct/">Nicola Talbot</a> has kindly put together and maintains this LaTeX package.</p>
+
+<h3>Installation and Access</h3>
+
+<p>The <code>jmlr</code> package is available from CTAN (Comprehensive TeX Archive Network):</p>
+<ul>
+  <li><strong>Package page:</strong> <a href="https://ctan.org/pkg/jmlr">https://ctan.org/pkg/jmlr</a></li>
+  <li><strong>Direct access:</strong> <a href="https://ctan.org/tex-archive/macros/latex/contrib/jmlr">https://ctan.org/tex-archive/macros/latex/contrib/jmlr</a></li>
+</ul>
+
+<p>Most modern LaTeX distributions (TeX Live, MiKTeX) include the <code>jmlr</code> package by default. If you need to install it manually, download from CTAN or use your distribution's package manager.</p>
+
+<h3>Usage Instructions</h3>
+
+<p><strong>For double-column format</strong> (used for some PMLR proceedings, e.g., AISTATS volumes):</p>
+<pre>\documentclass[pmlr,twocolumn]{jmlr}</pre>
+
+<p><strong>For single-column format</strong> (PMLR proceedings):</p>
+<pre>\documentclass[pmlr]{jmlr}</pre>
+
+<p>The <code>pmlr</code> option sets the correct header reading "Proceedings of Machine Learning Research". The <code>twocolumn</code> option enables two-column layout when needed.</p>
+
+<h3>Sample Files</h3>
+
+<p>We provide complete sample LaTeX files to help you get started:</p>
+<ul>
+  <li><strong>Single-column format</strong> (standard PMLR):
+    <a href="/assets/examples/pmlr-sample-single-column.tex">.tex source</a> |
+    <a href="/assets/examples/pmlr-sample-single-column.pdf">.pdf preview</a>
+  </li>
+  <li><strong>Double-column format</strong> (AISTATS-style):
+    <a href="/assets/examples/pmlr-sample-double-column.tex">.tex source</a> |
+    <a href="/assets/examples/pmlr-sample-double-column.pdf">.pdf preview</a>
+  </li>
+</ul>
+
+<p>These samples include examples of author-year citations, equations, figures, tables, algorithms, and diverse international author names. Download the .tex files and modify them for your paper.</p>
+
+<p><strong>Note:</strong> We don't support preparation systems other than LaTeX.</p>
 
 <h3>Software for Supporting Proceedings Preparation</h3>
 
