@@ -42,8 +42,8 @@ interest, including your heirs. It will terminate if the publisher does not publ
 I HAVE READ AND AGREE FULLY WITH THE TERMS OF THIS AGREEMENT.
 
 * Corresponding Author:
-    * Signed:
-    * Date:
+    * Signed: Siyuan Tang
+    * Date: 26 June, 2026
 
 
 [^language]: The language of this publication agreement is based on Stuart Shieber’s model open-access journal publication agreement, version 1.2, available at http://bit.ly/1m9UsNt.
