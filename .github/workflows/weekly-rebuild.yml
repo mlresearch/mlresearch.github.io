@@ -2,7 +2,7 @@ name: Weekly Pages rebuild
 
 on:
   schedule:
-    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+    - cron: "51 6 * * 1" # Mondays 06:51 UTC
   workflow_dispatch: # allow manual runs from the Actions UI
 
 permissions:
