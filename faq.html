@@ -126,7 +126,32 @@ call before the workshop and put the proceedings on line in time for
 <p>You should appoint a publications chair (who could also be one of the editors, but needn't be: for larger conferences it is often a separate role, but for smaller workshops it tends to be an editor). The publications chair will be responsible for compiling the proceedings. </p>
 
 <p>The proceedings are provided in the format detailed <a href="./spec.html">here</a>.
-<p>As well as the papers in the format described above, you will need to provide permission to publish forms from your authors. Please distribute the form found <a href="./pmlr-license-agreement.pdf">here</a> to your authors. Have them sign a copy and send you a scanned PDF. The scanned PDF should be named with the convention given above with the suffix <code>Permission</code>, e.g. <code>turner10aPermission.pdf</code>. These files should be placed in a <i>separate</i> directory from the other material called <code>vXpermissions</code> and sent the series editor. 
+<p>As well as the papers in the format described above, you will need to provide permission to publish forms from your authors. Please distribute the form found <a href="./pmlr-license-agreement.pdf">here</a> to your authors. Have them sign a copy and send you a scanned PDF. The scanned PDF should be named with the convention given above with the suffix <code>Permission</code>, e.g. <code>turner10aPermission.pdf</code>. These files should be placed in a <i>separate</i> directory from the other material called <code>vXpermissions</code> and sent the series editor.
+
+<h2>How do I check my submission with <code>pmlint</code>?</h2>
+
+<p>Volume repositories run a GitHub Actions check called <code>pmlint</code> on the initial submission pull request. It validates BibTeX hygiene, PDF placement, and related intake rules from the <a href="https://github.com/mlresearch/papersite">papersite</a> tooling. You can wait for that CI check, or install and run the same tool locally before opening (or updating) the PR.</p>
+
+<p><strong>Requirements:</strong> Git, and Ruby 3.x on your <code>PATH</code> (the same stack CI uses).</p>
+
+<p><strong>Install once</strong> (clones papersite into <code>~/.local/share/papersite</code> and installs a shim at <code>~/.local/bin/pmlint</code>):</p>
+
+<pre><code>bash &lt;(curl -fsSL https://raw.githubusercontent.com/mlresearch/papersite/main/bin/install-pmlint)
+export PATH="$HOME/.local/bin:$PATH"
+pmlint --help
+</code></pre>
+
+<p>If you already keep a local clone of <a href="https://github.com/mlresearch/papersite">mlresearch/papersite</a>, you can instead run <code>bash bin/install-pmlint</code> from that checkout, or call <code>../papersite/bin/pmlint</code> from a sibling volume directory.</p>
+
+<p><strong>In your volume clone</strong> (directory name <code>vNNN</code> or <code>rNNN</code>):</p>
+
+<pre><code>pmlint --fix    # safe auto-repairs: unescaped %, PDF wrap hyphens, over-escaped \textbackslash
+pmlint --check   # read-only; exit 0 means ready for the PR check
+</code></pre>
+
+<p><code>pmlint --fix</code> does <em>not</em> rewrite titles. In titles, brace acronyms and proper names so BibTeX does not downcase them — for example <code>{AI}</code>, <code>{ML}</code>, <code>{LLM}</code>, <code>{Bayesian}</code> or <code>{B}ayesian</code>. Intake lint rejects unprotected stems that appear in the curated list (<a href="https://github.com/mlresearch/papersite/blob/main/lib/proper_names.yml"><code>proper_names.yml</code></a>). Unknown acronyms may be reported as warnings; bracing the known stems is what CI requires.</p>
+
+<p>More detail: <a href="https://github.com/mlresearch/papersite#lint-a-volume">papersite README — Lint a volume</a>. The format rules themselves remain in the <a href="./spec.html">proceedings specification</a>.</p>
 
   <h2>I'm an editor: How do I make changes to a published proceedings?</h2>
 

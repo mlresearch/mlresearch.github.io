@@ -7,7 +7,7 @@ title: "PMLR Proceedings Specification"
   <div id="wrapper">
     <h1 id="jmlr-wcp-proceedings-specification">PMLR Proceedings Specification</h1>
 
-    <p><em>Version 1.3 – Jul 27th, 2025</em></p>
+    <p><em>Version 1.4 – Nov 21st, 2026</em></p>
 
     <p>Once the proceedings is accepted you'll be provided with a github repository where you will upload the pdfs and the bibtex.</p>
 
@@ -23,11 +23,15 @@ title: "PMLR Proceedings Specification"
     </ol>
 
     <p>When you submit pull request you will be asked to fill in <a href="https://github.com/mlresearch/proceedings-template/blob/main/.github/pull_request_template.md">this check list.</a></p>
+
+    <p>Initial submission pull requests are validated by <code>pmlint</code> (GitHub Actions). The check should be green before the volume is accepted for publication. You can run the same tool locally; see <a href="./faq.html">How do I check my submission with pmlint?</a> in the FAQ.</p>
     <p>The following specification is for simple conference proceedings that consist of one or more papers that are to be displayed in page order with links to associated PDF and supplementary files. If you need any clarifications, or need to publish proceedings with special sections, awards, multiple cycles, or other features, please email <a href="javascript:GoAddress('proceedings','mlr.press');">proceedings<img src=/assets/images/atr.gif border=0>mlr.press</a></p>
     
     <h3 id="the-bibtex-file">The BibTeX file</h3>
     
     <p>In titles and author names, please use Latex commands for representing special characters (such as <code>\'e</code> for an acute accent on <code>e</code>.</p>
+
+    <p>In <code>title</code> fields, brace acronyms and proper names so they are not downcased in citations — for example <code>{AI}</code>, <code>{ML}</code>, <code>{LLM}</code>, <code>{Bayesian}</code> or <code>{B}ayesian</code>. Intake lint rejects unprotected stems listed in <a href="https://github.com/mlresearch/papersite/blob/main/lib/proper_names.yml"><code>proper_names.yml</code></a>.</p>
 
     <p>For mathematics use standard latex inside two <code>$</code> marks, e.g. <code>$\int_{x=1}^z x^2 \text{d}x$.</code></p> 
 
